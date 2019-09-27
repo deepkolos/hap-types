@@ -7,76 +7,102 @@ declare module '@system.sensor' {
   interface Sensor {
     /**
      * 监听重力感应数据。如果多次调用，仅最后一次调用生效
-     * @example sensor.subscribeAccelerometer({
+     * @example
+     * ```js
+     * sensor.subscribeAccelerometer({
      *   callback: function(ret) {
      *     console.log(`handling callback, x = ${ret.x}, y = ${ret.y}, z = ${ret.z}`)
      *   }
      * })
+     * ```
      */
     subscribeAccelerometer(OBJECT: SubscribeAccelerometerOBJECT): any;
 
     /**
      * 取消监听重力感应数据
-     * @example sensor.unsubscribeAccelerometer()
+     * @example
+     * ```js
+     * sensor.unsubscribeAccelerometer()
+     * ```
      */
     unsubscribeAccelerometer(): any;
 
     /**
      * 监听罗盘数据。如果多次调用，仅最后一次调用生效
-     * @example sensor.subscribeCompass({
+     * @example
+     * ```js
+     * sensor.subscribeCompass({
      *   callback: function(ret) {
      *     console.log(`handling callback, direction = ${ret.direction}`)
      *   }
      * })
+     * ```
      */
     subscribeCompass(OBJECT: SubscribeCompassOBJECT): any;
 
     /**
      * 取消监听罗盘数据
-     * @example sensor.unsubscribeCompass()
+     * @example
+     * ```js
+     * sensor.unsubscribeCompass()
+     * ```
      */
     unsubscribeCompass(): any;
 
     /**
      * 监听距离感应数据。如果多次调用，仅最后一次调用生效。
      * @since 1000
-     * @example sensor.subscribeProximity({
+     * @example
+     * ```js
+     * sensor.subscribeProximity({
      *   callback: function(ret) {
      *     console.log(`handling callback, distance = ${ret.distance}`)
      *   }
      * })
+     * ```
      */
     subscribeProximity(OBJECT: SubscribeProximityOBJECT): any;
 
     /**
      * 取消监听距离感应数据。
      * @since 1000
-     * @example sensor.unsubscribeProximity()
+     * @example
+     * ```js
+     * sensor.unsubscribeProximity()
+     * ```
      */
     unsubscribeProximity(): any;
 
     /**
      * 监听光线感应数据。如果多次调用，仅最后一次调用生效。
      * @since 1000
-     * @example sensor.subscribeLight({
+     * @example
+     * ```js
+     * sensor.subscribeLight({
      *   callback: function(ret) {
      *     console.log(`handling callback, intensity = ${ret.intensity}`)
      *   }
      * })
+     * ```
      */
     subscribeLight(OBJECT: SubscribeLightOBJECT): any;
 
     /**
      * 取消监听光线感应数据。
      * @since 1000
-     * @example sensor.unsubscribeLight()
+     * @example
+     * ```js
+     * sensor.unsubscribeLight()
+     * ```
      */
     unsubscribeLight(): any;
 
     /**
      * 监听计步传感器数据。如果多次调用，仅最后一次调用生效。
      * @since 1050
-     * @example sensor.subscribeStepCounter({
+     * @example
+     * ```js
+     * sensor.subscribeStepCounter({
      *   callback: function(ret) {
      *     console.log(`handling callback, steps = ${ret.steps}`)
      *   },
@@ -84,13 +110,17 @@ declare module '@system.sensor' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     subscribeStepCounter(OBJECT: SubscribeStepCounterOBJECT): any;
 
     /**
      * 取消监听计步传感器数据。
      * @since 1050
-     * @example sensor.unsubscribeStepCounter()
+     * @example
+     * ```js
+     * sensor.unsubscribeStepCounter()
+     * ```
      */
     unsubscribeStepCounter(): any;
   }

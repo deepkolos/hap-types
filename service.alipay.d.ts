@@ -7,12 +7,15 @@ declare module '@service.alipay' {
   interface Alipay {
     /**
      * 使用支付宝支完成支付
-     * @example alipay.pay({
+     * @example
+     * ```js
+     * alipay.pay({
      *   orderInfo: 'order1',
      *   callback: function(ret) {
      *     console.log('handling callback')
      *   }
      * })
+     * ```
      */
     pay(OBJECT: PayOBJECT): any;
   }

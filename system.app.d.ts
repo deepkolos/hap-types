@@ -7,7 +7,10 @@ declare module '@system.app' {
   interface App {
     /**
      * 获取当前应用信息
-     * @example console.log(JSON.stringify(app.getInfo()))
+     * @example
+     * ```js
+     * console.log(JSON.stringify(app.getInfo()))
+     * ```
      */
     getInfo(): GetInfoReturn;
   }

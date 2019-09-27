@@ -7,27 +7,36 @@ declare module '@system.network' {
   interface Network {
     /**
      * 获取网络类型
-     * @example network.getType({
+     * @example
+     * ```js
+     * network.getType({
      *   success: function(data) {
      *     console.log(`handling success: ${data.type}`)
      *   }
      * })
+     * ```
      */
     getType(OBJECT: GetTypeOBJECT): any;
 
     /**
      * 监听网络连接状态。如果多次调用，仅最后一次调用生效
-     * @example network.subscribe({
+     * @example
+     * ```js
+     * network.subscribe({
      *   callback: function(data) {
      *     console.log('handling callback')
      *   }
      * })
+     * ```
      */
     subscribe(OBJECT: SubscribeOBJECT): any;
 
     /**
      * 取消监听网络连接状态
-     * @example network.unsubscribe()
+     * @example
+     * ```js
+     * network.unsubscribe()
+     * ```
      */
     unsubscribe(): any;
   }

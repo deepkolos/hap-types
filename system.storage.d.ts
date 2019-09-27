@@ -7,7 +7,9 @@ declare module '@system.storage' {
   interface Storage {
     /**
      * 读取存储内容
-     * @example storage.get({
+     * @example
+     * ```js
+     * storage.get({
      *   key: 'A1',
      *   success: function(data) {
      *     console.log('handling success')
@@ -16,12 +18,15 @@ declare module '@system.storage' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     get(OBJECT: GetOBJECT): any;
 
     /**
      * 修改存储内容
-     * @example storage.set({
+     * @example
+     * ```js
+     * storage.set({
      *   key: 'A1',
      *   value: 'V1',
      *   success: function(data) {
@@ -31,12 +36,15 @@ declare module '@system.storage' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     set(OBJECT: SetOBJECT): any;
 
     /**
      * 清空存储内容
-     * @example storage.clear({
+     * @example
+     * ```js
+     * storage.clear({
      *   success: function(data) {
      *     console.log('handling success')
      *   },
@@ -44,12 +52,15 @@ declare module '@system.storage' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     clear(OBJECT: ClearOBJECT): any;
 
     /**
      * 删除存储内容
-     * @example storage.delete({
+     * @example
+     * ```js
+     * storage.delete({
      *   key: 'A1',
      *   success: function(data) {
      *     console.log('handling success')
@@ -58,13 +69,17 @@ declare module '@system.storage' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     delete(OBJECT: DeleteOBJECT): any;
 
     /**
      * 返回存储中某个 index 的键名
      * @since 1050
-     * @example let length = storage.length
+     * @example
+     * ```js
+     * let length = storage.length
+     * ```
      */
     key(OBJECT: KeyOBJECT): any;
 

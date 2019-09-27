@@ -8,13 +8,18 @@ declare module '@service.push' {
     /**
      * 获取服务提供商。
      * @since 1000
-     * @example console.log(push.getProvider())
+     * @example
+     * ```js
+     * console.log(push.getProvider())
+     * ```
      */
     getProvider(): any;
 
     /**
      * 订阅 push，后续可以收到 push 消息（一般可在应用初始化的地方进行调用。比如在 app 的 onCreate 方法中调用。）
-     * @example push.subscribe({
+     * @example
+     * ```js
+     * push.subscribe({
      *   success: function(data) {
      *     console.log(
      *       `push.subscribe succeeded, result data = ${JSON.stringify(data)}`
@@ -31,12 +36,15 @@ declare module '@service.push' {
      *     console.log('push.subscribe completed')
      *   }
      * })
+     * ```
      */
     subscribe(OBJECT: SubscribeOBJECT): any;
 
     /**
      * 取消订阅（一般不建议调用，调用后 regId 失效，需要重新订阅获取新的 regId）
-     * @example push.unsubscribe({
+     * @example
+     * ```js
+     * push.unsubscribe({
      *   success: function(data) {
      *     console.log(
      *       `push.unsubscribe succeeded, result data = ${JSON.stringify(data)}`
@@ -53,22 +61,29 @@ declare module '@service.push' {
      *     console.log('push.unsubscribe completed')
      *   }
      * })
+     * ```
      */
     unsubscribe(OBJECT: UnsubscribeOBJECT): any;
 
     /**
      * 添加 push 事件回调（透传消息的 payload 内容可在此回调中收到）
-     * @example push.on({
+     * @example
+     * ```js
+     * push.on({
      *   callback: function(ret) {
      *     console.log(`received pass through message, ret = ${JSON.stringify(ret)}`)
      *   }
      * })
+     * ```
      */
     on(OBJECT: OnOBJECT): any;
 
     /**
      * 移除 push 事件回调，push.on中的callback不会再收到透传内容
-     * @example push.off()
+     * @example
+     * ```js
+     * push.off()
+     * ```
      */
     off(): any;
   }

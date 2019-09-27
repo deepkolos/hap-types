@@ -7,7 +7,9 @@ declare module '@system.share' {
   interface Share {
     /**
      * 分享数据到其他 app
-     * @example share.share({
+     * @example
+     * ```js
+     * share.share({
      *   type: 'text/html',
      *   data: '<b>bold</b>',
      *   success: function(data) {
@@ -17,6 +19,7 @@ declare module '@system.share' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     share(OBJECT: ShareOBJECT): any;
   }

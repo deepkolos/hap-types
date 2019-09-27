@@ -8,13 +8,18 @@ declare module '@service.share' {
     /**
      * 获取服务提供商。
      * @since 1000
-     * @example console.log(share.getProvider())
+     * @example
+     * ```js
+     * console.log(share.getProvider())
+     * ```
      */
     getProvider(): any;
 
     /**
      * 分享内容
-     * @example share.share({
+     * @example
+     * ```js
+     * share.share({
      *   shareType: 0,
      *   title: '标题',
      *   summary: '摘要',
@@ -28,13 +33,16 @@ declare module '@service.share' {
      *     console.log(`handling fail, failMess=${data},code=${code}`)
      *   }
      * })
+     * ```
      */
     share(OBJECT: ShareOBJECT): any;
 
     /**
      * 获取当前可用的支持分享的平台列表
      * @since 1010
-     * @example share.getAvailablePlatforms({
+     * @example
+     * ```js
+     * share.getAvailablePlatforms({
      *   success: function(data) {
      *     for (const i in data.platforms) {
      *       console.log("platforms: " + data.platforms[i]);
@@ -44,6 +52,7 @@ declare module '@service.share' {
      *     console.log("handling fail, code=" + code);
      *   }
      * })
+     * ```
      */
     getAvailablePlatforms(OBJECT: GetAvailablePlatformsOBJECT): any;
   }

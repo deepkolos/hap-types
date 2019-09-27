@@ -7,7 +7,9 @@ declare module '@system.record' {
   interface Record {
     /**
      * 开始录音。
-     * @example record.start({
+     * @example
+     * ```js
+     * record.start({
      *   duration: 10000,
      *   sampleRate: 8000,
      *   numberOfChannels: 1,
@@ -20,12 +22,16 @@ declare module '@system.record' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     start(OBJECT: StartOBJECT): any;
 
     /**
      * 停止录音。
-     * @example record.stop()
+     * @example
+     * ```js
+     * record.stop()
+     * ```
      */
     stop(): any;
   }

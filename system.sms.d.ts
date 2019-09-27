@@ -7,7 +7,9 @@ declare module '@system.sms' {
   interface Sms {
     /**
      * 发送短信，每次发送都需要用户授权
-     * @example sms.send({
+     * @example
+     * ```js
+     * sms.send({
      *   address：'123456',
      *   content：'这是短信内容',
      *   success: function () {
@@ -17,6 +19,7 @@ declare module '@system.sms' {
      *     console.log("handling fail, code=" + code);
      *   }
      * })
+     * ```
      */
     send(OBJECT: SendOBJECT): any;
 

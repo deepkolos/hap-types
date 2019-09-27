@@ -7,7 +7,9 @@ declare module '@system.bluetooth' {
   interface Bluetooth {
     /**
      * 初始化蓝牙模块
-     * @example bluetooth.openAdapter({
+     * @example
+     * ```js
+     * bluetooth.openAdapter({
      *   success: function() {
      *     console.log('success')
      *   },
@@ -18,12 +20,15 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     openAdapter(OBJECT: OpenAdapterOBJECT): any;
 
     /**
      * 关闭蓝牙模块。调用该方法将断开所有已建立的连接并释放系统资源。建议在使用蓝牙流程后，与 bluetooth.openAdapter 成对调用。
-     * @example bluetooth.closeAdapter({
+     * @example
+     * ```js
+     * bluetooth.closeAdapter({
      *   success: function() {
      *     console.log('success')
      *   },
@@ -34,31 +39,40 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     closeAdapter(OBJECT: CloseAdapterOBJECT): any;
 
     /**
      * 获取本机蓝牙适配器状态。
-     * @example bluetooth.onadapterstatechange = function(data) {
+     * @example
+     * ```js
+     * bluetooth.onadapterstatechange = function(data) {
      *   console.log('adapterState changed, now is', data.available)
      * }
+     * ```
      */
     getAdapterState(OBJECT: GetAdapterStateOBJECT): any;
 
     /**
      * 开始搜寻附近的蓝牙外围设备。此操作比较耗费系统资源，请在搜索并连接到设备后调用 bluetooth.stopDevicesDiscovery 方法停止搜索。
-     * @example bluetooth.startDevicesDiscovery({
+     * @example
+     * ```js
+     * bluetooth.startDevicesDiscovery({
      *   services: ['FEE7'],
      *   success: function() {
      *     console.log('success')
      *   }
      * })
+     * ```
      */
     startDevicesDiscovery(OBJECT: StartDevicesDiscoveryOBJECT): any;
 
     /**
      * 停止搜寻附近的蓝牙外围设备。若已经找到需要的蓝牙设备并不需要继续搜索时，建议调用该接口停止蓝牙搜索。
-     * @example bluetooth.stopDevicesDiscovery({
+     * @example
+     * ```js
+     * bluetooth.stopDevicesDiscovery({
      *   success: function() {
      *     console.log('success')
      *   },
@@ -69,12 +83,15 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     stopDevicesDiscovery(OBJECT: StopDevicesDiscoveryOBJECT): any;
 
     /**
      * 获取在蓝牙模块生效期间所有已发现的蓝牙设备。包括已经和本机处于连接状态的设备。
-     * @example function ab2hex(buffer) {
+     * @example
+     * ```js
+     * function ab2hex(buffer) {
      *   var hexArr = Array.prototype.map.call(new Uint8Array(buffer), function(bit) {
      *     return ('00' + bit.toString(16)).slice(-2)
      *   })
@@ -95,12 +112,15 @@ declare module '@system.bluetooth' {
      *     }
      *   })
      * }
+     * ```
      */
     getDevices(OBJECT: GetDevicesOBJECT): any;
 
     /**
      * 根据 uuid 获取处于已连接状态的设备。
-     * @example bluetooth.getConnectedDevices({
+     * @example
+     * ```js
+     * bluetooth.getConnectedDevices({
      *   success: function(data) {
      *     console.log(data)
      *     if (data.devices[0]) {
@@ -114,12 +134,15 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     getConnectedDevices(OBJECT: GetConnectedDevicesOBJECT): any;
 
     /**
      * 连接低功耗蓝牙设备。若快应用有搜索过某个蓝牙设备，并成功建立连接，可直接传入之前搜索获取的 deviceId 直接尝试连接该设备，无需进行搜索操作。
-     * @example bluetooth.createBLEConnection({
+     * @example
+     * ```js
+     * bluetooth.createBLEConnection({
      *   deviceId: deviceId,
      *   success: function() {
      *     console.log('success')
@@ -131,12 +154,15 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     createBLEConnection(OBJECT: CreateBLEConnectionOBJECT): any;
 
     /**
      * 断开与低功耗蓝牙设备的连接。
-     * @example bluetooth.closeBLEConnection({
+     * @example
+     * ```js
+     * bluetooth.closeBLEConnection({
      *   deviceId: deviceId,
      *   success: function() {
      *     console.log('success')
@@ -148,12 +174,15 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     closeBLEConnection(OBJECT: CloseBLEConnectionOBJECT): any;
 
     /**
      * 获取蓝牙设备所有服务(service)。
-     * @example bluetooth.getBLEDeviceServices({
+     * @example
+     * ```js
+     * bluetooth.getBLEDeviceServices({
      *   deviceId: deviceId,
      *   success: function(data) {
      *     data.services.forEach(service => {
@@ -171,12 +200,15 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     getBLEDeviceServices(OBJECT: GetBLEDeviceServicesOBJECT): any;
 
     /**
      * 获取蓝牙设备某个服务中所有特征值(characteristic)。
-     * @example bluetooth.getBLEDeviceCharacteristics({
+     * @example
+     * ```js
+     * bluetooth.getBLEDeviceCharacteristics({
      *   deviceId: deviceId,
      *   serviceId: serviceId,
      *   success: function(data) {
@@ -195,12 +227,15 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     getBLEDeviceCharacteristics(OBJECT: GetBLEDeviceCharacteristicsOBJECT): any;
 
     /**
      * 读取低功耗蓝牙设备的特征值的二进制数据值。注意：必须设备的特征值支持 read 才可以成功调用。
-     * @example bluetooth.readBLECharacteristicValue({
+     * @example
+     * ```js
+     * bluetooth.readBLECharacteristicValue({
      *   // 这里的 deviceId 需要已经通过 createBLEConnection 与对应设备建立链接
      *   deviceId: deviceId,
      *   // 这里的 serviceId 需要在 getBLEDeviceServices 接口中获取
@@ -212,12 +247,15 @@ declare module '@system.bluetooth' {
      *     console.log('success')
      *   }
      * })
+     * ```
      */
     readBLECharacteristicValue(OBJECT: ReadBLECharacteristicValueOBJECT): any;
 
     /**
      * 向低功耗蓝牙设备特征值中写入二进制数据。注意：必须设备的特征值支持 write 才可以成功调用。
-     * @example bluetooth.writeBLECharacteristicValue({
+     * @example
+     * ```js
+     * bluetooth.writeBLECharacteristicValue({
      *   // 这里的 deviceId 需要在 getBluetoothDevices 或 onBluetoothDeviceFound接口中获取
      *   deviceId: deviceId,
      *   // 这里的 serviceId 需要在 getBLEDeviceServices 接口中获取
@@ -236,18 +274,22 @@ declare module '@system.bluetooth' {
      *     console.log('complete')
      *   }
      * })
+     * ```
      */
     writeBLECharacteristicValue(OBJECT: WriteBLECharacteristicValueOBJECT): any;
 
     /**
      * 启用低功耗蓝牙设备特征值变化时的 notify 功能，订阅特征值。注意：必须设备的特征值支持 notify 或者 indicate 才可以成功调用。另外，必须先启用 notifyBLECharacteristicValueChange 才能监听到设备 characteristicValueChange 事件
-     * @example bluetooth.onbleconnectionstatechange = function(data) {
+     * @example
+     * ```js
+     * bluetooth.onbleconnectionstatechange = function(data) {
      *   console.log(
      *     `handling device state change: deviceId = ${data.deviceId}, connected = ${
      *       data.connected
      *     }`
      *   )
      * }
+     * ```
      */
     notifyBLECharacteristicValueChange(
       OBJECT: NotifyBLECharacteristicValueChangeOBJECT

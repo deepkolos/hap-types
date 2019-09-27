@@ -7,19 +7,25 @@ declare module '@system.shortcut' {
   interface Shortcut {
     /**
      * 获取桌面图标是否创建
-     * @example shortcut.hasInstalled({
+     * @example
+     * ```js
+     * shortcut.hasInstalled({
      *   success: function() {
      *     console.log('handling success')
      *   }
      * })
+     * ```
      */
     hasInstalled(OBJECT: HasInstalledOBJECT): any;
 
     /**
      * 创建桌面图标，每次创建都需要用户授权
-     * @example shortcut.systemPromptEnabled = false
+     * @example
+     * ```js
+     * shortcut.systemPromptEnabled = false
      * let enabled = shortcut.systemPromptEnabled
      * console.log('system prompt enabled: ' + enabled)
+     * ```
      */
     install(OBJECT: InstallOBJECT): any;
 

@@ -7,7 +7,10 @@ declare module '@system.webview' {
   interface Webview {
     /**
      * 打开网页，标题栏样式与打开 webview 的页面的标题栏样式相同，在 webview 的 useragent 后追加内容，格式是 hap/<平台版本号>/<厂商标识> <平台应用包名>/<平台应用版本号> <应用名>/<应用版本号> (<来源信息>)。“来源信息”与 app 接口的 getInfo 方法返回结果中的 source 字段相同。
-     * @example system.go('/detail?param1=value1')
+     * @example
+     * ```js
+     * system.go('/detail?param1=value1')
+     * ```
      */
     loadUrl(OBJECT: LoadUrlOBJECT): any;
   }

@@ -7,7 +7,9 @@ declare module '@system.file' {
   interface File {
     /**
      * 将源文件移动到指定位置，接口中使用的 URI 描述请参考文件组织
-     * @example file.move({
+     * @example
+     * ```js
+     * file.move({
      *   srcUri: 'internal://cache/path/to/file',
      *   dstUri: 'internal://files/path/to/file',
      *   success: function(uri) {
@@ -17,12 +19,15 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     move(OBJECT: MoveOBJECT): any;
 
     /**
      * 将源文件复制一份并存储到指定位置，接口中使用的 URI 描述请参考文件组织
-     * @example file.copy({
+     * @example
+     * ```js
+     * file.copy({
      *   srcUri: 'internal://cache/path/to/file',
      *   dstUri: 'internal://files/path/to/file',
      *   success: function(uri) {
@@ -32,12 +37,15 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     copy(OBJECT: CopyOBJECT): any;
 
     /**
      * 获取指定目录下的文件列表，接口中使用的 URI 描述请参考文件组织
-     * @example file.list({
+     * @example
+     * ```js
+     * file.list({
      *   uri: 'internal://files/movies/',
      *   success: function(data) {
      *     console.log(data.fileList)
@@ -46,12 +54,15 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     list(OBJECT: ListOBJECT): any;
 
     /**
      * 获取本地文件的文件信息，接口中使用的 URI 描述请参考文件组织
-     * @example file.get({
+     * @example
+     * ```js
+     * file.get({
      *   uri: 'internal://files/path/to/file',
      *   success: function(data) {
      *     console.log(data.uri)
@@ -62,12 +73,15 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     get(OBJECT: GetOBJECT): any;
 
     /**
      * 删除本地存储的文件，接口中使用的 URI 描述请参考文件组织
-     * @example file.delete({
+     * @example
+     * ```js
+     * file.delete({
      *   uri: 'internal://files/path/to/file',
      *   success: function(data) {
      *     console.log('handling success')
@@ -76,13 +90,16 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     delete(OBJECT: DeleteOBJECT): any;
 
     /**
      * 写文本到文件
      * @since 1010
-     * @example file.writeText({
+     * @example
+     * ```js
+     * file.writeText({
      *   uri: 'internal://files/work/demo.txt',
      *   text: 'test',
      *   success: function() {
@@ -92,13 +109,16 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     writeText(OBJECT: WriteTextOBJECT): any;
 
     /**
      * 写 Buffer 到文件
      * @since 1010
-     * @example file.writeArrayBuffer({
+     * @example
+     * ```js
+     * file.writeArrayBuffer({
      *   uri: 'internal://files/work/demo',
      *   buffer: buffer,
      *   success: function() {
@@ -108,13 +128,16 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     writeArrayBuffer(OBJECT: WriteArrayBufferOBJECT): any;
 
     /**
      * 从文件中读取文本
      * @since 1010
-     * @example file.readText({
+     * @example
+     * ```js
+     * file.readText({
      *   uri: 'internal://files/work/demo.txt',
      *   success: function(data) {
      *     console.log('text: ' + data.text)
@@ -123,13 +146,16 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     readText(OBJECT: ReadTextOBJECT): any;
 
     /**
      * 从文件中读取 Buffer
      * @since 1010
-     * @example file.readArrayBuffer({
+     * @example
+     * ```js
+     * file.readArrayBuffer({
      *   uri: 'internal://files/work/demo',
      *   position: 100,
      *   length: 100,
@@ -140,6 +166,7 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     readArrayBuffer(OBJECT: ReadArrayBufferOBJECT): any;
   }

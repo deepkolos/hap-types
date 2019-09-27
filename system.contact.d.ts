@@ -7,7 +7,9 @@ declare module '@system.contact' {
   interface Contact {
     /**
      * 选择联系人
-     * @example contact.pick({
+     * @example
+     * ```js
+     * contact.pick({
      *   success: function(data) {
      *     console.log('contact: name=' + data.displayName + ', number=' + data.number)
      *   },
@@ -15,13 +17,16 @@ declare module '@system.contact' {
      *     console.log('handling fail, code=' + code)
      *   }
      * })
+     * ```
      */
     pick(OBJECT: PickOBJECT): any;
 
     /**
      * 获取通讯录所有联系人列表，每次获取都需要用户授权
      * @since 1050
-     * @example contact.list({
+     * @example
+     * ```js
+     * contact.list({
      *   success: function(data) {
      *     for (const i in data.contactList) {
      *       console.log(
@@ -35,6 +40,7 @@ declare module '@system.contact' {
      *     console.log('handling fail, code=' + code)
      *   }
      * })
+     * ```
      */
     list(OBJECT: ListOBJECT): any;
   }

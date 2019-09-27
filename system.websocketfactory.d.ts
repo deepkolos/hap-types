@@ -7,9 +7,12 @@ declare module '@system.websocketfactory' {
   interface Websocketfactory {
     /**
      * 创建 websocket 实例
-     * @example ws.onerror = function(data) {
+     * @example
+     * ```js
+     * ws.onerror = function(data) {
      *   console.log(`onerror data.data = ${data.data}`)
      * }
+     * ```
      */
     create(OBJECT: CreateOBJECT): WebSocket;
   }

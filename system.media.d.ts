@@ -7,7 +7,9 @@ declare module '@system.media' {
   interface Media {
     /**
      * 拍摄照片
-     * @example media.takePhoto({
+     * @example
+     * ```js
+     * media.takePhoto({
      *   success: function(data) {
      *     console.log(`handling success: ${data.uri}`)
      *   },
@@ -15,12 +17,15 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     takePhoto(OBJECT: TakePhotoOBJECT): any;
 
     /**
      * 拍摄视频
-     * @example media.takeVideo({
+     * @example
+     * ```js
+     * media.takeVideo({
      *   success: function(data) {
      *     console.log(`handling success: ${data.uri}`)
      *   },
@@ -28,12 +33,15 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     takeVideo(OBJECT: TakeVideoOBJECT): any;
 
     /**
      * 选择图片
-     * @example media.pickImage({
+     * @example
+     * ```js
+     * media.pickImage({
      *   success: function(data) {
      *     console.log(`handling success: ${data.uri}`)
      *   },
@@ -41,13 +49,16 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     pickImage(OBJECT: PickImageOBJECT): any;
 
     /**
      * 选择多张图片
      * @since 1040
-     * @example media.pickImages({
+     * @example
+     * ```js
+     * media.pickImages({
      *   success: function(data) {
      *     console.log(`handling success: ${data.uris}`)
      *   },
@@ -55,12 +66,15 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     pickImages(OBJECT: PickImagesOBJECT): any;
 
     /**
      * 选择视频
-     * @example media.pickVideo({
+     * @example
+     * ```js
+     * media.pickVideo({
      *   success: function(data) {
      *     console.log(`handling success: ${data.uri}`)
      *   },
@@ -68,13 +82,16 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     pickVideo(OBJECT: PickVideoOBJECT): any;
 
     /**
      * 选择多个视频
      * @since 1040
-     * @example media.pickVideos({
+     * @example
+     * ```js
+     * media.pickVideos({
      *   success: function(data) {
      *     console.log(`handling success: ${data.uris}`)
      *   },
@@ -82,13 +99,16 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     pickVideos(OBJECT: PickVideosOBJECT): any;
 
     /**
      * 选择文件
      * @since 1010
-     * @example media.pickFile({
+     * @example
+     * ```js
+     * media.pickFile({
      *   success: function(data) {
      *     console.log(`handling success: ${data.uri}`)
      *   },
@@ -96,13 +116,16 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     pickFile(OBJECT: PickFileOBJECT): any;
 
     /**
      * 将图片/视频保存到相册中
      * @since 1010
-     * @example media.saveToPhotosAlbum({
+     * @example
+     * ```js
+     * media.saveToPhotosAlbum({
      *   uri: 'internal://tmp/abc.jpg',
      *   success: function() {
      *     console.log(`save success`)
@@ -111,13 +134,16 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     saveToPhotosAlbum(OBJECT: SaveToPhotosAlbumOBJECT): any;
 
     /**
      * 预览图片，调用之后会在新打开的页面中全屏预览传入的图片，预览的过程中用户可以左右滑动浏览，可以通过双指缩放图片，可以保存图片到相册。
      * @since 1040
-     * @example media.previewImage({
+     * @example
+     * ```js
+     * media.previewImage({
      *   current: 'http://www.xxx.com/a.jpg',
      *   uris: [
      *     'http://www.xxx.com/a.jpg',
@@ -131,13 +157,16 @@ declare module '@system.media' {
      *     console.log('preview fail, code = ${code}')
      *   }
      * })
+     * ```
      */
     previewImage(OBJECT: PreviewImageOBJECT): any;
 
     /**
      * 获取系统铃声。如果是获取来电铃声，双卡情况下，获取的是卡 1 对应的铃声。
      * @since 1040
-     * @example media.getRingtone({
+     * @example
+     * ```js
+     * media.getRingtone({
      *   type: 'ringtone',
      *   success: function(data) {
      *     console.log(`get ringtone success title: ${data.title}`)
@@ -146,13 +175,16 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getRingtone(OBJECT: GetRingtoneOBJECT): any;
 
     /**
      * 设置系统铃声，目前只支持本地文件。如果是设置来电铃声，双卡情况下，卡 1 卡 2 对应的铃声都会设置。
      * @since 1040
-     * @example media.setRingtone({
+     * @example
+     * ```js
+     * media.setRingtone({
      *   type: 'ringtone',
      *   uri: 'internal://mass/test/test.mp3',
      *   title: 'test',
@@ -163,6 +195,7 @@ declare module '@system.media' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     setRingtone(OBJECT: SetRingtoneOBJECT): any;
   }

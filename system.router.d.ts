@@ -12,18 +12,23 @@ declare module '@system.router' {
 
     /**
      * 跳转到应用内的某个页面，当前页面无法返回
-     * @example router.replace({
+     * @example
+     * ```js
+     * router.replace({
      *   uri: '/test',
      *   params: {
      *     testId: '1'
      *   }
      * })
+     * ```
      */
     replace(OBJECT: ReplaceOBJECT): any;
 
     /**
      * 返回指定页面
-     * @example // A页面, open page by name
+     * @example
+     * ```js
+     * // A页面, open page by name
      * router.push({
      *   uri: 'B'
      * })
@@ -47,28 +52,38 @@ declare module '@system.router' {
      * router.back({
      *   path: '/A'
      * })
+     * ```
      */
     back(OBJECT: BackOBJECT): any;
 
     /**
      * 清空所有历史页面记录，仅保留当前页面
-     * @example router.clear()
+     * @example
+     * ```js
+     * router.clear()
+     * ```
      */
     clear(): any;
 
     /**
      * 获取当前页面栈的页面数量
-     * @example var length = router.getLength()
+     * @example
+     * ```js
+     * var length = router.getLength()
      * console.log(`page's length = ${length}`)
+     * ```
      */
     getLength(): Number;
 
     /**
      * 获取当前页面状态
-     * @example var page = router.getState()
+     * @example
+     * ```js
+     * var page = router.getState()
      * console.log(`page index = ${page.index}`)
      * console.log(`page name = ${page.name}`)
      * console.log(`page path = ${page.path}`)
+     * ```
      */
     getState(): GetStateReturn;
   }

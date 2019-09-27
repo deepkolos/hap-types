@@ -7,7 +7,9 @@ declare module '@system.wifi' {
   interface Wifi {
     /**
      * 连接 Wi-Fi。若已知 Wi-Fi 信息，可以直接利用该接口连接。
-     * @example wifi.connect({
+     * @example
+     * ```js
+     * wifi.connect({
      *   SSID: '',
      *   BSSID: '',
      *   success: function() {
@@ -17,12 +19,15 @@ declare module '@system.wifi' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     connect(OBJECT: ConnectOBJECT): any;
 
     /**
      * 请求获取 Wi-Fi 列表，在 onscanned 事件中返回 Wi-Fi 列表数据。
-     * @example wifi.scan({
+     * @example
+     * ```js
+     * wifi.scan({
      *   success: function() {
      *     console.log('scan success')
      *   },
@@ -30,14 +35,18 @@ declare module '@system.wifi' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     scan(OBJECT: ScanOBJECT): any;
 
     /**
      * 获取已连接中的 Wi-Fi 信息
-     * @example wifi.onstatechanged = function(data) {
+     * @example
+     * ```js
+     * wifi.onstatechanged = function(data) {
      *   console.log(`handling wifi state changed: ${data.state}`)
      * }
+     * ```
      */
     getConnectedWifi(OBJECT: GetConnectedWifiOBJECT): any;
 

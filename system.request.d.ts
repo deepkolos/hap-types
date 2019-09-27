@@ -7,7 +7,9 @@ declare module '@system.request' {
   interface Request {
     /**
      * 上传文件
-     * @example request.upload({
+     * @example
+     * ```js
+     * request.upload({
      *   url: 'http://www.example.com',
      *   files: [
      *     {
@@ -29,12 +31,15 @@ declare module '@system.request' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     upload(OBJECT: UploadOBJECT): any;
 
     /**
      * 下载文件
-     * @example request.download({
+     * @example
+     * ```js
+     * request.download({
      *   url: 'http://www.example.com',
      *   success: function(data) {
      *     console.log(`handling success${data.token}`)
@@ -43,12 +48,15 @@ declare module '@system.request' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     download(OBJECT: DownloadOBJECT): any;
 
     /**
      * 监听下载任务
-     * @example request.onDownloadComplete({
+     * @example
+     * ```js
+     * request.onDownloadComplete({
      *   token: '123',
      *   success: function(data) {
      *     console.log(`handling success${data.uri}`)
@@ -57,6 +65,7 @@ declare module '@system.request' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     onDownloadComplete(OBJECT: OnDownloadCompleteOBJECT): any;
   }

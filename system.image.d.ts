@@ -7,7 +7,9 @@ declare module '@system.image' {
   interface Image {
     /**
      * 获取图片信息
-     * @example image.getImageInfo({
+     * @example
+     * ```js
+     * image.getImageInfo({
      *   uri: 'internal://tmp/abc.jpg',
      *   success: function(data) {
      *     console.log(`handling success: size = ${data.size}`)
@@ -16,12 +18,15 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getImageInfo(OBJECT: GetImageInfoOBJECT): any;
 
     /**
      * 压缩图片
-     * @example image.compressImage({
+     * @example
+     * ```js
+     * image.compressImage({
      *   uri: 'internal://tmp/abc.jpg',
      *   quality: 80,
      *   radio: 2, // 变为原图的1/2大小
@@ -33,13 +38,16 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     compressImage(OBJECT: CompressImageOBJECT): any;
 
     /**
      * 对图片按顺序执行编辑操作。
      * @since 1000
-     * @example image.applyOperations({
+     * @example
+     * ```js
+     * image.applyOperations({
      *   uri: 'internal://cache/123.png',
      *   operations: [
      *     {
@@ -66,12 +74,15 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     applyOperations(OBJECT: ApplyOperationsOBJECT): any;
 
     /**
      * 打开编辑器来编辑图片。目前支持选择图片范围并裁剪。
-     * @example image.editImage({
+     * @example
+     * ```js
+     * image.editImage({
      *   uri: 'internal://cache/123.png',
      *   success: function(data) {
      *     console.log(`handling success: ${data.uri}`)
@@ -83,13 +94,16 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     editImage(OBJECT: EditImageOBJECT): any;
 
     /**
      * 获取图片的exif信息。支持的格式：JPEG,DNG,CR2,NEF,NRW,ARW,RW2,ORF,PEF,SRW,RAF,HEIF。
      * @since 1040
-     * @example image.getExifAttributes({
+     * @example
+     * ```js
+     * image.getExifAttributes({
      *   uri: 'internal://cache/123.png',
      *   success: function (data) {
      *     console.log(`handling success: ${JSON.stringify(data.attributes)}`)
@@ -98,13 +112,16 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getExifAttributes(OBJECT: GetExifAttributesOBJECT): any;
 
     /**
      * 设置图片的exif信息。设置操作会直接在所给图片上进行，不会生成新的图片。支持的格式：JPEG。
      * @since 1040
-     * @example image.setExifAttributes({
+     * @example
+     * ```js
+     * image.setExifAttributes({
      *   uri: 'internal://cache/123.jpg',
      *   attributes:{
      *      Orientation:'1',
@@ -117,6 +134,7 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     setExifAttributes(OBJECT: SetExifAttributesOBJECT): any;
   }

@@ -7,7 +7,9 @@ declare module '@system.geolocation' {
   interface Geolocation {
     /**
      * 获取地理位置
-     * @example geolocation.getLocation({
+     * @example
+     * ```js
+     * geolocation.getLocation({
      *   success: function(data) {
      *     console.log(
      *       `handling success: longitude = ${data.longitude}, latitude = ${
@@ -19,13 +21,16 @@ declare module '@system.geolocation' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getLocation(OBJECT: GetLocationOBJECT): any;
 
     /**
      * 获取系统当前支持的定位类型
      * @since 1010
-     * @example geolocation.getLocationType({
+     * @example
+     * ```js
+     * geolocation.getLocationType({
      *   success: function(data) {
      *     console.log(`handling success: locationType = ${data.types}`)
      *   },
@@ -33,12 +38,15 @@ declare module '@system.geolocation' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getLocationType(OBJECT: GetLocationTypeOBJECT): any;
 
     /**
      * 监听地理位置。如果多次调用，仅最后一次调用生效
-     * @example geolocation.subscribe({
+     * @example
+     * ```js
+     * geolocation.subscribe({
      *   callback: function(data) {
      *     console.log(
      *       `handling success: longitude = ${data.longitude}, latitude = ${
@@ -50,19 +58,26 @@ declare module '@system.geolocation' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     subscribe(OBJECT: SubscribeOBJECT): any;
 
     /**
      * 取消监听地理位置
-     * @example geolocation.unsubscribe()
+     * @example
+     * ```js
+     * geolocation.unsubscribe()
+     * ```
      */
     unsubscribe(): any;
 
     /**
      * 获取支持的坐标系类型
      * @since 1050
-     * @example var types = geolocation.getSupportedCoordTypes()
+     * @example
+     * ```js
+     * var types = geolocation.getSupportedCoordTypes()
+     * ```
      */
     getSupportedCoordTypes(): any;
   }

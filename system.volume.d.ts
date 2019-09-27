@@ -7,7 +7,9 @@ declare module '@system.volume' {
   interface Volume {
     /**
      * 获取当前多媒体音量。
-     * @example volume.getMediaValue({
+     * @example
+     * ```js
+     * volume.getMediaValue({
      *   success: function(data) {
      *     console.log(`handling success: ${data.value}`)
      *   },
@@ -15,12 +17,15 @@ declare module '@system.volume' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getMediaValue(OBJECT: GetMediaValueOBJECT): any;
 
     /**
      * 设置当前多媒体音量。
-     * @example volume.setMediaValue({
+     * @example
+     * ```js
+     * volume.setMediaValue({
      *   value: 0.5,
      *   success: function() {
      *     console.log('handling success')
@@ -29,6 +34,7 @@ declare module '@system.volume' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     setMediaValue(OBJECT: SetMediaValueOBJECT): any;
   }

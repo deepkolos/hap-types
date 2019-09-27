@@ -7,13 +7,18 @@ declare module '@service.account' {
   interface Account {
     /**
      * 获取服务提供商。
-     * @example console.log(account.getProvider())
+     * @example
+     * ```js
+     * console.log(account.getProvider())
+     * ```
      */
     getProvider(): any;
 
     /**
      * 进行 OAuth 授权。
-     * @example account.authorize({
+     * @example
+     * ```js
+     * account.authorize({
      *   type: 'code',
      *   redirectUri: 'http://www.example.com/',
      *   success: function(data) {
@@ -23,12 +28,15 @@ declare module '@service.account' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     authorize(OBJECT: AuthorizeOBJECT): any;
 
     /**
      * 获得用户基本信息。
-     * @example account.getProfile({
+     * @example
+     * ```js
+     * account.getProfile({
      *   token: 'abcdefg',
      *   success: function(data) {
      *     console.log(`handling success: ${data.nickname}`)
@@ -37,6 +45,7 @@ declare module '@service.account' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getProfile(OBJECT: GetProfileOBJECT): any;
   }

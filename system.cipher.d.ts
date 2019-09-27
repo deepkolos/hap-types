@@ -7,7 +7,9 @@ declare module '@system.cipher' {
   interface Cipher {
     /**
      * RSA 加解密。不支持分段加密，内容超长会出错
-     * @example //加密
+     * @example
+     * ```js
+     * //加密
      * cipher.rsa({
      *   action: 'encrypt',
      *   //待加密的文本内容
@@ -57,6 +59,7 @@ declare module '@system.cipher' {
      *     console.log(`### cipher.rsa fail ### ${code}: ${data}`)
      *   }
      * })
+     * ```
      */
     rsa(OBJECT: RsaOBJECT): any;
   }

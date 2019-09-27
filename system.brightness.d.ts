@@ -7,7 +7,9 @@ declare module '@system.brightness' {
   interface Brightness {
     /**
      * 获得当前屏幕亮度值
-     * @example brightness.getValue({
+     * @example
+     * ```js
+     * brightness.getValue({
      *   success: function(data) {
      *     console.log(`handling success, value = ${data.value}`)
      *   },
@@ -15,12 +17,15 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getValue(OBJECT: GetValueOBJECT): any;
 
     /**
      * 设置当前屏幕亮度值
-     * @example brightness.setValue({
+     * @example
+     * ```js
+     * brightness.setValue({
      *   value: 100,
      *   success: function() {
      *     console.log('handling success')
@@ -29,12 +34,15 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     setValue(OBJECT: SetValueOBJECT): any;
 
     /**
      * 获得当前屏幕亮度模式
-     * @example brightness.getMode({
+     * @example
+     * ```js
+     * brightness.getMode({
      *   success: function(data) {
      *     console.log(`handling success, mode = ${data.mode}`)
      *   },
@@ -42,12 +50,15 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getMode(OBJECT: GetModeOBJECT): any;
 
     /**
      * 设置当前屏幕亮度模式
-     * @example brightness.setMode({
+     * @example
+     * ```js
+     * brightness.setMode({
      *   mode: 1,
      *   success: function() {
      *     console.log('handling success')
@@ -56,6 +67,7 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     setMode(OBJECT: SetModeOBJECT): any;
   }

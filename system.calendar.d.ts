@@ -7,7 +7,9 @@ declare module '@system.calendar' {
   interface Calendar {
     /**
      * 插入日历事件
-     * @example calendar.insert({
+     * @example
+     * ```js
+     * calendar.insert({
      *   title: '事件Ａ',
      *   startDate: '1490770543000',
      *   endDate: '1490880543000',
@@ -18,6 +20,7 @@ declare module '@system.calendar' {
      *     console.log('handling success')
      *   }
      * })
+     * ```
      */
     insert(OBJECT: InsertOBJECT): any;
   }

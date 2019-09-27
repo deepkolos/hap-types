@@ -7,17 +7,22 @@ declare module '@system.device' {
   interface Device {
     /**
      * 获取设备信息
-     * @example device.getInfo({
+     * @example
+     * ```js
+     * device.getInfo({
      *   success: function(ret) {
      *     console.log(`handling success， brand = ${ret.brand}`)
      *   }
      * })
+     * ```
      */
     getInfo(OBJECT: GetInfoOBJECT): any;
 
     /**
      * 批量获取设备标识，需要用户授权
-     * @example device.getId({
+     * @example
+     * ```js
+     * device.getId({
      *   type: ['device', 'mac'],
      *   success: function(data) {
      *     console.log(`handling success: ${data.device}`)
@@ -26,6 +31,7 @@ declare module '@system.device' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getId(OBJECT: GetIdOBJECT): any;
 
@@ -68,10 +74,13 @@ declare module '@system.device' {
     /**
      * 返回 CPU 信息
      * @since 1000
-     * @example var device = require('@system.device')
+     * @example
+     * ```js
+     * var device = require('@system.device')
      * var platform = device.platform
      * var versionName = platform.versionName
      * var versionCode = platform.versionCode
+     * ```
      */
     getCpuInfo(OBJECT: GetCpuInfoOBJECT): GetCpuInfoReturn;
   }

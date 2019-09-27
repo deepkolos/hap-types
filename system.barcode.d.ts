@@ -7,7 +7,9 @@ declare module '@system.barcode' {
   interface Barcode {
     /**
      * 扫描二维码
-     * @example barcode.scan({
+     * @example
+     * ```js
+     * barcode.scan({
      *   success: function(data) {
      *     console.log(`handling success: ${data.result}`)
      *   },
@@ -15,6 +17,7 @@ declare module '@system.barcode' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     scan(OBJECT: ScanOBJECT): any;
   }

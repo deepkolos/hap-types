@@ -7,7 +7,9 @@ declare module '@system.fetch' {
   interface Fetch {
     /**
      * 获取网络数据
-     * @example fetch.fetch({
+     * @example
+     * ```js
+     * fetch.fetch({
      *   url: 'http://www.example.com',
      *   responseType: 'text',
      *   success: function(response) {
@@ -42,6 +44,7 @@ declare module '@system.fetch' {
      *     console.log(`handling fail, errMsg = ${error.data}`)
      *     console.log(`handling fail, errCode = ${error.code}`)
      *   })
+     * ```
      */
     fetch(OBJECT: FetchOBJECT): any;
   }

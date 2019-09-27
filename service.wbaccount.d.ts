@@ -12,7 +12,9 @@ declare module '@service.wbaccount' {
 
     /**
      * 进行微博授权
-     * @example wbaccount.authorize({
+     * @example
+     * ```js
+     * wbaccount.authorize({
      *   redirectUri: 'https://api.weibo.com/oauth2/default.html',
      *   scope: 'follow_app_official_microblog',
      *   success: function(data) {
@@ -25,6 +27,7 @@ declare module '@service.wbaccount' {
      *     console.log('handling cancel')
      *   }
      * })
+     * ```
      */
     authorize(OBJECT: AuthorizeOBJECT): any;
   }

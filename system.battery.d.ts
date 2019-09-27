@@ -7,7 +7,9 @@ declare module '@system.battery' {
   interface Battery {
     /**
      * 获取当前设备的电量信息。
-     * @example battery.getStatus({
+     * @example
+     * ```js
+     * battery.getStatus({
      *   success: function(data) {
      *     console.log(`handling success: ${data.level}`)
      *   },
@@ -15,6 +17,7 @@ declare module '@system.battery' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getStatus(OBJECT: GetStatusOBJECT): any;
   }

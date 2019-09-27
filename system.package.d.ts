@@ -7,7 +7,9 @@ declare module '@system.package' {
   interface Pkg {
     /**
      * 检测应用是否存在。支持检测原生应用是否已安装。
-     * @example pkg.hasInstalled({
+     * @example
+     * ```js
+     * pkg.hasInstalled({
      *   package: 'com.hap.app',
      *   success: function(data) {
      *     console.log(`handling success: ${data.result}`)
@@ -16,12 +18,15 @@ declare module '@system.package' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     hasInstalled(OBJECT: HasInstalledOBJECT): any;
 
     /**
      * 安装应用。支持安装原生应用。
-     * @example pkg.install({
+     * @example
+     * ```js
+     * pkg.install({
      *   package: 'com.hap.app',
      *   success: function(data) {
      *     console.log(`handling success: ${data.result}`)
@@ -30,6 +35,7 @@ declare module '@system.package' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     install(OBJECT: InstallOBJECT): any;
   }

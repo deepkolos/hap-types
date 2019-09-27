@@ -52,11 +52,10 @@ function createMethod(
   if (!method.name) return { out: '', definitions: [] };
   const example = method.example
     ? `
-     * @example ${method.example
-       .trim()
-       .split('\n')
-       .map((line, i) => (i ? `     * ${line}` : line))
-       .join('\n')}`
+     * @example
+${['```js', ...method.example.trim().split('\n'), '```']
+  .map(line => `     * ${line.replace('`', '`')}`)
+  .join('\n')}`
     : '';
   const definitions: Array<string> = [];
   const since = parseSince(method.since);

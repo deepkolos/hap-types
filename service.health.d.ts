@@ -7,7 +7,9 @@ declare module '@service.health' {
   interface Health {
     /**
      * 是否支持提供每日步数的功能。
-     * @example health.hasStepsOfDay({
+     * @example
+     * ```js
+     * health.hasStepsOfDay({
      *   success: function(data) {
      *     console.log(`handling success support：${data.support}`)
      *   },
@@ -15,12 +17,15 @@ declare module '@service.health' {
      *     console.log(`handling fail!, code = ${code}`)
      *   }
      * })
+     * ```
      */
     hasStepsOfDay(OBJECT: HasStepsOfDayOBJECT): any;
 
     /**
      * 获取每个自然日的步数，返回的是调用接口时，用户今天已经累计的步数。
-     * @example health.getTodaySteps({
+     * @example
+     * ```js
+     * health.getTodaySteps({
      *   success: function(data) {
      *     console.log(`handling success steps${data.steps}`)
      *   },
@@ -28,12 +33,15 @@ declare module '@service.health' {
      *     console.log(`handling fail!, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getTodaySteps(OBJECT: GetTodayStepsOBJECT): any;
 
     /**
      * 获取最近七个自然日每天的步数，包括今天。
-     * @example health.getLastWeekSteps({
+     * @example
+     * ```js
+     * health.getLastWeekSteps({
      *   success: function(data) {
      *     for (const i in data.stepsList) {
      *       console.log(
@@ -47,6 +55,7 @@ declare module '@service.health' {
      *     console.log(`handling fail!, code = ${code}`)
      *   }
      * })
+     * ```
      */
     getLastWeekSteps(OBJECT: GetLastWeekStepsOBJECT): any;
   }

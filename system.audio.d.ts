@@ -7,34 +7,48 @@ declare module '@system.audio' {
   interface Audio {
     /**
      * 开始播放音频
-     * @example audio.play()
+     * @example
+     * ```js
+     * audio.play()
+     * ```
      */
     play(): any;
 
     /**
      * 暂停播放音频
-     * @example audio.pause()
+     * @example
+     * ```js
+     * audio.pause()
+     * ```
      */
     pause(): any;
 
     /**
      * 停止音频播放，可以通过 play 重新播放音频
      * @since 1030
-     * @example audio.stop()
+     * @example
+     * ```js
+     * audio.stop()
+     * ```
      */
     stop(): any;
 
     /**
      * 获取当前播放状态数据
      * @since 1050
-     * @example let currentTime = audio.currentTime
+     * @example
+     * ```js
+     * let currentTime = audio.currentTime
      * audio.currentTime = 5
+     * ```
      */
     getPlayState(OBJECT: GetPlayStateOBJECT): any;
 
     /**
      *
-     * @example audio.ontimeupdate = function() {
+     * @example
+     * ```js
+     * audio.ontimeupdate = function() {
      *   console.log(`audio current time: ${audio.currentTime}`)
      * }
      * audio.ontimeupdate = null
@@ -43,6 +57,7 @@ declare module '@system.audio' {
      *   audio.tilte="上一首歌名";
      *   audio.play();
      * };
+     * ```
      */
     play(): any;
 

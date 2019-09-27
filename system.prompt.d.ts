@@ -7,15 +7,20 @@ declare module '@system.prompt' {
   interface Prompt {
     /**
      * 显示 Toast
-     * @example prompt.showToast({
+     * @example
+     * ```js
+     * prompt.showToast({
      *   message: 'message'
      * })
+     * ```
      */
     showToast(OBJECT: ShowToastOBJECT): any;
 
     /**
      * 显示对话框
-     * @example prompt.showDialog({
+     * @example
+     * ```js
+     * prompt.showDialog({
      *   title: 'title',
      *   message: 'message',
      *   buttons: [
@@ -34,12 +39,15 @@ declare module '@system.prompt' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     showDialog(OBJECT: ShowDialogOBJECT): any;
 
     /**
      * 显示上下文菜单
-     * @example prompt.showContextMenu({
+     * @example
+     * ```js
+     * prompt.showContextMenu({
      *   itemList: ['item1', 'item2'],
      *   itemColor: '#ff33ff',
      *   success: function(data) {
@@ -52,6 +60,7 @@ declare module '@system.prompt' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     showContextMenu(OBJECT: ShowContextMenuOBJECT): any;
   }

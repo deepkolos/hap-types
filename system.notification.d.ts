@@ -7,12 +7,15 @@ declare module '@system.notification' {
   interface Notification {
     /**
      * 显示通知
-     * @example notification.show({
+     * @example
+     * ```js
+     * notification.show({
      *   contentTitle: 'title',
      *   clickAction: {
      *     uri: '/index.html?index=1'
      *   }
      * })
+     * ```
      */
     show(OBJECT: ShowOBJECT): any;
   }

@@ -7,25 +7,33 @@ declare module '@service.stats' {
   interface Stats {
     /**
      * 获取服务提供商。
-     * @example console.log(stats.getProvider())
+     * @example
+     * ```js
+     * console.log(stats.getProvider())
+     * ```
      */
     getProvider(): any;
 
     /**
      * 计数类型事件。通常用来描述⼀个事件累积发⽣的次数，适用的场景如按钮点击、界面进入、用户输入等。
-     * @example stats.recordCountEvent({
+     * @example
+     * ```js
+     * stats.recordCountEvent({
      *   category: 'Button_Click',
      *   key: 'Button_OK_click',
      *   map: {
      *     param1: 'value1'
      *   }
      * })
+     * ```
      */
     recordCountEvent(OBJECT: RecordCountEventOBJECT): any;
 
     /**
      * 计算类型事件。用通常用来描述⼀个带数值的事件的发⽣，适用的场景如用户消费事件，附带的数值是每次消费的⾦额；下载⽂件事件，附带的数值是每次下载消耗的时间等。
-     * @example stats.recordCalculateEvent({
+     * @example
+     * ```js
+     * stats.recordCalculateEvent({
      *   category: 'user_pay',
      *   key: 'buy_ebook',
      *   value: 20,
@@ -33,6 +41,7 @@ declare module '@service.stats' {
      *     param1: 'value1'
      *   }
      * })
+     * ```
      */
     recordCalculateEvent(OBJECT: RecordCalculateEventOBJECT): any;
   }

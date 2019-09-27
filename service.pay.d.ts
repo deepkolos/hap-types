@@ -8,13 +8,18 @@ declare module '@service.pay' {
     /**
      * 获取服务提供商。
      * @since 1000
-     * @example console.log(pay.getProvider())
+     * @example
+     * ```js
+     * console.log(pay.getProvider())
+     * ```
      */
     getProvider(): any;
 
     /**
      * 使用支付完成付款
-     * @example pay.pay({
+     * @example
+     * ```js
+     * pay.pay({
      *   orderInfo: 'order1',
      *   success: function(data) {
      *     console.log(`handling success: ${data.code}`)
@@ -23,6 +28,7 @@ declare module '@service.pay' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     pay(OBJECT: PayOBJECT): any;
   }

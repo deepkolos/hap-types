@@ -7,9 +7,12 @@ declare module '@system.vibrator' {
   interface Vibrator {
     /**
      * 触发震动
-     * @example vibrator.vibrate({
+     * @example
+     * ```js
+     * vibrator.vibrate({
      *   mode: 'long'
      * })
+     * ```
      */
     vibrate(OBJECT: VibrateOBJECT): any;
   }

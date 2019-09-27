@@ -7,15 +7,20 @@ declare module '@system.clipboard' {
   interface Clipboard {
     /**
      * 修改剪贴板内容
-     * @example clipboard.set({
+     * @example
+     * ```js
+     * clipboard.set({
      *   text: 'text'
      * })
+     * ```
      */
     set(OBJECT: SetOBJECT): any;
 
     /**
      * 读取剪贴板内容
-     * @example clipboard.get({
+     * @example
+     * ```js
+     * clipboard.get({
      *   success: function(data) {
      *     console.log(`handling success: ${data.text}`)
      *   },
@@ -23,6 +28,7 @@ declare module '@system.clipboard' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
+     * ```
      */
     get(OBJECT: GetOBJECT): any;
   }
