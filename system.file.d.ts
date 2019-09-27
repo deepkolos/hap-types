@@ -1,12 +1,10 @@
-
 /**
  * 文件存储 file
- * 无限制。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 无限制。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/system/file.html
  */
 declare module '@system.file' {
   interface File {
-    
     /**
      * 将源文件移动到指定位置，接口中使用的 URI 描述请参考文件组织
      * @example file.move({
@@ -19,9 +17,8 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    move(OBJECT: MoveOBJECT): void;
+    move(OBJECT: MoveOBJECT): any;
 
     /**
      * 将源文件复制一份并存储到指定位置，接口中使用的 URI 描述请参考文件组织
@@ -35,9 +32,8 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    copy(OBJECT: CopyOBJECT): void;
+    copy(OBJECT: CopyOBJECT): any;
 
     /**
      * 获取指定目录下的文件列表，接口中使用的 URI 描述请参考文件组织
@@ -50,9 +46,8 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    list(OBJECT: ListOBJECT): void;
+    list(OBJECT: ListOBJECT): any;
 
     /**
      * 获取本地文件的文件信息，接口中使用的 URI 描述请参考文件组织
@@ -67,9 +62,8 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    get(OBJECT: GetOBJECT): void;
+    get(OBJECT: GetOBJECT): any;
 
     /**
      * 删除本地存储的文件，接口中使用的 URI 描述请参考文件组织
@@ -82,12 +76,12 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    delete(OBJECT: DeleteOBJECT): void;
+    delete(OBJECT: DeleteOBJECT): any;
 
     /**
      * 写文本到文件
+     * @since 1010
      * @example file.writeText({
      *   uri: 'internal://files/work/demo.txt',
      *   text: 'test',
@@ -98,12 +92,12 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    writeText(OBJECT: WriteTextOBJECT): void;
+    writeText(OBJECT: WriteTextOBJECT): any;
 
     /**
      * 写 Buffer 到文件
+     * @since 1010
      * @example file.writeArrayBuffer({
      *   uri: 'internal://files/work/demo',
      *   buffer: buffer,
@@ -114,12 +108,12 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    writeArrayBuffer(OBJECT: WriteArrayBufferOBJECT): void;
+    writeArrayBuffer(OBJECT: WriteArrayBufferOBJECT): any;
 
     /**
      * 从文件中读取文本
+     * @since 1010
      * @example file.readText({
      *   uri: 'internal://files/work/demo.txt',
      *   success: function(data) {
@@ -129,12 +123,12 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    readText(OBJECT: ReadTextOBJECT): void;
+    readText(OBJECT: ReadTextOBJECT): any;
 
     /**
      * 从文件中读取 Buffer
+     * @since 1010
      * @example file.readArrayBuffer({
      *   uri: 'internal://files/work/demo',
      *   position: 100,
@@ -146,14 +140,12 @@ declare module '@system.file' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    readArrayBuffer(OBJECT: ReadArrayBufferOBJECT): void;
+    readArrayBuffer(OBJECT: ReadArrayBufferOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param uri 本地文件路径
    * @param position 读取的起始位置，默认值为文件的起始位置
    * @param length 读取的长度，不填写则读取到文件结尾
@@ -162,29 +154,31 @@ declare module '@system.file' {
    * @param complete 执行结束后的回调
    */
   interface ReadArrayBufferOBJECT {
-   uri: String;
-   position: Number;
-   length: Number;
-   success: ReadArrayBufferOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    position: Number;
+    length: Number;
+    success: ReadArrayBufferOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type ReadArrayBufferOBJECTSuccessCB = (successArg: ReadArrayBufferSuccessSuccessArg) => any;
+  type ReadArrayBufferOBJECTSuccessCB = (
+    successArg: ReadArrayBufferSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
    * @param buffer 读取的文件内容
    */
   interface ReadArrayBufferSuccessSuccessArg {
-   buffer: Uint8array;
+    buffer: Uint8array;
   }
 
   /**
-   * 
+   *
    * @param uri 本地文件路径
    * @param encoding 编码格式，默认 UTF-8
    * @param success 成功回调
@@ -192,11 +186,11 @@ declare module '@system.file' {
    * @param complete 执行结束后的回调
    */
   interface ReadTextOBJECT {
-   uri: String;
-   encoding: String;
-   success: ReadTextOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    encoding: String;
+    success: ReadTextOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
@@ -209,11 +203,11 @@ declare module '@system.file' {
    * @param text 读取的文本
    */
   interface ReadTextSuccessSuccessArg {
-   text: String;
+    text: String;
   }
 
   /**
-   * 
+   *
    * @param uri 本地文件路径，不支持资源文件路径和 tmp 分区，如果文件不存在会创建文件
    * @param buffer 需要写入的 Buffer
    * @param position 指向文件开始写入数据的位置的偏移量，默认 0
@@ -222,16 +216,16 @@ declare module '@system.file' {
    * @param complete 执行结束后的回调
    */
   interface WriteArrayBufferOBJECT {
-   uri: String;
-   buffer: Uint8array;
-   position: Number;
-   success: Function;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    buffer: Uint8array;
+    position: Number;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   /**
-   * 
+   *
    * @param uri 本地文件路径，不支持资源文件路径和 tmp 分区，如果文件不存在会创建文件
    * @param text 需要写入的字符串
    * @param encoding 编码格式，默认 UTF-8
@@ -240,40 +234,40 @@ declare module '@system.file' {
    * @param complete 执行结束后的回调
    */
   interface WriteTextOBJECT {
-   uri: String;
-   text: String;
-   encoding: String;
-   success: Function;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    text: String;
+    encoding: String;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   /**
-   * 
+   *
    * @param uri 需要删除的文件 uri，不能是应用资源路径和 tmp 类型的 uri
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface DeleteOBJECT {
-   uri: String;
-   success: Function;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   /**
-   * 
+   *
    * @param uri 文件的 uri，不能是应用资源路径
    * @param success 成功回调，返回{uri:'file1', length:123456, lastModifiedTime:1233456}
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface GetOBJECT {
-   uri: String;
-   success: GetOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    success: GetOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
@@ -288,23 +282,23 @@ declare module '@system.file' {
    * @param lastModifiedTime 文件的保存是的时间戳，从 1970/01/01 08:00:00 到当前时间的毫秒数
    */
   interface GetSuccessSuccessArg {
-   uri: String;
-   length: Number;
-   lastModifiedTime: Number;
+    uri: String;
+    length: Number;
+    lastModifiedTime: Number;
   }
 
   /**
-   * 
+   *
    * @param uri 目录 uri，不能是应用资源路径和 tmp 类型的 uri
    * @param success 成功回调，返回{fileList:[{uri:'file1',lastModifiedTime:1234456, length:123456} ...]}
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface ListOBJECT {
-   uri: String;
-   success: ListOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    success: ListOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
@@ -317,11 +311,11 @@ declare module '@system.file' {
    * @param fileList 文件列表，每个文件的格式为{uri:'file1',lastModifiedTime:1234456, length:123456}
    */
   interface ListSuccessSuccessArg {
-   fileList: Array<any>;
+    fileList: Array<any>;
   }
 
   /**
-   * 
+   *
    * @param srcUri 源文件的 uri
    * @param dstUri 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
    * @param success 成功回调，返回目标文件的 uri
@@ -329,15 +323,15 @@ declare module '@system.file' {
    * @param complete 执行结束后的回调
    */
   interface CopyOBJECT {
-   srcUri: String;
-   dstUri: String;
-   success: Function;
-   fail: Function;
-   complete: Function;
+    srcUri: String;
+    dstUri: String;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   /**
-   * 
+   *
    * @param srcUri 源文件的 uri，不能是应用资源路径和 tmp 类型的 uri
    * @param dstUri 目标文件的 uri，不能是应用资源路径和 tmp 类型的 uri
    * @param success 成功回调，返回目标文件的 uri
@@ -345,11 +339,11 @@ declare module '@system.file' {
    * @param complete 执行结束后的回调
    */
   interface MoveOBJECT {
-   srcUri: String;
-   dstUri: String;
-   success: Function;
-   fail: Function;
-   complete: Function;
+    srcUri: String;
+    dstUri: String;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   const file: File;

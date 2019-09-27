@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "tsc --watch",
     "test": "jest",
-    "update": "npm run update-apis & npm run update-dts",
+    "update": "npm run update-apis & npm run update-dts & npm run prettier-dts",
     "update-index": "node update-index",
     "update-apis": "node build/crawler/index.js",
     "update-dts": "node build/crawler/update-dts.js",
+    "prettier-dts": "prettier --write ./*.d.ts",
     "print-types": "node build/crawler/print-type.js"
   },
   "keywords": [],
@@ -24,6 +25,7 @@
     "htmlparser": "^1.7.7",
     "jest": "^24.9.0",
     "jsdom": "^15.1.1",
+    "prettier": "^1.18.2",
     "soupselect": "^0.2.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"

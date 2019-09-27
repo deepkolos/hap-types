@@ -7680,185 +7680,79 @@
         "return": []
       }
     ],
-    "listeners": [],
-    "attributes": [
-      {
-        "name": "src",
-        "type": "String",
-        "desc": "是",
-        "since": "",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "currentTime",
-        "type": "Number",
-        "desc": "否",
-        "since": "",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "duration",
-        "type": "Number",
-        "desc": "否",
-        "since": "",
-        "readable": true,
-        "writeable": false
-      },
-      {
-        "name": "autoplay",
-        "type": "Boolean",
-        "desc": "否",
-        "since": "",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "loop",
-        "type": "Boolean",
-        "desc": "否",
-        "since": "",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "volume",
-        "type": "Number",
-        "desc": "否",
-        "since": "",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "muted",
-        "type": "Boolean",
-        "desc": "否",
-        "since": "",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "notificationVisible",
-        "type": "Boolean",
-        "desc": "否",
-        "since": "1010",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "title",
-        "type": "String",
-        "desc": "否",
-        "since": "1040",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "artist",
-        "type": "String",
-        "desc": "否",
-        "since": "1040",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "cover",
-        "type": "String",
-        "desc": "否",
-        "since": "1040",
-        "readable": true,
-        "writeable": true
-      },
-      {
-        "name": "streamType",
-        "type": "String",
-        "desc": "否",
-        "since": "1040",
-        "readable": true,
-        "writeable": true
-      },
+    "listeners": [
       {
         "name": "play",
-        "type": "在调用 play 方法后或者 autoplay 为 true 时的回调事件",
-        "desc": "",
+        "desc": "在调用 play 方法后或者 autoplay 为 true 时的回调事件",
         "since": "",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "pause",
-        "type": "在调用 pause 方法后的回调事件",
-        "desc": "",
+        "desc": "在调用 pause 方法后的回调事件",
         "since": "",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "stop",
-        "type": "在调用 stop 方法后的回调事件",
-        "desc": "",
+        "desc": "在调用 stop 方法后的回调事件",
         "since": "1030",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "loadeddata",
-        "type": "第一次获取到音频数据的回调事件",
-        "desc": "",
+        "desc": "第一次获取到音频数据的回调事件",
         "since": "",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "ended",
-        "type": "播放结束时的回调事件",
-        "desc": "",
+        "desc": "播放结束时的回调事件",
         "since": "",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "durationchange",
-        "type": "播放时长变化时的回调事件",
-        "desc": "",
+        "desc": "播放时长变化时的回调事件",
         "since": "",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "error",
-        "type": "播放发生错误时的回调事件",
-        "desc": "",
+        "desc": "播放发生错误时的回调事件",
         "since": "",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "timeupdate",
-        "type": "播放进度变化时触发，触发频率 4HZ",
-        "desc": "",
+        "desc": "播放进度变化时触发，触发频率 4HZ",
         "since": "",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "previous",
-        "type": "通知栏点击上一首按钮时触发",
-        "desc": "",
+        "desc": "通知栏点击上一首按钮时触发",
         "since": "1040",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       },
       {
         "name": "next",
-        "type": "通知栏点击下一首按钮时触发",
-        "desc": "",
+        "desc": "通知栏点击下一首按钮时触发",
         "since": "1040",
-        "readable": false,
-        "writeable": false
+        "example": "",
+        "args": []
       }
     ],
+    "attributes": [],
     "moduleName": "system.audio",
     "moduleVariable": "audio",
     "bgRestrictDesc": "manifest 中申请后可用。后台运行详细用法参见后台运行 脚本。"

@@ -1,18 +1,15 @@
-
 /**
  * 账号 account
- * 禁止使用。 后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。 后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/service/account.html
  */
 declare module '@service.account' {
   interface Account {
-
     /**
      * 获取服务提供商。
      * @example console.log(account.getProvider())
-     *
      */
-    getProvider(): void;
+    getProvider(): any;
 
     /**
      * 进行 OAuth 授权。
@@ -26,9 +23,8 @@ declare module '@service.account' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     *
      */
-    authorize(OBJECT: AuthorizeOBJECT): void;
+    authorize(OBJECT: AuthorizeOBJECT): any;
 
     /**
      * 获得用户基本信息。
@@ -41,11 +37,9 @@ declare module '@service.account' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     *
      */
-    getProfile(OBJECT: GetProfileOBJECT): void;
+    getProfile(OBJECT: GetProfileOBJECT): any;
   }
-
 
   /**
    *
@@ -55,16 +49,18 @@ declare module '@service.account' {
    * @param complete 执行结束后的回调
    */
   interface GetProfileOBJECT {
-   token: String;
-   success: GetProfileOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    token: String;
+    success: GetProfileOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type GetProfileOBJECTSuccessCB = (successArg: GetProfileSuccessSuccessArg) => any;
+  type GetProfileOBJECTSuccessCB = (
+    successArg: GetProfileSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
@@ -75,11 +71,11 @@ declare module '@service.account' {
    * @param avatar 用户的头像图片地址，可能为空，按照分辨率组织，当只有一个分辨率时，可以使用 default 对应的图片地址
    */
   interface GetProfileSuccessSuccessArg {
-   openid: String;
-   id: String;
-   unionid: String;
-   nickname: String;
-   avatar: Object;
+    openid: String;
+    id: String;
+    unionid: String;
+    nickname: String;
+    avatar: Object;
   }
 
   /**
@@ -93,19 +89,21 @@ declare module '@service.account' {
    * @param complete 执行结束后的回调
    */
   interface AuthorizeOBJECT {
-   type: String;
-   redirectUri: Uri;
-   scope: String;
-   state: String;
-   success: AuthorizeOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    type: String;
+    redirectUri: Uri;
+    scope: String;
+    state: String;
+    success: AuthorizeOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type AuthorizeOBJECTSuccessCB = (successArg: AuthorizeSuccessSuccessArg) => any;
+  type AuthorizeOBJECTSuccessCB = (
+    successArg: AuthorizeSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
@@ -117,12 +115,12 @@ declare module '@service.account' {
    * @param scope 简化模式下可用，实际权限范围，如果与申请一致，则此处可能为空。
    */
   interface AuthorizeSuccessSuccessArg {
-   state: String;
-   code: String;
-   accessToken: String;
-   tokenType: String;
-   expiresIn: Number;
-   scope: String;
+    state: String;
+    code: String;
+    accessToken: String;
+    tokenType: String;
+    expiresIn: Number;
+    scope: String;
   }
 
   const account: Account;

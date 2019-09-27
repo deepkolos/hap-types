@@ -10,15 +10,33 @@ export function createApiDefinition(api: Api): string {
       return out.out;
     })
     .join('\n');
+  const listenerDefinitions = api.listeners
+    .map(listener => {
+      const out = createListener(listener);
+      otherDefinitions.push(...out.definitions);
+      return out.out;
+    })
+    .join('\n');
+
+  const attributeDefinitions = api.attributes
+    .map(attribute => {
+      const out = createAttribute(attribute);
+      otherDefinitions.push(...out.definitions);
+      return out.out;
+    })
+    .join('\n');
+
   return `
 /**
  * ${api.name}
- * ${api.bgRestrictDesc}
+ * @后台运行限制 ${api.bgRestrictDesc}
  * @see ${api.href}
  */
 declare module '@${api.moduleName}' {
   interface ${interfaceName} {
     ${methodDefinitions}
+    ${listenerDefinitions}
+    ${attributeDefinitions}
   }
 
 ${otherDefinitions.reverse().join('\n')}
@@ -29,16 +47,19 @@ ${otherDefinitions.reverse().join('\n')}
 }
 
 function createMethod(
-  method: Method,
+  method: Method
 ): { out: string; definitions: Array<string> } {
   if (!method.name) return { out: '', definitions: [] };
   const example = method.example
-    ? `     * @example ${method.example
-        .split('\n')
-        .map((line, i) => (i ? `     * ${line}` : line))
-        .join('\n')}`
+    ? `
+     * @example ${method.example
+       .trim()
+       .split('\n')
+       .map((line, i) => (i ? `     * ${line}` : line))
+       .join('\n')}`
     : '';
   const definitions: Array<string> = [];
+  const since = parseSince(method.since);
   const argDefs = method.args
     .filter(arg => arg.name.toLowerCase() === 'object' && arg.attributes.length)
     .map(arg => {
@@ -53,10 +74,88 @@ function createMethod(
 
   const out = `
     /**
-     * ${method.desc.trim()}
-${example}
+     * ${method.desc.trim()}${since}${example}
      */
     ${method.name}(${argDefs}): ${returnOut.out};`;
+  return { out, definitions };
+}
+
+function createListener(
+  listener: Listener
+): { out: string; definitions: Array<string> } {
+  let outName = listener.name;
+  let outType = 'Function';
+  const definitions: Array<string> = [];
+  const since = parseSince(listener.since);
+
+  if (!outName.startsWith('on')) outName = 'on' + outName;
+  if (listener.args.length) {
+    const argDef = listener.args
+      .map(arg => {
+        const out = createDefinition(arg, '', {
+          ...listener,
+          type: '',
+          attributes: []
+        });
+        definitions.push(...out.definitions);
+        return `${out.name}: ${out.type}`;
+      })
+      .join(',');
+    outType = `(${argDef}) => void;`;
+  }
+
+  return {
+    out: `
+    /**
+     * ${listener.desc}${since}
+     */
+    ${outName}?: ${outType}`,
+    definitions
+  };
+}
+
+function createAttribute(
+  attribute: Attribute
+): { out: string; definitions: Array<string> } {
+  let outName = attribute.name;
+  let outType = attribute.type;
+  let since = parseSince(attribute.since);
+
+  return {
+    out: `
+    /**
+     * ${attribute.desc}${since}
+     * @readable ${attribute.readable}
+     * @writeable ${attribute.writeable}
+     */
+    ${outName}: ${outType}`,
+    definitions: []
+  };
+}
+
+function createReturn(
+  method: Method
+): { out: string; definitions: Array<string> } {
+  const ret = method.return;
+  let out = '';
+  let definitions: Array<string> = [];
+
+  if (ret.length === 0) {
+    // out = 'void';
+    out = 'any';
+  } else if (ret.length === 1) {
+    out = ret[0].type;
+  } else {
+    const def = createDefinition({
+      name: method.name + 'Return',
+      type: 'object',
+      desc: `${method.name}的返回值`,
+      attributes: ret
+    });
+    out = def.type;
+    definitions = def.definitions;
+  }
+
   return { out, definitions };
 }
 
@@ -65,11 +164,13 @@ ${example}
 function createDefinition(
   from: Arg & Return,
   prefix: string = '', // getAnonymousPrefix(),
-  parent?: Arg | Return,
+  parent?: Arg | Return
 ): { name: string; type: string; definitions: Array<string> } {
   const type = from.type.toLowerCase();
   const attrLen = from.attributes.length;
   const definitions: Array<string> = [];
+  const since = parseSince(from.since);
+
   let outType = (parent
     ? [prefix, parent.name, from.name]
     : [prefix, from.name]
@@ -81,7 +182,7 @@ function createDefinition(
   const process = (
     name: string,
     processCB: () => void,
-    otherCheck: Boolean = false,
+    otherCheck: Boolean = false
   ) => {
     if (type === name || otherCheck) {
       if (!attrLen) {
@@ -99,24 +200,29 @@ function createDefinition(
         .map(attr => {
           const out = createDefinition(attr, prefix, from);
           definitions.push(...out.definitions);
-          if (out.name === 'stepsList') debugger;
+
           return `   ${out.name}: ${out.type};`;
         })
         .join('\n');
       const attrDocs = from.attributes
-        .map(attr => `   * @param ${attr.name} ${attr.desc}`)
+        .map(
+          attr =>
+            `   * @param ${attr.name} ${attr.desc}${
+              attr.since ? ` ${attr.since}+` : ''
+            }`
+        )
         .join('\n');
 
       definitions.push(`
   /**
-   * ${from.desc}
+   * ${from.desc.trim()}${since}
 ${attrDocs}
    */
   interface ${outType} {
 ${attrDefinitions}
   }`);
     },
-    type === '' && attrLen !== 0,
+    type === '' && attrLen !== 0
   );
 
   process('function', () => {
@@ -125,14 +231,14 @@ ${attrDefinitions}
     const out = createDefinition(
       { ...from, name: from.name + 'Arg', type: 'object' },
       prefix,
-      from,
+      from
     );
 
     // 目前函数仅仅一个参数, 应该够用
     definitions.push(...out.definitions);
     definitions.push(`
   /**
-   * ${from.desc}
+   * ${from.desc.trim()}${since}
    */
   type ${outType} = (${out.name}: ${out.type}) => any;`);
   });
@@ -142,12 +248,12 @@ ${attrDefinitions}
     const out = createDefinition(
       { ...from, name: from.name + 'Item', type: 'object' },
       prefix,
-      from,
+      from
     );
     definitions.push(...out.definitions);
     definitions.push(`
   /**
-   * ${from.desc}
+   * ${from.desc.trim()}${since}
    */
   type ${outType} = Array<${out.type}>;`);
   });
@@ -179,7 +285,7 @@ ${attrDefinitions}
   return {
     name: outName,
     type: outType,
-    definitions,
+    definitions
   };
 }
 
@@ -187,62 +293,6 @@ ${attrDefinitions}
 // function getAnonymousPrefix(): string {
 //   return `a${anonymousPrefixId++}_`;
 // }
-
-/**
- * xxxcabl
- * @param a dasd
- */
-type XXCallback = (a: string) => any;
-
-/**
-/
-  @param path path desc
-/
-interface $0_Object {
-  path: string;
-}
-{
-  "name": "OBJECT",
-  "desc": "",
-  "type": "",
-  "required": true,
-  "attributes": [
-    {
-      "name": "path",
-      "type": "String",
-      "desc": "返回目标页面的路径，可以是以下几种取值：不传该参数，返回上一页面以\"/\"开头的应用内已打开页面的路径；例：/about。特殊的,如果 path 的值是\"/\",则跳转到页面名称为\"/\"的页,没有则跳转到首页注意点：path 需要是以\"/\"开头的当前应用已经打开的页面路径，否则均视为无效参数，返回上一页面若根据 path 未匹配到已经打开的页面，返回上一页面若根据 path 参数匹配到多个页面，返回至最后打开的页面",
-      "since": "1020",
-      "required": false,
-      "attributes": []
-    }
-  ]
-}
- */
-
-function createReturn(
-  method: Method,
-): { out: string; definitions: Array<string> } {
-  const ret = method.return;
-  let out = '';
-  let definitions: Array<string> = [];
-
-  if (ret.length === 0) {
-    out = 'void';
-  } else if (ret.length === 1) {
-    out = ret[0].type;
-  } else {
-    const def = createDefinition({
-      name: method.name + 'Return',
-      type: 'object',
-      desc: `${method.name}的返回值`,
-      attributes: ret,
-    });
-    out = def.type;
-    definitions = def.definitions;
-  }
-
-  return { out, definitions };
-}
 
 function firstUpperCase(str: string): string {
   str = str ? str[0].toUpperCase() + str.slice(1) : str;
@@ -252,6 +302,13 @@ function firstUpperCase(str: string): string {
 function firstLowerCase(str: string): string {
   str ? str[0].toLowerCase() + str.slice(1) : str;
   return str.trim();
+}
+
+function parseSince(since?: string) {
+  return since
+    ? `
+     * @since ${since}`
+    : '';
 }
 
 (function main() {

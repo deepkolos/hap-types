@@ -1,12 +1,10 @@
-
 /**
  * 健康 health
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/service/health.html
  */
 declare module '@service.health' {
   interface Health {
-    
     /**
      * 是否支持提供每日步数的功能。
      * @example health.hasStepsOfDay({
@@ -17,9 +15,8 @@ declare module '@service.health' {
      *     console.log(`handling fail!, code = ${code}`)
      *   }
      * })
-     * 
      */
-    hasStepsOfDay(OBJECT: HasStepsOfDayOBJECT): void;
+    hasStepsOfDay(OBJECT: HasStepsOfDayOBJECT): any;
 
     /**
      * 获取每个自然日的步数，返回的是调用接口时，用户今天已经累计的步数。
@@ -31,9 +28,8 @@ declare module '@service.health' {
      *     console.log(`handling fail!, code = ${code}`)
      *   }
      * })
-     * 
      */
-    getTodaySteps(OBJECT: GetTodayStepsOBJECT): void;
+    getTodaySteps(OBJECT: GetTodayStepsOBJECT): any;
 
     /**
      * 获取最近七个自然日每天的步数，包括今天。
@@ -51,41 +47,43 @@ declare module '@service.health' {
      *     console.log(`handling fail!, code = ${code}`)
      *   }
      * })
-     * 
      */
-    getLastWeekSteps(OBJECT: GetLastWeekStepsOBJECT): void;
+    getLastWeekSteps(OBJECT: GetLastWeekStepsOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface GetLastWeekStepsOBJECT {
-   success: GetLastWeekStepsOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    success: GetLastWeekStepsOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type GetLastWeekStepsOBJECTSuccessCB = (successArg: GetLastWeekStepsSuccessSuccessArg) => any;
+  type GetLastWeekStepsOBJECTSuccessCB = (
+    successArg: GetLastWeekStepsSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
    * @param stepsList 最近七天步数列表数据
    */
   interface GetLastWeekStepsSuccessSuccessArg {
-   stepsList: GetLastWeekStepsSuccessArgStepsListArray;
+    stepsList: GetLastWeekStepsSuccessArgStepsListArray;
   }
 
   /**
    * 最近七天步数列表数据
    */
-  type GetLastWeekStepsSuccessArgStepsListArray = Array<GetLastWeekStepsStepsListStepsListItem>;
+  type GetLastWeekStepsSuccessArgStepsListArray = Array<
+    GetLastWeekStepsStepsListStepsListItem
+  >;
 
   /**
    * 最近七天步数列表数据
@@ -93,45 +91,47 @@ declare module '@service.health' {
    * @param steps 日期对应的步数
    */
   interface GetLastWeekStepsStepsListStepsListItem {
-   date: String;
-   steps: Number;
+    date: String;
+    steps: Number;
   }
 
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface GetTodayStepsOBJECT {
-   success: GetTodayStepsOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    success: GetTodayStepsOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type GetTodayStepsOBJECTSuccessCB = (successArg: GetTodayStepsSuccessSuccessArg) => any;
+  type GetTodayStepsOBJECTSuccessCB = (
+    successArg: GetTodayStepsSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
    * @param steps 返回当天步数
    */
   interface GetTodayStepsSuccessSuccessArg {
-   steps: Number;
+    steps: Number;
   }
 
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface HasStepsOfDayOBJECT {
-   success: Function;
-   fail: Function;
-   complete: Function;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   const health: Health;

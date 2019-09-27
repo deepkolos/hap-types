@@ -1,12 +1,10 @@
-
 /**
  * 图片编辑 image
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/system/image.html
  */
 declare module '@system.image' {
   interface Image {
-    
     /**
      * 获取图片信息
      * @example image.getImageInfo({
@@ -18,9 +16,8 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    getImageInfo(OBJECT: GetImageInfoOBJECT): void;
+    getImageInfo(OBJECT: GetImageInfoOBJECT): any;
 
     /**
      * 压缩图片
@@ -36,12 +33,12 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    compressImage(OBJECT: CompressImageOBJECT): void;
+    compressImage(OBJECT: CompressImageOBJECT): any;
 
     /**
      * 对图片按顺序执行编辑操作。
+     * @since 1000
      * @example image.applyOperations({
      *   uri: 'internal://cache/123.png',
      *   operations: [
@@ -69,9 +66,8 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    applyOperations(OBJECT: ApplyOperationsOBJECT): void;
+    applyOperations(OBJECT: ApplyOperationsOBJECT): any;
 
     /**
      * 打开编辑器来编辑图片。目前支持选择图片范围并裁剪。
@@ -87,12 +83,12 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    editImage(OBJECT: EditImageOBJECT): void;
+    editImage(OBJECT: EditImageOBJECT): any;
 
     /**
      * 获取图片的exif信息。支持的格式：JPEG,DNG,CR2,NEF,NRW,ARW,RW2,ORF,PEF,SRW,RAF,HEIF。
+     * @since 1040
      * @example image.getExifAttributes({
      *   uri: 'internal://cache/123.png',
      *   success: function (data) {
@@ -102,12 +98,12 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    getExifAttributes(OBJECT: GetExifAttributesOBJECT): void;
+    getExifAttributes(OBJECT: GetExifAttributesOBJECT): any;
 
     /**
      * 设置图片的exif信息。设置操作会直接在所给图片上进行，不会生成新的图片。支持的格式：JPEG。
+     * @since 1040
      * @example image.setExifAttributes({
      *   uri: 'internal://cache/123.jpg',
      *   attributes:{
@@ -121,59 +117,61 @@ declare module '@system.image' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    setExifAttributes(OBJECT: SetExifAttributesOBJECT): void;
+    setExifAttributes(OBJECT: SetExifAttributesOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param uri 图片地址，可以是数据文件或应用内的资源。如果是应用内资源，必须使用绝对路径
-   * @param attributes 要设置的exif属性列表　
+   * @param attributes 要设置的exif属性列表
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface SetExifAttributesOBJECT {
-   uri: String;
-   attributes: Object;
-   success: SetExifAttributesOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    attributes: Object;
+    success: SetExifAttributesOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type SetExifAttributesOBJECTSuccessCB = (successArg: SetExifAttributesSuccessSuccessArg) => any;
+  type SetExifAttributesOBJECTSuccessCB = (
+    successArg: SetExifAttributesSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
    * @param uri 图片地址
    */
   interface SetExifAttributesSuccessSuccessArg {
-   uri: String;
+    uri: String;
   }
 
   /**
-   * 
+   *
    * @param uri 图片地址，可以是数据文件或应用内的资源。如果是应用内资源，必须使用绝对路径
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface GetExifAttributesOBJECT {
-   uri: String;
-   success: GetExifAttributesOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    success: GetExifAttributesOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type GetExifAttributesOBJECTSuccessCB = (successArg: GetExifAttributesSuccessSuccessArg) => any;
+  type GetExifAttributesOBJECTSuccessCB = (
+    successArg: GetExifAttributesSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
@@ -181,45 +179,47 @@ declare module '@system.image' {
    * @param attributes 图片的exif信息
    */
   interface GetExifAttributesSuccessSuccessArg {
-   uri: String;
-   attributes: Object;
+    uri: String;
+    attributes: Object;
   }
 
   /**
-   * 
+   *
    * @param uri 图片地址，可以是数据文件或应用内的资源。如果是应用内资源，必须使用绝对路径
-   * @param aspectRatioX 用于限定裁剪结果的宽高比，该参数指定宽高比中宽度比率。例如：aspectRatioX为16，aspectRatioY为9，则限定裁剪结果必须是16:9的图
-   * @param aspectRatioY 用于限定裁剪结果的宽高比，该参数指定宽高比中宽度比率。例如：aspectRatioX为16，aspectRatioY为9，则限定裁剪结果必须是16:9的图
+   * @param aspectRatioX 用于限定裁剪结果的宽高比，该参数指定宽高比中宽度比率。例如：aspectRatioX为16，aspectRatioY为9，则限定裁剪结果必须是16:9的图 1050+
+   * @param aspectRatioY 用于限定裁剪结果的宽高比，该参数指定宽高比中宽度比率。例如：aspectRatioX为16，aspectRatioY为9，则限定裁剪结果必须是16:9的图 1050+
    * @param success 成功回调
    * @param fail 失败回调
-   * @param cancel 取消回调　　　
+   * @param cancel 取消回调
    * @param complete 执行结束后的回调
    */
   interface EditImageOBJECT {
-   uri: String;
-   aspectRatioX: Integer;
-   aspectRatioY: Integer;
-   success: EditImageOBJECTSuccessCB;
-   fail: Function;
-   cancel: Function;
-   complete: Function;
+    uri: String;
+    aspectRatioX: Integer;
+    aspectRatioY: Integer;
+    success: EditImageOBJECTSuccessCB;
+    fail: Function;
+    cancel: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type EditImageOBJECTSuccessCB = (successArg: EditImageSuccessSuccessArg) => any;
+  type EditImageOBJECTSuccessCB = (
+    successArg: EditImageSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
    * @param uri 生成的图片的地址
    */
   interface EditImageSuccessSuccessArg {
-   uri: String;
+    uri: String;
   }
 
   /**
-   * 
+   *
    * @param uri 图片地址，可以是数据文件或应用内的资源。如果是应用内资源，必须使用绝对路径
    * @param operations 编辑操作列表，按照先后顺序执行。如果未提供，则不会执行编辑操作，仅重新保存图片
    * @param quality 图片的压缩质量，0-100 之间，默认是 75
@@ -229,30 +229,32 @@ declare module '@system.image' {
    * @param complete 执行结束后的回调
    */
   interface ApplyOperationsOBJECT {
-   uri: String;
-   operations: Objectarray;
-   quality: Integer;
-   format: String;
-   success: ApplyOperationsOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    operations: Objectarray;
+    quality: Integer;
+    format: String;
+    success: ApplyOperationsOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type ApplyOperationsOBJECTSuccessCB = (successArg: ApplyOperationsSuccessSuccessArg) => any;
+  type ApplyOperationsOBJECTSuccessCB = (
+    successArg: ApplyOperationsSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
    * @param uri 生成的图片的地址
    */
   interface ApplyOperationsSuccessSuccessArg {
-   uri: String;
+    uri: String;
   }
 
   /**
-   * 
+   *
    * @param uri 图片地址，可以是数据文件或应用内的资源。如果是应用内资源，必须使用绝对路径
    * @param quality 图片的压缩质量，0-100 之间，默认是 75
    * @param ratio 尺寸压缩倍数，必须大于 0，尺寸会变为原图的 1/ratio 大小
@@ -262,46 +264,50 @@ declare module '@system.image' {
    * @param complete 执行结束后的回调
    */
   interface CompressImageOBJECT {
-   uri: String;
-   quality: Integer;
-   ratio: Number;
-   format: String;
-   success: CompressImageOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    quality: Integer;
+    ratio: Number;
+    format: String;
+    success: CompressImageOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type CompressImageOBJECTSuccessCB = (successArg: CompressImageSuccessSuccessArg) => any;
+  type CompressImageOBJECTSuccessCB = (
+    successArg: CompressImageSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
    * @param uri 压缩后的图片地址
    */
   interface CompressImageSuccessSuccessArg {
-   uri: String;
+    uri: String;
   }
 
   /**
-   * 
+   *
    * @param uri 图片地址，可以是数据文件或应用内的资源。如果是应用内资源，必须使用绝对路径
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface GetImageInfoOBJECT {
-   uri: String;
-   success: GetImageInfoOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    uri: String;
+    success: GetImageInfoOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
    * 成功回调
    */
-  type GetImageInfoOBJECTSuccessCB = (successArg: GetImageInfoSuccessSuccessArg) => any;
+  type GetImageInfoOBJECTSuccessCB = (
+    successArg: GetImageInfoSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
@@ -311,10 +317,10 @@ declare module '@system.image' {
    * @param size 图片的大小，单位为 Byte
    */
   interface GetImageInfoSuccessSuccessArg {
-   uri: String;
-   width: Integer;
-   height: Integer;
-   size: Long;
+    uri: String;
+    width: Integer;
+    height: Integer;
+    size: Long;
   }
 
   const image: Image;

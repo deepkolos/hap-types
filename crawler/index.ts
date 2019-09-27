@@ -42,6 +42,7 @@ function getApiDefinition(api: Api) {
     let methodReading = false;
     let exampleReading = false;
     let listenerReading = false;
+    let listenerTableReading = false;
     let apiReadRunBackground = false;
     let currMethod: Method = {
       name: '',
@@ -133,6 +134,7 @@ function getApiDefinition(api: Api) {
         if (matchListener) {
           methodReading = false;
           listenerReading = true;
+          listenerTableReading = false;
           // debugger;
           currAttrName = matchListener[2];
           if (currListener.name !== matchListener[1]) {
@@ -158,6 +160,12 @@ function getApiDefinition(api: Api) {
           }
         }
 
+        // 还有表格定义的方式
+        if (el.tagName === 'H3' && textContent === '事件') {
+          methodReading = false;
+          listenerTableReading = true;
+        }
+
         // 读取描述
         if (descReading && el.tagName === 'P') {
           descReading = false;
@@ -166,12 +174,13 @@ function getApiDefinition(api: Api) {
           argsReading = true;
           returnReading = false;
         }
-        if (textContent.match(/health\.getLastWeekSteps\(OBJECT\)/)) debugger;
+        if (textContent.match(/wifi\.onscanned = function\(data\)/)) debugger;
 
         // 读取参数列表
         const argNameMatch =
-          textContent.match(/(\w*)\s*(参数|列表项参数说明)\s*(\d{4}\+)*[：\:]/) ||
-          textContent.match(/(\w+)\s*(\d{4}\+)*[：\:]$/);
+          textContent.match(
+            /(\w*)\s*(参数|列表项参数说明)\s*(\d{4}\+)*[：\:]/,
+          ) || textContent.match(/(\w+)\s*(\d{4}\+)*[：\:]$/);
 
         const returnMatch = textContent.match(
           /(\w*)\s*(返回值|返回参数)\s*(\d{4}\+)*[：\:]/,
@@ -181,14 +190,24 @@ function getApiDefinition(api: Api) {
           (methodReading ? currMethod : currListener).args.some(i =>
             isSubAttrName(i, returnMatch[1]),
           );
-        if (argsReading && argNameMatch && el.tagName.match(/H\d/)) {
+        if (
+          !listenerTableReading &&
+          argsReading &&
+          argNameMatch &&
+          el.tagName.match(/H\d/)
+        ) {
           // methodReadArgs = textContent.indexOf('无') === -1;
           // if (currMethod.name !== argNameMatch[1])
           currAttrName = argNameMatch[1];
           returnReading = false;
           // methodReadArgType = argNameMatch[2];
         }
-        if (argsReading && returnMatch && el.tagName.match(/H\d/)) {
+        if (
+          !listenerTableReading &&
+          argsReading &&
+          returnMatch &&
+          el.tagName.match(/H\d/)
+        ) {
           currAttrName = returnMatch[1];
           if (!subAttrArg) {
             returnReading = true;
@@ -308,6 +327,32 @@ function getApiDefinition(api: Api) {
           currAttrName = null;
         }
 
+        // 读取事件表格
+        if (listenerTableReading && el.tagName === 'TABLE') {
+          const thead = el.querySelector('thead');
+
+          thead &&
+            thead.textContent &&
+            thead.textContent.match(/^名称描述$/) &&
+            el.querySelectorAll('tbody tr').forEach(tr => {
+              let { other: name, since } = splitSince(tdText(tr, 0));
+              // let { other: type, since: typeSince } = splitSince(tdText(tr, 1));
+              let desc = tdText(tr, 1);
+
+              const listener: Listener = {
+                name,
+                desc,
+                since: since,
+                example: '',
+                args: [],
+              };
+
+              api.listeners.push(listener);
+            });
+
+          listenerTableReading = false;
+        }
+
         // 读取example code
         if (textContent.match(/示例\s*[：\:]/)) {
           exampleReading = true;
@@ -321,20 +366,25 @@ function getApiDefinition(api: Api) {
         if (textContent.match('属性') && el.tagName === 'H3') {
           apiReadAttr = true;
         }
-
         if (apiReadAttr && el.tagName === 'TABLE') {
-          el.querySelectorAll('tbody tr').forEach(tr => {
-            const { other: name, since } = splitSince(tdText(tr, 0));
+          const thead = el.querySelector('thead');
 
-            api.attributes.push({
-              name,
-              type: tdText(tr, 1),
-              desc: tdText(tr, 4),
-              since,
-              readable: tdText(tr, 2) === '是',
-              writeable: tdText(tr, 3) === '是',
+          thead &&
+            thead.textContent &&
+            thead.textContent.match(/名称参数类型是否可读是否可写描述/) &&
+            el.querySelectorAll('tbody tr').forEach(tr => {
+              const { other: name, since } = splitSince(tdText(tr, 0));
+
+              api.attributes.push({
+                name,
+                type: tdText(tr, 1),
+                desc: tdText(tr, 4),
+                since,
+                readable: tdText(tr, 2) === '是',
+                writeable: tdText(tr, 3) === '是',
+              });
             });
-          });
+          apiReadAttr = false;
         }
       }
       if (el.tagName === 'H2' && textContent === '接口定义') {

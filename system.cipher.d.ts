@@ -1,12 +1,10 @@
-
 /**
  * 密码算法 cipher
- * 无限制。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 无限制。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/system/cipher.html
  */
 declare module '@system.cipher' {
   interface Cipher {
-    
     /**
      * RSA 加解密。不支持分段加密，内容超长会出错
      * @example //加密
@@ -27,7 +25,7 @@ declare module '@system.cipher' {
      *     console.log(`### cipher.rsa fail ### ${code}: ${data}`)
      *   }
      * })
-     * 
+     *
      * //解密：
      * cipher.rsa({
      *   action: 'decrypt',
@@ -59,14 +57,12 @@ declare module '@system.cipher' {
      *     console.log(`### cipher.rsa fail ### ${code}: ${data}`)
      *   }
      * })
-     * 
      */
-    rsa(OBJECT: RsaOBJECT): void;
+    rsa(OBJECT: RsaOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param action 加解密类型，两个可选值：encrypt：加密，decrypt： 解密
    * @param text 待加密或解密的文本内容。待加密的文本内容应该是一段普通文本，长度不能超过 keySize / 8 - 66，其中 keySize 是秘钥的长度（例如秘钥长度为 1024 时，text 不能超过 62 个字节）。待解密的文本内容应该是经过 base64 编码的一段二进制值。base64 编码使用默认风格，下同
    * @param key 加密或解密使用到的 RSA 密钥，经过 base64 编码后生成的字符串。加密时 key 为公钥，解密时 key 为私钥
@@ -76,13 +72,13 @@ declare module '@system.cipher' {
    * @param complete 执行结束后的回调
    */
   interface RsaOBJECT {
-   action: String;
-   text: String;
-   key: String;
-   transformation: String;
-   success: RsaOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    action: String;
+    text: String;
+    key: String;
+    transformation: String;
+    success: RsaOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
@@ -95,7 +91,7 @@ declare module '@system.cipher' {
    * @param text 经过加密或解密后生成的文本内容。加密后内容是经过 base64 编码的一段二进制值，解密后内容是一段普通文本。如果解密后的内容不能转化为 utf-8 字符串会出错
    */
   interface RsaSuccessSuccessArg {
-   text: String;
+    text: String;
   }
 
   const cipher: Cipher;

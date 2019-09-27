@@ -1,12 +1,10 @@
-
 /**
  * 屏幕亮度 brightness
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/system/brightness.html
  */
 declare module '@system.brightness' {
   interface Brightness {
-    
     /**
      * 获得当前屏幕亮度值
      * @example brightness.getValue({
@@ -17,9 +15,8 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    getValue(OBJECT: GetValueOBJECT): void;
+    getValue(OBJECT: GetValueOBJECT): any;
 
     /**
      * 设置当前屏幕亮度值
@@ -32,9 +29,8 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    setValue(OBJECT: SetValueOBJECT): void;
+    setValue(OBJECT: SetValueOBJECT): any;
 
     /**
      * 获得当前屏幕亮度模式
@@ -46,9 +42,8 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    getMode(OBJECT: GetModeOBJECT): void;
+    getMode(OBJECT: GetModeOBJECT): any;
 
     /**
      * 设置当前屏幕亮度模式
@@ -61,36 +56,34 @@ declare module '@system.brightness' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    setMode(OBJECT: SetModeOBJECT): void;
+    setMode(OBJECT: SetModeOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param mode 0 为手动调节屏幕亮度,1 为自动调节屏幕亮度
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface SetModeOBJECT {
-   mode: Integer;
-   success: Function;
-   fail: Function;
-   complete: Function;
+    mode: Integer;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface GetModeOBJECT {
-   success: GetModeOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    success: GetModeOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
@@ -103,33 +96,33 @@ declare module '@system.brightness' {
    * @param mode 0 为手动调节屏幕亮度,1 为自动调节屏幕亮度
    */
   interface GetModeSuccessSuccessArg {
-   mode: Integer;
+    mode: Integer;
   }
 
   /**
-   * 
+   *
    * @param value 屏幕亮度，取值范围 0-255
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface SetValueOBJECT {
-   value: Integer;
-   success: Function;
-   fail: Function;
-   complete: Function;
+    value: Integer;
+    success: Function;
+    fail: Function;
+    complete: Function;
   }
 
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface GetValueOBJECT {
-   success: GetValueOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    success: GetValueOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
@@ -142,7 +135,7 @@ declare module '@system.brightness' {
    * @param value 屏幕亮度，取值范围 0-255
    */
   interface GetValueSuccessSuccessArg {
-   value: Integer;
+    value: Integer;
   }
 
   const brightness: Brightness;

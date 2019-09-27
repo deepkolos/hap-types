@@ -1,12 +1,10 @@
-
 /**
  * 联系人 contact
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/system/contact.html
  */
 declare module '@system.contact' {
   interface Contact {
-    
     /**
      * 选择联系人
      * @example contact.pick({
@@ -17,12 +15,12 @@ declare module '@system.contact' {
      *     console.log('handling fail, code=' + code)
      *   }
      * })
-     * 
      */
-    pick(OBJECT: PickOBJECT): void;
+    pick(OBJECT: PickOBJECT): any;
 
     /**
      * 获取通讯录所有联系人列表，每次获取都需要用户授权
+     * @since 1050
      * @example contact.list({
      *   success: function(data) {
      *     for (const i in data.contactList) {
@@ -37,14 +35,12 @@ declare module '@system.contact' {
      *     console.log('handling fail, code=' + code)
      *   }
      * })
-     * 
      */
-    list(OBJECT: ListOBJECT): void;
+    list(OBJECT: ListOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
@@ -52,11 +48,11 @@ declare module '@system.contact' {
    * @param number 电话号码
    */
   interface ListOBJECT {
-   success: ListOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
-   displayName: String;
-   number: String;
+    success: ListOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
+    displayName: String;
+    number: String;
   }
 
   /**
@@ -69,19 +65,19 @@ declare module '@system.contact' {
    * @param contactList 联系人列表
    */
   interface ListSuccessSuccessArg {
-   contactList: Array<any>;
+    contactList: Array<any>;
   }
 
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface PickOBJECT {
-   success: PickOBJECTSuccessCB;
-   fail: Function;
-   complete: Function;
+    success: PickOBJECTSuccessCB;
+    fail: Function;
+    complete: Function;
   }
 
   /**
@@ -95,8 +91,8 @@ declare module '@system.contact' {
    * @param number 电话号码
    */
   interface PickSuccessSuccessArg {
-   displayName: String;
-   number: String;
+    displayName: String;
+    number: String;
   }
 
   const contact: Contact;

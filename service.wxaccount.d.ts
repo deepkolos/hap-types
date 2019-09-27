@@ -1,34 +1,28 @@
-
 /**
  * 微信账户 wxaccount
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/service/wxaccount.html
  */
 declare module '@service.wxaccount' {
   interface Wxaccount {
-    
     /**
      * 获取当前的微信登陆方式
-
      */
-    getType(): void;
+    getType(): any;
 
     /**
      * 发起微信登陆，调用之前应该先使用 getType 函数查询 APP 登陆方式是否被支持
-
      */
-    authorize(OBJECT: AuthorizeOBJECT): void;
+    authorize(OBJECT: AuthorizeOBJECT): any;
 
     /**
-     * 
-
+     *
      */
-    getType(): void;
+    getType(): any;
   }
 
-
   /**
-   * 
+   *
    * @param scope 应用授权作用域，如获取用户个人信息则填写 snsapi_userinfo，微信关于 scope 的说明
    * @param state 用于保持请求和回调的状态，授权请求后原样带回给第三方。该参数可用于防止 csrf 攻击（跨站请求伪造攻击），建议第三方带上该参数，可设置为简单的随机数加 session 进行校验
    * @param success 成功回调
@@ -36,17 +30,19 @@ declare module '@service.wxaccount' {
    * @param cancel 取消回调
    */
   interface AuthorizeOBJECT {
-   scope: String;
-   state: String;
-   success: AuthorizeOBJECTSuccessCB;
-   fail: Function;
-   cancel: Function;
+    scope: String;
+    state: String;
+    success: AuthorizeOBJECTSuccessCB;
+    fail: Function;
+    cancel: Function;
   }
 
   /**
    * 成功回调
    */
-  type AuthorizeOBJECTSuccessCB = (successArg: AuthorizeSuccessSuccessArg) => any;
+  type AuthorizeOBJECTSuccessCB = (
+    successArg: AuthorizeSuccessSuccessArg
+  ) => any;
 
   /**
    * 成功回调
@@ -56,10 +52,10 @@ declare module '@service.wxaccount' {
    * @param country 微信用户当前国家信息
    */
   interface AuthorizeSuccessSuccessArg {
-   code: String;
-   state: String;
-   lang: String;
-   country: String;
+    code: String;
+    state: String;
+    lang: String;
+    country: String;
   }
 
   const wxaccount: Wxaccount;

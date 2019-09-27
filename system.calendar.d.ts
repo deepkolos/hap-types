@@ -1,12 +1,10 @@
-
 /**
  * 日历事件 calendar
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/system/calendar.html
  */
 declare module '@system.calendar' {
   interface Calendar {
-    
     /**
      * 插入日历事件
      * @example calendar.insert({
@@ -20,14 +18,12 @@ declare module '@system.calendar' {
      *     console.log('handling success')
      *   }
      * })
-     * 
      */
-    insert(OBJECT: InsertOBJECT): void;
+    insert(OBJECT: InsertOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param title 事件的标题
    * @param description 事件的描述
    * @param startDate 事件开始时间，以从公元纪年开始计算的协调世界时毫秒数表示
@@ -42,18 +38,18 @@ declare module '@system.calendar' {
    * @param cancel 取消回调
    */
   interface InsertOBJECT {
-   title: String;
-   description: String;
-   startDate: Long;
-   endDate: Long;
-   timezone: String;
-   allDay: Boolean;
-   rrule: String;
-   remindMinutes: Array<any>;
-   organizer: String;
-   success: Function;
-   fail: Function;
-   cancel: Function;
+    title: String;
+    description: String;
+    startDate: Long;
+    endDate: Long;
+    timezone: String;
+    allDay: Boolean;
+    rrule: String;
+    remindMinutes: Array<any>;
+    organizer: String;
+    success: Function;
+    fail: Function;
+    cancel: Function;
   }
 
   const calendar: Calendar;

@@ -3,7 +3,11 @@ import apis from '../apis.json';
 const types: Array<string> = [];
 
 function collectType(node: { [key: string]: any }) {
-  if (typeof node.type === 'string' && !types.includes(node.type)) {
+  if (
+    node.type &&
+    typeof node.type === 'string' &&
+    !types.includes(node.type)
+  ) {
     types.push(node.type);
   }
   Object.keys(node).forEach(key => {

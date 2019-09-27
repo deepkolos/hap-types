@@ -1,18 +1,16 @@
-
 /**
  * 支付 pay
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/service/pay.html
  */
 declare module '@service.pay' {
   interface Pay {
-    
     /**
      * 获取服务提供商。
+     * @since 1000
      * @example console.log(pay.getProvider())
-     * 
      */
-    getProvider(): void;
+    getProvider(): any;
 
     /**
      * 使用支付完成付款
@@ -25,24 +23,22 @@ declare module '@service.pay' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    pay(OBJECT: PayOBJECT): void;
+    pay(OBJECT: PayOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param orderInfo 订单信息
    * @param success 成功回调
    * @param fail 失败回调
    * @param complete 执行结束后的回调
    */
   interface PayOBJECT {
-   orderInfo: String;
-   success: PayOBJECTSuccessCB;
-   fail: PayOBJECTFailCB;
-   complete: Function;
+    orderInfo: String;
+    success: PayOBJECTSuccessCB;
+    fail: PayOBJECTFailCB;
+    complete: Function;
   }
 
   /**
@@ -56,8 +52,8 @@ declare module '@service.pay' {
    * @param message 消息内容
    */
   interface PayFailFailArg {
-   code: Integer;
-   message: String;
+    code: Integer;
+    message: String;
   }
 
   /**
@@ -72,9 +68,9 @@ declare module '@service.pay' {
    * @param result 支付结果
    */
   interface PaySuccessSuccessArg {
-   code: Integer;
-   message: String;
-   result: String;
+    code: Integer;
+    message: String;
+    result: String;
   }
 
   const pay: Pay;

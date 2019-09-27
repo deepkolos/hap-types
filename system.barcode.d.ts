@@ -1,12 +1,10 @@
-
 /**
  * 二维码 barcode
- * 禁止使用。后台运行详细用法参见后台运行 脚本。
+ * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
  * @see https://doc.quickapp.cn/features/system/barcode.html
  */
 declare module '@system.barcode' {
   interface Barcode {
-    
     /**
      * 扫描二维码
      * @example barcode.scan({
@@ -17,24 +15,22 @@ declare module '@system.barcode' {
      *     console.log(`handling fail, code = ${code}`)
      *   }
      * })
-     * 
      */
-    scan(OBJECT: ScanOBJECT): void;
+    scan(OBJECT: ScanOBJECT): any;
   }
 
-
   /**
-   * 
+   *
    * @param success 成功回调
    * @param fail 失败回调
    * @param cancel 取消回调
    * @param complete 执行结束后的回调
    */
   interface ScanOBJECT {
-   success: ScanOBJECTSuccessCB;
-   fail: Function;
-   cancel: Function;
-   complete: Function;
+    success: ScanOBJECTSuccessCB;
+    fail: Function;
+    cancel: Function;
+    complete: Function;
   }
 
   /**
@@ -47,7 +43,7 @@ declare module '@system.barcode' {
    * @param result 解析后的内容
    */
   interface ScanSuccessSuccessArg {
-   result: String;
+    result: String;
   }
 
   const barcode: Barcode;
