@@ -1,5 +1,3 @@
-/// <reference path="./index.d.ts"/>
-/// <reference path="./package.json"/>
 /// <reference path="./service.account.d.ts"/>
 /// <reference path="./service.alipay.d.ts"/>
 /// <reference path="./service.exchange.d.ts"/>
@@ -38,7 +36,7 @@
 /// <reference path="./system.resident.d.ts"/>
 /// <reference path="./system.router.d.ts"/>
 /// <reference path="./system.sensor.d.ts"/>
-/// <reference path="./system.share.d.st"/>
+/// <reference path="./system.share.d.ts"/>
 /// <reference path="./system.shortcut.d.ts"/>
 /// <reference path="./system.sms.d.ts"/>
 /// <reference path="./system.storage.d.ts"/>
@@ -47,4 +45,4 @@
 /// <reference path="./system.websocketfactory.d.ts"/>
 /// <reference path="./system.webview.d.ts"/>
 /// <reference path="./system.wifi.d.ts"/>
-/// <reference path="./update-index.js"/>
+/// <reference path="./types.d.ts"/>

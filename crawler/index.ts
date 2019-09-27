@@ -3,60 +3,6 @@ import { writeFileSync, writeFile, mkdirSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import { resolve } from 'path';
 
-interface Api {
-  name: string;
-  href: string;
-  moduleName?: string | null;
-  moduleVariable?: string | null;
-  bgRestrictDesc?: string | null;
-  methods: Array<Method>;
-  listeners: Array<Listener>;
-  attributes: Array<Attribute>;
-}
-
-interface Method {
-  name: string;
-  desc: string;
-  since: string;
-  example?: string | null;
-  args: Array<Arg>;
-  return: Array<Return>;
-}
-
-interface Arg {
-  name: string;
-  desc: string;
-  type: string;
-  since?: string | null;
-  required?: Boolean;
-  attributes: Array<Arg>;
-}
-
-interface Attribute {
-  name: string;
-  type: string;
-  desc: string;
-  since?: string | null;
-  readable: Boolean;
-  writeable: Boolean;
-}
-
-interface Return {
-  name: string;
-  type: string;
-  desc: string;
-  since?: string | null;
-  attributes: Array<Return>;
-}
-
-interface Listener {
-  name: string;
-  desc: string;
-  since?: string;
-  example: string;
-  args: Array<Arg>;
-}
-
 const BASE_URL = 'https://doc.quickapp.cn/features/';
 async function getApiList() {
   const dom = await getDomWithCache(BASE_URL);
@@ -72,6 +18,9 @@ async function getApiList() {
         methods: [],
         listeners: [],
         attributes: [],
+        moduleName: '',
+        moduleVariable: '',
+        bgRestrictDesc: '',
       });
     });
   return apis;
@@ -217,11 +166,11 @@ function getApiDefinition(api: Api) {
           argsReading = true;
           returnReading = false;
         }
-        if (textContent.match(/share\.getAvailablePlatforms\(OBJECT\) 1010\+/)) debugger;
+        if (textContent.match(/health\.getLastWeekSteps\(OBJECT\)/)) debugger;
 
         // 读取参数列表
         const argNameMatch =
-          textContent.match(/(\w*)\s*(参数)\s*(\d{4}\+)*[：\:]/) ||
+          textContent.match(/(\w*)\s*(参数|列表项参数说明)\s*(\d{4}\+)*[：\:]/) ||
           textContent.match(/(\w+)\s*(\d{4}\+)*[：\:]$/);
 
         const returnMatch = textContent.match(
@@ -267,17 +216,15 @@ function getApiDefinition(api: Api) {
             thead.textContent &&
             thead.textContent.match(/参数(名|值)?类型(必填)?(说明|描述)/) &&
             el.querySelectorAll('tbody tr').forEach(tr => {
-              const { other: name, since } = splitSince(tdText(tr, 0));
-              const { other: type, since: typeSince } = splitSince(
-                tdText(tr, 1),
-              );
-
-              if (!name) return console.log('name为空', tr.textContent);
+              let { other: name, since } = splitSince(tdText(tr, 0));
+              let { other: type, since: typeSince } = splitSince(tdText(tr, 1));
+              let desc = tdText(tr, 3) || tdText(tr, 2);
+              if (!desc) debugger;
 
               const arg: Arg = {
                 name,
                 type,
-                desc: tdText(tr, 3),
+                desc,
                 since: since || typeSince,
                 required: tdText(tr, 2) === '是',
                 attributes: [],
@@ -319,16 +266,23 @@ function getApiDefinition(api: Api) {
             thead.textContent &&
             thead.textContent.match(/(参数名)?(类型)?(说明|描述)/) &&
             el.querySelectorAll('tbody tr').forEach(tr => {
-              const { other: name, since } = splitSince(tdText(tr, 0));
-              const { other: type, since: typeSince } = splitSince(
-                tdText(tr, 1),
-              );
-              if (!name) return console.log('name为空', tr.textContent);
+              let { other: name, since } = splitSince(tdText(tr, 0));
+              let { other: type, since: typeSince } = splitSince(tdText(tr, 1));
+              let desc = tdText(tr, 2);
+
+              // TODO: 更准确的表格识别
+              if (tr.children.length === 2) {
+                desc = type;
+                type = name;
+                name = '';
+              } else {
+                if (!name) return console.log('name为空', tr.textContent);
+              }
 
               const ret: Return = {
                 name,
                 type,
-                desc: tdText(tr, 2),
+                desc,
                 since: since || typeSince,
                 attributes: [],
               };
@@ -486,7 +440,8 @@ async function getDomWithCache(url: string, cache: Boolean = true) {
 function splitSince(str: string) {
   const matchSince = str.match(/\'?(\d{4})\+?\'?/);
   const since = matchSince ? matchSince[1] : '';
-  const other = str.replace(/'?(\d{4})\+?'?/, '').trim();
+  // TODO: 可能多个since String/Object 1030+/ArrayBuffer 1030+
+  const other = str.replace(/'?(\d{4})\+?'?/g, '').trim();
   return { other, since };
 }
 

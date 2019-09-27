@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "outDir": "./build",
     "allowJs": true,
     "target": "es2015",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "strict": true,
     "noImplicitAny": true,
     "sourceMap": true
   },
-  "include": ["./crawler/*"]
+  "include": ["./crawler/**/*"]
 }

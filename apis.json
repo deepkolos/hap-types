@@ -104,6 +104,8 @@
     ],
     "listeners": [],
     "attributes": [],
+    "moduleName": "",
+    "moduleVariable": "",
     "bgRestrictDesc": "无限制。 后台运行详细用法参见后台运行 脚本。"
   },
   {
@@ -229,9 +231,9 @@
         "example": "var length = router.getLength()\nconsole.log(`page's length = ${length}`)\n",
         "return": [
           {
-            "name": "Number",
-            "type": "页面数量",
-            "desc": "",
+            "name": "",
+            "type": "Number",
+            "desc": "页面数量",
             "since": "",
             "attributes": []
           }
@@ -470,7 +472,7 @@
                   {
                     "name": "index",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "选中按钮在 buttons 数组中的序号",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -535,7 +537,7 @@
                   {
                     "name": "index",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "选中按钮在 itemList 数组中的序号",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -788,7 +790,7 @@
                   {
                     "name": "code",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "服务器状态 code",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -796,7 +798,7 @@
                   {
                     "name": "data",
                     "type": "String",
-                    "desc": "",
+                    "desc": "如果服务器返回的 header 中 type 是 text/*或 application/json、application/javascript、application/xml，值是文本内容，否则是存储的临时文件的 uri 临时文件如果是图片或者视频内容，可以将图片设置到 image 或 video 控件上显示",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -804,7 +806,7 @@
                   {
                     "name": "headers",
                     "type": "Object",
-                    "desc": "",
+                    "desc": "服务器 response 的所有 header",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -885,7 +887,7 @@
                   {
                     "name": "token",
                     "type": "String",
-                    "desc": "",
+                    "desc": "下载的 token，根据此 token 获取下载状态",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -942,7 +944,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "下载文件的 Uri",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -1042,15 +1044,15 @@
                   {
                     "name": "code",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "服务器状态 code",
                     "since": "",
                     "required": false,
                     "attributes": []
                   },
                   {
                     "name": "data",
-                    "type": "String/Object /ArrayBuffer 1030+",
-                    "desc": "",
+                    "type": "String/Object /ArrayBuffer",
+                    "desc": "参考 responseType与success中data关系 部分",
                     "since": "1030",
                     "required": false,
                     "attributes": []
@@ -1058,7 +1060,7 @@
                   {
                     "name": "headers",
                     "type": "Object",
-                    "desc": "",
+                    "desc": "服务器 response 的所有 header",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -1138,9 +1140,9 @@
         "example": "ws.onerror = function(data) {\n  console.log(`onerror data.data = ${data.data}`)\n}\n",
         "return": [
           {
-            "name": "WebSocket",
-            "type": "返回一个 WebSocket 对象，请参考 WebSocket 对象",
-            "desc": "",
+            "name": "",
+            "type": "WebSocket",
+            "desc": "返回一个 WebSocket 对象，请参考 WebSocket 对象",
             "since": "",
             "attributes": []
           }
@@ -1566,7 +1568,7 @@
                   {
                     "name": "fileList",
                     "type": "Array",
-                    "desc": "",
+                    "desc": "文件列表，每个文件的格式为{uri:'file1',lastModifiedTime:1234456, length:123456}",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -1623,7 +1625,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "文件的 uri，该 uri 可以被其他组件或 Feature 访问",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -1631,7 +1633,7 @@
                   {
                     "name": "length",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "文件大小，单位 B",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -1639,7 +1641,7 @@
                   {
                     "name": "lastModifiedTime",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "文件的保存是的时间戳，从 1970/01/01 08:00:00 到当前时间的毫秒数",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -1882,7 +1884,7 @@
                   {
                     "name": "text",
                     "type": "String",
-                    "desc": "",
+                    "desc": "读取的文本",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -1956,7 +1958,7 @@
                   {
                     "name": "buffer",
                     "type": "Uint8Array",
-                    "desc": "",
+                    "desc": "读取的文件内容",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2415,7 +2417,7 @@
                   {
                     "name": "result",
                     "type": "String",
-                    "desc": "",
+                    "desc": "解析后的内容",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2491,7 +2493,7 @@
                   {
                     "name": "x",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "x 轴坐标",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2499,7 +2501,7 @@
                   {
                     "name": "y",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "y 轴坐标",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2507,7 +2509,7 @@
                   {
                     "name": "z",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "z 轴坐标",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2555,7 +2557,7 @@
                   {
                     "name": "direction",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "面对的方向度数",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2603,7 +2605,7 @@
                   {
                     "name": "distance",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "手机距离，单位为 cm。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2653,7 +2655,7 @@
                   {
                     "name": "intensity",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "光线强度，单位为 lux",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2703,7 +2705,7 @@
                   {
                     "name": "steps",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "计步传感器当前累计记录的步数。每次手机重启，这个值就会从 0 开始重新计算。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2812,7 +2814,7 @@
                   {
                     "name": "text",
                     "type": "String",
-                    "desc": "",
+                    "desc": "剪切板内容",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2888,7 +2890,7 @@
                   {
                     "name": "longitude",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "经度",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2896,7 +2898,7 @@
                   {
                     "name": "latitude",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "纬度",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -2904,7 +2906,7 @@
                   {
                     "name": "accuracy",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "精确度",
                     "since": "1040",
                     "required": false,
                     "attributes": []
@@ -2912,7 +2914,7 @@
                   {
                     "name": "time",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "时间",
                     "since": "1040",
                     "required": false,
                     "attributes": []
@@ -2961,7 +2963,7 @@
                   {
                     "name": "types",
                     "type": "Array",
-                    "desc": "",
+                    "desc": "支持的类型['gps','network']",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3027,7 +3029,7 @@
                   {
                     "name": "longitude",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "经度",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3035,7 +3037,7 @@
                   {
                     "name": "latitude",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "纬度",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3043,7 +3045,7 @@
                   {
                     "name": "accuracy",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "精确度",
                     "since": "1040",
                     "required": false,
                     "attributes": []
@@ -3051,7 +3053,7 @@
                   {
                     "name": "time",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "时间",
                     "since": "1040",
                     "required": false,
                     "attributes": []
@@ -3349,7 +3351,7 @@
                   {
                     "name": "metered",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "是否按照流量计费",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3357,7 +3359,7 @@
                   {
                     "name": "type",
                     "type": "String",
-                    "desc": "",
+                    "desc": "网络类型，可能的值为 2g，3g，4g，wifi，none",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3414,7 +3416,7 @@
                   {
                     "name": "metered",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "是否按照流量计费",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3422,7 +3424,7 @@
                   {
                     "name": "type",
                     "type": "String",
-                    "desc": "",
+                    "desc": "网络类型，可能的值为 2g，3g，4g，wifi，none",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3481,7 +3483,7 @@
                   {
                     "name": "brand",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备品牌",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3489,7 +3491,7 @@
                   {
                     "name": "manufacturer",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备生产商",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3497,7 +3499,7 @@
                   {
                     "name": "model",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备型号",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3505,7 +3507,7 @@
                   {
                     "name": "product",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备代号",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3513,7 +3515,7 @@
                   {
                     "name": "osType",
                     "type": "String",
-                    "desc": "",
+                    "desc": "操作系统名称",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3521,7 +3523,7 @@
                   {
                     "name": "osVersionName",
                     "type": "String",
-                    "desc": "",
+                    "desc": "操作系统版本名称",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3529,7 +3531,7 @@
                   {
                     "name": "osVersionCode",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "操作系统版本号",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3537,7 +3539,7 @@
                   {
                     "name": "platformVersionName",
                     "type": "String",
-                    "desc": "",
+                    "desc": "运行平台版本名称",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3545,7 +3547,7 @@
                   {
                     "name": "platformVersionCode",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "运行平台版本号",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3553,7 +3555,7 @@
                   {
                     "name": "language",
                     "type": "String",
-                    "desc": "",
+                    "desc": "系统语言",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3561,7 +3563,7 @@
                   {
                     "name": "region",
                     "type": "String",
-                    "desc": "",
+                    "desc": "系统地区",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3569,7 +3571,7 @@
                   {
                     "name": "screenWidth",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "屏幕宽",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3577,7 +3579,7 @@
                   {
                     "name": "screenHeight",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "屏幕高",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3585,7 +3587,7 @@
                   {
                     "name": "windowWidth",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "可使用窗口宽度",
                     "since": "1030",
                     "required": false,
                     "attributes": []
@@ -3593,7 +3595,7 @@
                   {
                     "name": "windowHeight",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "可使用窗口高度",
                     "since": "1030",
                     "required": false,
                     "attributes": []
@@ -3601,7 +3603,7 @@
                   {
                     "name": "statusBarHeight",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "状态栏高度",
                     "since": "1030",
                     "required": false,
                     "attributes": []
@@ -3609,7 +3611,7 @@
                   {
                     "name": "screenDensity",
                     "type": "Float",
-                    "desc": "",
+                    "desc": "设备的屏幕密度",
                     "since": "1040",
                     "required": false,
                     "attributes": []
@@ -3666,7 +3668,7 @@
                   {
                     "name": "device",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备唯一标识。在 Android 上返回 IMEI 或 MEID",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3674,7 +3676,7 @@
                   {
                     "name": "mac",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备的 mac 地址。在 Android M 及以上返回固定值：02:00:00:00:00:00",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3682,7 +3684,7 @@
                   {
                     "name": "user",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用户唯一标识。在 Android 上返回 androidid",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3690,7 +3692,7 @@
                   {
                     "name": "advertising",
                     "type": "String",
-                    "desc": "",
+                    "desc": "广告唯一标识",
                     "since": "1000",
                     "required": false,
                     "attributes": []
@@ -3739,7 +3741,7 @@
                   {
                     "name": "deviceId",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备唯一标识。在 Android 上返回 IMEI 或 MEID",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3789,7 +3791,7 @@
                   {
                     "name": "userId",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备唯一标识。在 Android 上返回 androidid",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3839,7 +3841,7 @@
                   {
                     "name": "advertisingId",
                     "type": "String",
-                    "desc": "",
+                    "desc": "广告唯一标识",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3889,7 +3891,7 @@
                   {
                     "name": "serial",
                     "type": "String",
-                    "desc": "",
+                    "desc": "设备序列号",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3939,7 +3941,7 @@
                   {
                     "name": "totalStorage",
                     "type": "Long",
-                    "desc": "",
+                    "desc": "存储空间的总大小，单位是 Byte。在 Android 上返回的是外部存储的总大小",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -3989,7 +3991,7 @@
                   {
                     "name": "availableStorage",
                     "type": "Long",
-                    "desc": "",
+                    "desc": "存储空间的可用大小，单位是 Byte。在 Android 上返回的是外部存储的可用大小",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4039,7 +4041,7 @@
                   {
                     "name": "cpuInfo",
                     "type": "String",
-                    "desc": "",
+                    "desc": "CPU 信息。在 Android 上返回的是/proc/cpuinfo 文件的内容",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4115,7 +4117,7 @@
                   {
                     "name": "value",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "屏幕亮度，取值范围 0-255",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4212,7 +4214,7 @@
                   {
                     "name": "mode",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "0 为手动调节屏幕亮度,1 为自动调节屏幕亮度",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4320,7 +4322,7 @@
                   {
                     "name": "value",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "系统媒体当前音量，0.0-1.0 之间。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4428,7 +4430,7 @@
                   {
                     "name": "charging",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "是否正在充电",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4436,7 +4438,7 @@
                   {
                     "name": "level",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "当前电量，0.0 - 1.0 之间",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4504,7 +4506,7 @@
                   {
                     "name": "result",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "应用是否存在",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4561,7 +4563,7 @@
                   {
                     "name": "result",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "是否成功发起安装操作",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4661,7 +4663,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "录音文件的存储路径，在应用的缓存目录中",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4736,7 +4738,7 @@
                   {
                     "name": "displayName",
                     "type": "String",
-                    "desc": "",
+                    "desc": "联系人名称",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4744,7 +4746,7 @@
                   {
                     "name": "number",
                     "type": "String",
-                    "desc": "",
+                    "desc": "电话号码",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4793,7 +4795,7 @@
                   {
                     "name": "contactList",
                     "type": "Array",
-                    "desc": "",
+                    "desc": "联系人列表",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -4819,7 +4821,7 @@
               {
                 "name": "displayName",
                 "type": "String",
-                "desc": "",
+                "desc": "联系人名称",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -4827,7 +4829,7 @@
               {
                 "name": "number",
                 "type": "String",
-                "desc": "",
+                "desc": "电话号码",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -4934,7 +4936,7 @@
                   {
                     "name": "message",
                     "type": "String",
-                    "desc": "",
+                    "desc": "原始短信内容",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -5099,7 +5101,7 @@
                   {
                     "name": "SSID",
                     "type": "String",
-                    "desc": "",
+                    "desc": "Wi-Fi 的 SSID",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -5107,7 +5109,7 @@
                   {
                     "name": "BSSID",
                     "type": "String",
-                    "desc": "",
+                    "desc": "Wi-Fi 的 BSSID",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -5115,7 +5117,7 @@
                   {
                     "name": "secure",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "Wi-Fi 是否安全",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -5123,7 +5125,7 @@
                   {
                     "name": "signalStrength",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "Wi-Fi 信号强度",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -5166,7 +5168,7 @@
               {
                 "name": "wifiList",
                 "type": "Array",
-                "desc": "",
+                "desc": "Wi-Fi 列表数据",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -5302,7 +5304,7 @@
                   {
                     "name": "available",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "蓝牙适配器是否可用",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -5310,7 +5312,7 @@
                   {
                     "name": "discovering",
                     "type": "Boolean",
-                    "desc": "",
+                    "desc": "是否正在搜索设备",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -5463,14 +5465,14 @@
                   {
                     "name": "devices",
                     "type": "Object[]",
-                    "desc": "",
+                    "desc": "蓝牙模块生效期间已发现的蓝牙设备",
                     "since": "",
                     "required": false,
                     "attributes": [
                       {
                         "name": "name",
                         "type": "String",
-                        "desc": "",
+                        "desc": "蓝牙设备名称，某些设备可能没有",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5478,7 +5480,7 @@
                       {
                         "name": "deviceId",
                         "type": "String",
-                        "desc": "",
+                        "desc": "用于区分设备的 id",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5486,7 +5488,7 @@
                       {
                         "name": "RSSI",
                         "type": "Number",
-                        "desc": "",
+                        "desc": "当前蓝牙设备的信号强度",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5494,7 +5496,7 @@
                       {
                         "name": "advertisData",
                         "type": "ArrayBuffer",
-                        "desc": "",
+                        "desc": "当前蓝牙设备的广播数据段中的 ManufacturerData 数据段",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5502,7 +5504,7 @@
                       {
                         "name": "advertisServiceUUIDs",
                         "type": "String[]",
-                        "desc": "",
+                        "desc": "当前蓝牙设备的广播数据段中的 ServiceUUIDs 数据段",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5510,7 +5512,7 @@
                       {
                         "name": "localName",
                         "type": "String",
-                        "desc": "",
+                        "desc": "当前蓝牙设备的广播数据段中的 LocalName 数据段",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5518,7 +5520,7 @@
                       {
                         "name": "serviceData",
                         "type": "Object",
-                        "desc": "",
+                        "desc": "当前蓝牙设备的广播数据段中的 ServiceData 数据段，key 为 uuid 的 String 值，value 为对应的 ServiceData 的 ArrayBuffer",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5569,14 +5571,14 @@
                   {
                     "name": "devices",
                     "type": "Object[]",
-                    "desc": "",
+                    "desc": "uuid 对应的的已连接设备列表",
                     "since": "",
                     "required": false,
                     "attributes": [
                       {
                         "name": "name",
                         "type": "String",
-                        "desc": "",
+                        "desc": "蓝牙设备名称，某些设备可能没有",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5584,7 +5586,7 @@
                       {
                         "name": "deviceId",
                         "type": "String",
-                        "desc": "",
+                        "desc": "用于区分设备的 id",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5755,14 +5757,14 @@
                   {
                     "name": "services",
                     "type": "Object[]",
-                    "desc": "",
+                    "desc": "设备服务列表",
                     "since": "",
                     "required": false,
                     "attributes": [
                       {
                         "name": "uuid",
                         "type": "String",
-                        "desc": "",
+                        "desc": "蓝牙设备服务的 uuid",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5770,7 +5772,7 @@
                       {
                         "name": "isPrimary",
                         "type": "Boolean",
-                        "desc": "",
+                        "desc": "该服务是否为主服务",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5821,14 +5823,14 @@
                   {
                     "name": "characteristics",
                     "type": "Object[]",
-                    "desc": "",
+                    "desc": "设备服务列表",
                     "since": "",
                     "required": false,
                     "attributes": [
                       {
                         "name": "uuid",
                         "type": "String",
-                        "desc": "",
+                        "desc": "蓝牙设备特征值的 uuid",
                         "since": "",
                         "required": false,
                         "attributes": []
@@ -5836,14 +5838,14 @@
                       {
                         "name": "properties",
                         "type": "Object",
-                        "desc": "",
+                        "desc": "该特征值支持的操作类型",
                         "since": "",
                         "required": false,
                         "attributes": [
                           {
                             "name": "read",
                             "type": "Boolean",
-                            "desc": "",
+                            "desc": "该特征值是否支持 read 操作",
                             "since": "",
                             "required": false,
                             "attributes": []
@@ -5851,7 +5853,7 @@
                           {
                             "name": "write",
                             "type": "Boolean",
-                            "desc": "",
+                            "desc": "该特征值是否支持 write 操作",
                             "since": "",
                             "required": false,
                             "attributes": []
@@ -5859,7 +5861,7 @@
                           {
                             "name": "notify",
                             "type": "Boolean",
-                            "desc": "",
+                            "desc": "该特征值是否支持 notify 操作",
                             "since": "",
                             "required": false,
                             "attributes": []
@@ -5867,7 +5869,7 @@
                           {
                             "name": "indicate",
                             "type": "Boolean",
-                            "desc": "",
+                            "desc": "该特征值是否支持 indicate 操作",
                             "since": "",
                             "required": false,
                             "attributes": []
@@ -6138,7 +6140,7 @@
               {
                 "name": "available",
                 "type": "Boolean",
-                "desc": "",
+                "desc": "蓝牙适配器是否可用",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -6146,7 +6148,7 @@
               {
                 "name": "discovering",
                 "type": "Boolean",
-                "desc": "",
+                "desc": "蓝牙适配器是否处于搜索状态",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -6168,7 +6170,7 @@
               {
                 "name": "devices",
                 "type": "Object[]",
-                "desc": "",
+                "desc": "新搜索到的设备列表，devices 返回值见 getDevices",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -6190,7 +6192,7 @@
               {
                 "name": "deviceId",
                 "type": "String",
-                "desc": "",
+                "desc": "蓝牙设备 id",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -6198,7 +6200,7 @@
               {
                 "name": "serviceId",
                 "type": "String",
-                "desc": "",
+                "desc": "蓝牙特征值对应服务的 uuid",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -6206,7 +6208,7 @@
               {
                 "name": "characteristicId",
                 "type": "String",
-                "desc": "",
+                "desc": "蓝牙特征值的 uuid",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -6214,7 +6216,7 @@
               {
                 "name": "value",
                 "type": "ArrayBuffer",
-                "desc": "",
+                "desc": "特征值最新的值",
                 "since": "",
                 "required": false,
                 "attributes": []
@@ -6392,7 +6394,7 @@
                   {
                     "name": "text",
                     "type": "String",
-                    "desc": "",
+                    "desc": "经过加密或解密后生成的文本内容。加密后内容是经过 base64 编码的一段二进制值，解密后内容是一段普通文本。如果解密后的内容不能转化为 utf-8 字符串会出错",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6452,7 +6454,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "选取的文件路径",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6509,7 +6511,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "选取的文件路径",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6566,7 +6568,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "选取的文件路径",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6623,7 +6625,7 @@
                   {
                     "name": "uris",
                     "type": "Array",
-                    "desc": "",
+                    "desc": "选取的文件路径列表",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6681,7 +6683,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "选取的文件路径",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6738,7 +6740,7 @@
                   {
                     "name": "uris",
                     "type": "Array",
-                    "desc": "",
+                    "desc": "选取的文件路径列表",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6796,7 +6798,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "选取的文件路径",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -6968,7 +6970,7 @@
                   {
                     "name": "title",
                     "type": "String",
-                    "desc": "",
+                    "desc": "铃声名称，若铃声被删除，返回空字符串。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7102,7 +7104,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "图片地址",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7110,7 +7112,7 @@
                   {
                     "name": "width",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "图片的宽度，单位为 px",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7118,7 +7120,7 @@
                   {
                     "name": "height",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "图片的高度，单位为 px",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7126,7 +7128,7 @@
                   {
                     "name": "size",
                     "type": "Long",
-                    "desc": "",
+                    "desc": "图片的大小，单位为 Byte",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7207,7 +7209,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "压缩后的图片地址",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7288,7 +7290,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "生成的图片的地址",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7362,7 +7364,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "生成的图片的地址",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7427,7 +7429,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "图片地址",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7435,7 +7437,7 @@
                   {
                     "name": "attributes",
                     "type": "Object",
-                    "desc": "",
+                    "desc": "图片的exif信息",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7501,7 +7503,7 @@
                   {
                     "name": "uri",
                     "type": "String",
-                    "desc": "",
+                    "desc": "图片地址",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7584,7 +7586,7 @@
                   {
                     "name": "state",
                     "type": "String",
-                    "desc": "",
+                    "desc": "播放状态,分别为'play','pause','stop'",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7592,7 +7594,7 @@
                   {
                     "name": "src",
                     "type": "String",
-                    "desc": "",
+                    "desc": "当前播放的音频媒体 uri，停止时返回空字符串",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7600,7 +7602,7 @@
                   {
                     "name": "currentTime",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "当前音频的当前进度，单位秒,停止时返回-1",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7608,7 +7610,7 @@
                   {
                     "name": "autoplay",
                     "type": "Boolen",
-                    "desc": "",
+                    "desc": "当前音频是否在自动播放",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7616,7 +7618,7 @@
                   {
                     "name": "loop",
                     "type": "Boolen",
-                    "desc": "",
+                    "desc": "当前音频是否在循环播放",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7624,7 +7626,7 @@
                   {
                     "name": "volume",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "当前音频的音量，默认当前系统媒体音量，音量变化范围[0.0,1.0]",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7632,7 +7634,7 @@
                   {
                     "name": "muted",
                     "type": "Boolen",
-                    "desc": "",
+                    "desc": "当前音频是否在静音播放",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7640,7 +7642,7 @@
                   {
                     "name": "notificationVisible",
                     "type": "Boolen",
-                    "desc": "",
+                    "desc": "当前音频是否正在通知栏中显示音频播放状态",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7893,7 +7895,7 @@
                   {
                     "name": "regId",
                     "type": "String",
-                    "desc": "",
+                    "desc": "PushService 返回的注册 id，可用于针对某个用户发送消息",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7982,7 +7984,7 @@
                   {
                     "name": "messageId",
                     "type": "String",
-                    "desc": "",
+                    "desc": "消息 id",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -7990,7 +7992,7 @@
                   {
                     "name": "data",
                     "type": "String",
-                    "desc": "",
+                    "desc": "消息内容 payload",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8065,7 +8067,7 @@
                   {
                     "name": "code",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "返回状态码",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8073,7 +8075,7 @@
                   {
                     "name": "message",
                     "type": "String",
-                    "desc": "",
+                    "desc": "消息内容",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8081,7 +8083,7 @@
                   {
                     "name": "result",
                     "type": "String",
-                    "desc": "",
+                    "desc": "支付结果",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8098,7 +8100,7 @@
                   {
                     "name": "code",
                     "type": "Integer",
-                    "desc": "",
+                    "desc": "返回状态码",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8106,7 +8108,7 @@
                   {
                     "name": "message",
                     "type": "String",
-                    "desc": "",
+                    "desc": "消息内容",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8303,7 +8305,7 @@
                   {
                     "name": "state",
                     "type": "String",
-                    "desc": "",
+                    "desc": "请求时同字段指定的任意值。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8311,7 +8313,7 @@
                   {
                     "name": "code",
                     "type": "String",
-                    "desc": "",
+                    "desc": "授权码模式下可用，返回的授权码。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8319,7 +8321,7 @@
                   {
                     "name": "accessToken",
                     "type": "String",
-                    "desc": "",
+                    "desc": "简化模式下可用，返回的访问令牌。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8327,7 +8329,7 @@
                   {
                     "name": "tokenType",
                     "type": "String",
-                    "desc": "",
+                    "desc": "简化模式下可用，访问令牌类型。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8335,7 +8337,7 @@
                   {
                     "name": "expiresIn",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "简化模式下可用，访问令牌过期时间，单位为秒，如果通过其他方式设置，则此处可能为空。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8343,7 +8345,7 @@
                   {
                     "name": "scope",
                     "type": "String",
-                    "desc": "",
+                    "desc": "简化模式下可用，实际权限范围，如果与申请一致，则此处可能为空。",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8400,7 +8402,7 @@
                   {
                     "name": "openid",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用户的 openid，可能为空",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8408,7 +8410,7 @@
                   {
                     "name": "id",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用户的 user id，可能为空",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8416,7 +8418,7 @@
                   {
                     "name": "unionid",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用户在开放平台上的唯一标示符，本字段在满足一定条件下才会返回（需要在厂商的开放平台上额外申请）",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8424,7 +8426,7 @@
                   {
                     "name": "nickname",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用户的昵称，可能为空",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8432,7 +8434,7 @@
                   {
                     "name": "avatar",
                     "type": "Object",
-                    "desc": "",
+                    "desc": "用户的头像图片地址，可能为空，按照分辨率组织，当只有一个分辨率时，可以使用 default 对应的图片地址",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8532,7 +8534,7 @@
                   {
                     "name": "steps",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "返回当天步数",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8581,10 +8583,27 @@
                   {
                     "name": "stepsList",
                     "type": "Array",
-                    "desc": "",
+                    "desc": "最近七天步数列表数据",
                     "since": "",
                     "required": false,
-                    "attributes": []
+                    "attributes": [
+                      {
+                        "name": "date",
+                        "type": "String",
+                        "desc": "日期(2019-04-08)",
+                        "since": "",
+                        "required": false,
+                        "attributes": []
+                      },
+                      {
+                        "name": "steps",
+                        "type": "Number",
+                        "desc": "日期对应的步数",
+                        "since": "",
+                        "required": false,
+                        "attributes": []
+                      }
+                    ]
                   }
                 ]
               },
@@ -8672,7 +8691,7 @@
                   {
                     "name": "prepayid",
                     "type": "String",
-                    "desc": "",
+                    "desc": "只在 App 支付方式下会出现，微信支付订单的 prepayId.",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8680,7 +8699,7 @@
                   {
                     "name": "final_url",
                     "type": "String",
-                    "desc": "",
+                    "desc": "只在网页方式下会出现，拼接参数之后，最终用于打开网页的 url.",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8894,7 +8913,7 @@
                   {
                     "name": "platforms",
                     "type": "Array",
-                    "desc": "",
+                    "desc": "当前可用的支持分享的平台列表，可用值包括：WEIBO(新浪微博)、QQ、WEIXIN、WEIXIN_CIRCLE(微信朋友圈)、SYSTEM(系统分享)",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8986,7 +9005,7 @@
                   {
                     "name": "url",
                     "type": "String",
-                    "desc": "",
+                    "desc": "QQ 回调给出的完整 url,仅在网页方式下会返回",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -8994,7 +9013,7 @@
                   {
                     "name": "code",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用于换取 accessToken 的 Authorization_Code,仅在网页方式下会返回，通过 code 换取 AccessToken 的方法参考QQ 的文档",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9002,7 +9021,7 @@
                   {
                     "name": "state",
                     "type": "String",
-                    "desc": "",
+                    "desc": "原始的 state 值,仅在网页方式下会返回",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9010,7 +9029,7 @@
                   {
                     "name": "openId",
                     "type": "String",
-                    "desc": "",
+                    "desc": "QQ 登陆后给该用户的唯一标示,仅在 app 方式下会返回",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9018,7 +9037,7 @@
                   {
                     "name": "accessToken",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用于访问 api 的 accessToken,仅在 app 方式下会返回",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9026,7 +9045,7 @@
                   {
                     "name": "expiresIn",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "accessToken 的有效时长，以秒为单位",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9116,7 +9135,7 @@
                   {
                     "name": "code",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用于换取 accessToken 的 code，方法参考微信的文档",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9124,7 +9143,7 @@
                   {
                     "name": "state",
                     "type": "String",
-                    "desc": "",
+                    "desc": "第三方程序发送时用来标识其请求的唯一性的标志，由第三方程序调用 sendReq 时传入，由微信终端回传，state 字符串长度不能超过 1K",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9132,7 +9151,7 @@
                   {
                     "name": "lang",
                     "type": "String",
-                    "desc": "",
+                    "desc": "微信客户端当前语言",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9140,7 +9159,7 @@
                   {
                     "name": "country",
                     "type": "String",
-                    "desc": "",
+                    "desc": "微信用户当前国家信息",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9230,7 +9249,7 @@
                   {
                     "name": "accessToken",
                     "type": "String",
-                    "desc": "",
+                    "desc": "授权 token",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9238,7 +9257,7 @@
                   {
                     "name": "expiresIn",
                     "type": "Number",
-                    "desc": "",
+                    "desc": "过期时间",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9246,7 +9265,7 @@
                   {
                     "name": "uid",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用户 uid",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9254,7 +9273,7 @@
                   {
                     "name": "refreshToken",
                     "type": "String",
-                    "desc": "",
+                    "desc": "刷新 token，可用于刷新授权 token 有效期",
                     "since": "",
                     "required": false,
                     "attributes": []
@@ -9262,7 +9281,7 @@
                   {
                     "name": "phone",
                     "type": "String",
-                    "desc": "",
+                    "desc": "用户输入的手机号码",
                     "since": "",
                     "required": false,
                     "attributes": []

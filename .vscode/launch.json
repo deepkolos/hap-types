@@ -7,8 +7,15 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}\\crawler\\index.js",
+      "name": "create-definition",
+      "program": "${workspaceFolder}\\build\\crawler\\create-definition.js",
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "crawler",
+      "program": "${workspaceFolder}\\build\\crawler\\index.js",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]

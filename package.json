@@ -4,21 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "update-index": "node update-index",
-    "update-from-page": "node crawler/index.js",
     "dev": "tsc --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "update": "npm run update-apis & npm run update-dts",
+    "update-index": "node update-index",
+    "update-apis": "node build/crawler/index.js",
+    "update-dts": "node build/crawler/update-dts.js",
+    "print-types": "node build/crawler/print-type.js"
   },
   "keywords": [],
   "author": "DeepKolos <deepkolos@qq.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^24.0.18",
     "@types/jsdom": "^12.2.4",
     "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
     "axios": "^0.19.0",
     "htmlparser": "^1.7.7",
+    "jest": "^24.9.0",
     "jsdom": "^15.1.1",
     "soupselect": "^0.2.0",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
   }
 }

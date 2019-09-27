@@ -3,6 +3,7 @@ const os = require('os');
 
 const index = fs
   .readdirSync('./')
+  .filter(file => file.endsWith('.d.ts') && file !== 'index.d.ts')
   .map(file => `/// <reference path="./${file}"/>`)
   .join(os.EOL);
 
