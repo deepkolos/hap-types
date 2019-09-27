@@ -11,7 +11,8 @@
     "update-apis": "node build/crawler/index.js",
     "update-dts": "node build/crawler/update-dts.js",
     "prettier-dts": "prettier --write ./*.d.ts",
-    "print-types": "node build/crawler/print-type.js"
+    "print-types": "node build/crawler/print-type.js",
+    "postinstall": "move-to-types"
   },
   "keywords": [],
   "author": "DeepKolos <deepkolos@qq.com>",
@@ -29,5 +30,8 @@
     "soupselect": "^0.2.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "move-to-types": "^1.1.5"
   }
 }
