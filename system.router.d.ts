@@ -138,6 +138,11 @@ declare module '@system.router' {
     ___PARAMLAUNCH_FLAG__: String;
   }
 
+  /**
+   * 页面路由 router
+   * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/router.html
+   */
   const router: Router;
   export default router;
 }

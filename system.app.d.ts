@@ -47,6 +47,11 @@ declare module '@system.app' {
     extra: Object;
   }
 
+  /**
+   * 应用上下文 app
+   * @后台运行限制 无限制。 后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/app.html
+   */
   const app: App;
   export default app;
 }

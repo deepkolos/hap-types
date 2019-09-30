@@ -636,6 +636,11 @@ declare module '@system.bluetooth' {
     complete: Function;
   }
 
+  /**
+   * 蓝牙 bluetooth
+   * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/bluetooth.html
+   */
   const bluetooth: Bluetooth;
   export default bluetooth;
 }

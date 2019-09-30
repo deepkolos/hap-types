@@ -30,6 +30,11 @@ declare module '@service.alipay' {
     callback: Function;
   }
 
+  /**
+   * 支付宝支付 alipay
+   * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/service/alipay.html
+   */
   const alipay: Alipay;
   export default alipay;
 }

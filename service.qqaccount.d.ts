@@ -64,6 +64,11 @@ declare module '@service.qqaccount' {
     expiresIn: Number;
   }
 
+  /**
+   * QQ 账户 qqaccount
+   * @后台运行限制 禁止使用。 后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/service/qqaccount.html
+   */
   const qqaccount: Qqaccount;
   export default qqaccount;
 }

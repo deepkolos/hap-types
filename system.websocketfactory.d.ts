@@ -29,6 +29,11 @@ declare module '@system.websocketfactory' {
     protocols: Stringarray;
   }
 
+  /**
+   * WebSocket
+   * @后台运行限制 无限制。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/websocket.html
+   */
   const websocketfactory: Websocketfactory;
   export default websocketfactory;
 }

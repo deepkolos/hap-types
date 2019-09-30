@@ -150,6 +150,11 @@ declare module '@system.brightness' {
     value: Integer;
   }
 
+  /**
+   * 屏幕亮度 brightness
+   * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/brightness.html
+   */
   const brightness: Brightness;
   export default brightness;
 }

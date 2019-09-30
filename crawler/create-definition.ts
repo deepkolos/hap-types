@@ -41,6 +41,11 @@ declare module '@${api.moduleName}' {
 
 ${otherDefinitions.reverse().join('\n')}
 
+  /**
+   * ${api.name}
+   * @后台运行限制 ${api.bgRestrictDesc}
+   * @see ${api.href}
+   */
   const ${api.moduleVariable}: ${interfaceName};
   export default ${api.moduleVariable};
 }`;

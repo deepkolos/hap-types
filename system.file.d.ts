@@ -373,6 +373,11 @@ declare module '@system.file' {
     complete: Function;
   }
 
+  /**
+   * 文件存储 file
+   * @后台运行限制 无限制。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/file.html
+   */
   const file: File;
   export default file;
 }

@@ -97,6 +97,11 @@ declare module '@system.cipher' {
     text: String;
   }
 
+  /**
+   * 密码算法 cipher
+   * @后台运行限制 无限制。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/cipher.html
+   */
   const cipher: Cipher;
   export default cipher;
 }

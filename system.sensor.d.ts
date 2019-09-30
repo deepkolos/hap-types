@@ -256,6 +256,11 @@ declare module '@system.sensor' {
     z: Integer;
   }
 
+  /**
+   * 传感器 sensor
+   * @后台运行限制 无限制。 后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/sensor.html
+   */
   const sensor: Sensor;
   export default sensor;
 }

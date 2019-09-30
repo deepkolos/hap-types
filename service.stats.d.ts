@@ -72,6 +72,11 @@ declare module '@service.stats' {
     map: Object;
   }
 
+  /**
+   * 统计 stats
+   * @后台运行限制 无限制。 后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/service/stats.html
+   */
   const stats: Stats;
   export default stats;
 }

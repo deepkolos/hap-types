@@ -374,6 +374,11 @@ declare module '@system.device' {
     screenDensity: Float;
   }
 
+  /**
+   * 设备信息 device
+   * @后台运行限制 无限制。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/device.html
+   */
   const device: Device;
   export default device;
 }

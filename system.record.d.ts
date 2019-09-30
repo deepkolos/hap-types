@@ -71,6 +71,11 @@ declare module '@system.record' {
     uri: String;
   }
 
+  /**
+   * 录音 record
+   * @后台运行限制 manifest 中申请后可用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/record.html
+   */
   const record: Record;
   export default record;
 }

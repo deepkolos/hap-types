@@ -75,6 +75,11 @@ declare module '@system.sms' {
     complete: Function;
   }
 
+  /**
+   * 发送短信 sms
+   * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/sms.html
+   */
   const sms: Sms;
   export default sms;
 }

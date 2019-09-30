@@ -156,6 +156,11 @@ declare module '@system.audio' {
     notificationVisible: Boolean;
   }
 
+  /**
+   * 音频 audio
+   * @后台运行限制 manifest 中申请后可用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/audio.html
+   */
   const audio: Audio;
   export default audio;
 }

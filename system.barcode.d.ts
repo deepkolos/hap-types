@@ -49,6 +49,11 @@ declare module '@system.barcode' {
     result: String;
   }
 
+  /**
+   * 二维码 barcode
+   * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/barcode.html
+   */
   const barcode: Barcode;
   export default barcode;
 }

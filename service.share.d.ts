@@ -110,6 +110,11 @@ declare module '@service.share' {
     cancel: Function;
   }
 
+  /**
+   * 第三方分享 share
+   * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/service/share.html
+   */
   const share: Share;
   export default share;
 }

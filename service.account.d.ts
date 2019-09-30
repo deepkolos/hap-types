@@ -132,6 +132,11 @@ declare module '@service.account' {
     scope: String;
   }
 
+  /**
+   * 账号 account
+   * @后台运行限制 禁止使用。 后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/service/account.html
+   */
   const account: Account;
   export default account;
 }

@@ -207,6 +207,11 @@ declare module '@system.request' {
     type: String;
   }
 
+  /**
+   * 上传下载 request
+   * @后台运行限制 manifest 中申请后可用。后台运行详细用法参见后台运行 脚本。
+   * @see https://doc.quickapp.cn/features/system/request.html
+   */
   const request: Request;
   export default request;
 }
