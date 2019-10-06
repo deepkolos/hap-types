@@ -1,6 +1,6 @@
 {
   "name": "hap-types",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "快应用接口定义文档转的 d.ts 定义包",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,6 @@
     "typescript": "^3.6.3"
   },
   "dependencies": {
-    "move-to-types": "^1.1.7"
+    "move-to-types": "^1.1.11"
   }
 }
