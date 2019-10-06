@@ -1,3 +1,5 @@
+/// <reference path="./types.d.ts"/>
+
 /**
  * 微博账户 wbaccount
  * @后台运行限制 禁止使用。后台运行详细用法参见后台运行 脚本。

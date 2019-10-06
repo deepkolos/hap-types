@@ -1,3 +1,5 @@
+/// <reference path="./types.d.ts"/>
+
 /**
  * 数据存储 storage
  * @后台运行限制 无限制。后台运行详细用法参见后台运行 脚本。

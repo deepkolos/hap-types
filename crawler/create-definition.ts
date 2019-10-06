@@ -27,6 +27,8 @@ export function createApiDefinition(api: Api): string {
     .join('\n');
 
   return `
+/// <reference path="./types.d.ts"/>
+
 /**
  * ${api.name}
  * @后台运行限制 ${api.bgRestrictDesc}

@@ -1,3 +1,5 @@
+/// <reference path="./types.d.ts"/>
+
 /**
  * 地理位置 geolocation
  * @后台运行限制 manifest 中申请后可用。后台运行详细用法参见后台运行 脚本。
