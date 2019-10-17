@@ -6,8 +6,8 @@
 
 # 截图
 
-![](https://raw.githubusercontent.com/deepkolos/hap-types/master/assets/screenshot.png)
+<img style="width: 400px;" src="https://raw.githubusercontent.com/deepkolos/hap-types/master/assets/screenshot.png"/>
 
-![](https://raw.githubusercontent.com/deepkolos/hap-types/master/assets/demo.webp)
+<img style="width: 400px;" src="https://raw.githubusercontent.com/deepkolos/hap-types/master/assets/demo.webp"/>
 
 > 注：由于通过爬虫爬取生成的, 还未完全校对过, 可能会有缺漏的地方
