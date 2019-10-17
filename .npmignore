@@ -6,3 +6,4 @@ jest.config.js
 .prettierrc
 tsconfig.json
 update-index.js
+assets
