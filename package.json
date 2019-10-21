@@ -1,6 +1,6 @@
 {
   "name": "hap-types",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "快应用接口定义文档转的 d.ts 定义包",
   "main": "index.js",
   "scripts": {
