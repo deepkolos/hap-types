@@ -26,16 +26,16 @@ declare module '@system.barcode' {
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface ScanOBJECT {
-    success: ScanOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: ScanOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -45,10 +45,10 @@ declare module '@system.barcode' {
 
   /**
    * 成功回调
-   * @param result 解析后的内容
+   * @param result 解析后的内容[可选]
    */
   interface ScanSuccessSuccessArg {
-    result: String;
+    result?: String;
   }
 
   /**

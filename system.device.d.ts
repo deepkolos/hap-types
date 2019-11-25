@@ -76,37 +76,73 @@ declare module '@system.device' {
     /**
      * 返回 CPU 信息
      * @since 1000
+     */
+    getCpuInfo(OBJECT: GetCpuInfoOBJECT): any;
+
+    /**
+     * 返回厂商设备标识符中的OAID（匿名设备标识符）
+     * @since 1060
      * @example
      * ```js
      * var device = require('@system.device')
-     * var platform = device.platform
-     * var versionName = platform.versionName
-     * var versionCode = platform.versionCode
+     * var allowTrackOAID = device.allowTrackOAID
      * ```
      */
-    getCpuInfo(OBJECT: GetCpuInfoOBJECT): GetCpuInfoReturn;
+    getOAID(OBJECT: GetOAIDOBJECT): GetOAIDReturn;
+
+    /**
+     * 限制oaid以及android q以上的deviceId是否可以用于广告跟踪
+     * @readable true
+     * @writeable false
+     */
+    allowTrackOAID: Boolean;
   }
 
   /**
-   * getCpuInfo的返回值
-   * @param versionName 运行平台版本名称
-   * @param versionCode 运行平台版本号
+   * getOAID的返回值
+   * @param versionName 运行平台版本名称[可选]
+   * @param versionCode 运行平台版本号[可选]
    */
-  interface GetCpuInfoReturn {
-    versionName: String;
-    versionCode: Integer;
+  interface GetOAIDReturn {
+    versionName?: String;
+    versionCode?: Integer;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
+   */
+  interface GetOAIDOBJECT {
+    success?: GetOAIDOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
+  }
+
+  /**
+   * 成功回调
+   */
+  type GetOAIDOBJECTSuccessCB = (successArg: GetOAIDSuccessSuccessArg) => any;
+
+  /**
+   * 成功回调
+   * @param oaid oaid的值,如果当前手机还不支持oaid，返回空值[可选]
+   */
+  interface GetOAIDSuccessSuccessArg {
+    oaid?: String;
+  }
+
+  /**
+   *
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetCpuInfoOBJECT {
-    success: GetCpuInfoOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetCpuInfoOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -118,22 +154,22 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param cpuInfo CPU 信息。在 Android 上返回的是/proc/cpuinfo 文件的内容
+   * @param cpuInfo CPU 信息。在 Android 上返回的是/proc/cpuinfo 文件的内容[可选]
    */
   interface GetCpuInfoSuccessSuccessArg {
-    cpuInfo: String;
+    cpuInfo?: String;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetAvailableStorageOBJECT {
-    success: GetAvailableStorageOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetAvailableStorageOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -145,22 +181,22 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param availableStorage 存储空间的可用大小，单位是 Byte。在 Android 上返回的是外部存储的可用大小
+   * @param availableStorage 存储空间的可用大小，单位是 Byte。在 Android 上返回的是外部存储的可用大小[可选]
    */
   interface GetAvailableStorageSuccessSuccessArg {
-    availableStorage: Long;
+    availableStorage?: Long;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetTotalStorageOBJECT {
-    success: GetTotalStorageOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetTotalStorageOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -172,22 +208,22 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param totalStorage 存储空间的总大小，单位是 Byte。在 Android 上返回的是外部存储的总大小
+   * @param totalStorage 存储空间的总大小，单位是 Byte。在 Android 上返回的是外部存储的总大小[可选]
    */
   interface GetTotalStorageSuccessSuccessArg {
-    totalStorage: Long;
+    totalStorage?: Long;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetSerialOBJECT {
-    success: GetSerialOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetSerialOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -199,22 +235,22 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param serial 设备序列号
+   * @param serial 设备序列号[可选]
    */
   interface GetSerialSuccessSuccessArg {
-    serial: String;
+    serial?: String;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetAdvertisingIdOBJECT {
-    success: GetAdvertisingIdOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetAdvertisingIdOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -226,22 +262,22 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param advertisingId 广告唯一标识
+   * @param advertisingId 广告唯一标识[可选]
    */
   interface GetAdvertisingIdSuccessSuccessArg {
-    advertisingId: String;
+    advertisingId?: String;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetUserIdOBJECT {
-    success: GetUserIdOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetUserIdOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -253,22 +289,22 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param userId 设备唯一标识。在 Android 上返回 androidid
+   * @param userId 设备唯一标识。在 Android 上返回 androidid[可选]
    */
   interface GetUserIdSuccessSuccessArg {
-    userId: String;
+    userId?: String;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetDeviceIdOBJECT {
-    success: GetDeviceIdOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetDeviceIdOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -280,24 +316,24 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param deviceId 设备唯一标识。在 Android 上返回 IMEI 或 MEID
+   * @param deviceId 设备唯一标识。在 Android 上返回 IMEI 或 MEID; 在Android Q之后，除了华为手机返回aaid(应用匿名设备标识符)，其他厂商手机如果支持oaid（匿名设备标识符）则返回oaid，否则返回空值。[可选]
    */
   interface GetDeviceIdSuccessSuccessArg {
-    deviceId: String;
+    deviceId?: String;
   }
 
   /**
    *
    * @param type 支持 device、mac、user、advertising 1000+四种类型，可提供一至多个
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetIdOBJECT {
     type: Array<any>;
-    success: GetIdOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetIdOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -307,28 +343,28 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param device 设备唯一标识。在 Android 上返回 IMEI 或 MEID
-   * @param mac 设备的 mac 地址。在 Android M 及以上返回固定值：02:00:00:00:00:00
-   * @param user 用户唯一标识。在 Android 上返回 androidid
-   * @param advertising 广告唯一标识 1000+
+   * @param device 设备唯一标识。在 Android 上返回 IMEI 或 MEID; 在Android Q之后，除了华为手机返回aaid(应用匿名设备标识符)，其他厂商手机如果支持oaid（匿名设备标识符）则返回oaid，否则返回空值。[可选]
+   * @param mac 设备的 mac 地址。在 Android M 及以上返回固定值：02:00:00:00:00:00[可选]
+   * @param user 用户唯一标识。在 Android 上返回 androidid[可选]
+   * @param advertising 广告唯一标识[可选] 1000+
    */
   interface GetIdSuccessSuccessArg {
-    device: String;
-    mac: String;
-    user: String;
-    advertising: String;
+    device?: String;
+    mac?: String;
+    user?: String;
+    advertising?: String;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetInfoOBJECT {
-    success: GetInfoOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetInfoOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -338,42 +374,42 @@ declare module '@system.device' {
 
   /**
    * 成功回调
-   * @param brand 设备品牌
-   * @param manufacturer 设备生产商
-   * @param model 设备型号
-   * @param product 设备代号
-   * @param osType 操作系统名称
-   * @param osVersionName 操作系统版本名称
-   * @param osVersionCode 操作系统版本号
-   * @param platformVersionName 运行平台版本名称
-   * @param platformVersionCode 运行平台版本号
-   * @param language 系统语言
-   * @param region 系统地区
-   * @param screenWidth 屏幕宽
-   * @param screenHeight 屏幕高
-   * @param windowWidth 可使用窗口宽度 1030+
-   * @param windowHeight 可使用窗口高度 1030+
-   * @param statusBarHeight 状态栏高度 1030+
-   * @param screenDensity 设备的屏幕密度 1040+
+   * @param brand 设备品牌[可选]
+   * @param manufacturer 设备生产商[可选]
+   * @param model 设备型号[可选]
+   * @param product 设备代号[可选]
+   * @param osType 操作系统名称[可选]
+   * @param osVersionName 操作系统版本名称[可选]
+   * @param osVersionCode 操作系统版本号[可选]
+   * @param platformVersionName 运行平台版本名称[可选]
+   * @param platformVersionCode 运行平台版本号[可选]
+   * @param language 系统语言[可选]
+   * @param region 系统地区[可选]
+   * @param screenWidth 屏幕宽[可选]
+   * @param screenHeight 屏幕高[可选]
+   * @param windowWidth 可使用窗口宽度[可选] 1030+
+   * @param windowHeight 可使用窗口高度[可选] 1030+
+   * @param statusBarHeight 状态栏高度[可选] 1030+
+   * @param screenDensity 设备的屏幕密度[可选] 1040+
    */
   interface GetInfoSuccessSuccessArg {
-    brand: String;
-    manufacturer: String;
-    model: String;
-    product: String;
-    osType: String;
-    osVersionName: String;
-    osVersionCode: Integer;
-    platformVersionName: String;
-    platformVersionCode: Integer;
-    language: String;
-    region: String;
-    screenWidth: Integer;
-    screenHeight: Integer;
-    windowWidth: Integer;
-    windowHeight: Integer;
-    statusBarHeight: Integer;
-    screenDensity: Float;
+    brand?: String;
+    manufacturer?: String;
+    model?: String;
+    product?: String;
+    osType?: String;
+    osVersionName?: String;
+    osVersionCode?: Integer;
+    platformVersionName?: String;
+    platformVersionCode?: Integer;
+    language?: String;
+    region?: String;
+    screenWidth?: Integer;
+    screenHeight?: Integer;
+    windowWidth?: Integer;
+    windowHeight?: Integer;
+    statusBarHeight?: Integer;
+    screenDensity?: Float;
   }
 
   /**

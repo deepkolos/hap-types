@@ -45,14 +45,14 @@ declare module '@system.network' {
 
   /**
    *
-   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅 1050+
-   * @param callback 每次网络发生变化，都会被回调
-   * @param fail 失败回调，可能是因为缺乏权限
+   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅[可选] 1050+
+   * @param callback 每次网络发生变化，都会被回调[可选]
+   * @param fail 失败回调，可能是因为缺乏权限[可选]
    */
   interface SubscribeOBJECT {
-    reserved: Boolean;
-    callback: SubscribeOBJECTCallbackCB;
-    fail: Function;
+    reserved?: Boolean;
+    callback?: SubscribeOBJECTCallbackCB;
+    fail?: Function;
   }
 
   /**
@@ -64,24 +64,24 @@ declare module '@system.network' {
 
   /**
    * 每次网络发生变化，都会被回调
-   * @param metered 是否按照流量计费
-   * @param type 网络类型，可能的值为 2g，3g，4g，wifi，none
+   * @param metered 是否按照流量计费[可选]
+   * @param type 网络类型，可能的值为 2g，3g，4g，wifi，none[可选]
    */
   interface SubscribeCallbackCallbackArg {
-    metered: Boolean;
-    type: String;
+    metered?: Boolean;
+    type?: String;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调，可能是因为缺乏权限
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调，可能是因为缺乏权限[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetTypeOBJECT {
-    success: GetTypeOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetTypeOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -91,12 +91,12 @@ declare module '@system.network' {
 
   /**
    * 成功回调
-   * @param metered 是否按照流量计费
-   * @param type 网络类型，可能的值为 2g，3g，4g，wifi，none
+   * @param metered 是否按照流量计费[可选]
+   * @param type 网络类型，可能的值为 2g，3g，4g，wifi，none[可选]
    */
   interface GetTypeSuccessSuccessArg {
-    metered: Boolean;
-    type: String;
+    metered?: Boolean;
+    type?: String;
   }
 
   /**

@@ -317,34 +317,34 @@ declare module '@system.bluetooth' {
 
   /**
    *
-   * @param deviceId 蓝牙设备 id
-   * @param serviceId 蓝牙特征值对应服务的 uuid
-   * @param characteristicId 蓝牙特征值的 uuid
-   * @param value 特征值最新的值
+   * @param deviceId 蓝牙设备 id[可选]
+   * @param serviceId 蓝牙特征值对应服务的 uuid[可选]
+   * @param characteristicId 蓝牙特征值的 uuid[可选]
+   * @param value 特征值最新的值[可选]
    */
   interface OnblecharacteristicvaluechangeData {
-    deviceId: String;
-    serviceId: String;
-    characteristicId: String;
-    value: Arraybuffer;
+    deviceId?: String;
+    serviceId?: String;
+    characteristicId?: String;
+    value?: Arraybuffer;
   }
 
   /**
    *
-   * @param devices 新搜索到的设备列表，devices 返回值见 getDevices
+   * @param devices 新搜索到的设备列表，devices 返回值见 getDevices[可选]
    */
   interface OndevicefoundData {
-    devices: Object[];
+    devices?: Object[];
   }
 
   /**
    *
-   * @param available 蓝牙适配器是否可用
-   * @param discovering 蓝牙适配器是否处于搜索状态
+   * @param available 蓝牙适配器是否可用[可选]
+   * @param discovering 蓝牙适配器是否处于搜索状态[可选]
    */
   interface OnadapterstatechangeData {
-    available: Boolean;
-    discovering: Boolean;
+    available?: Boolean;
+    discovering?: Boolean;
   }
 
   /**
@@ -353,18 +353,18 @@ declare module '@system.bluetooth' {
    * @param serviceId 蓝牙特征值对应服务的 uuid
    * @param characteristicId 蓝牙特征值的 uuid
    * @param state 是否启用 notify
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface NotifyBLECharacteristicValueChangeOBJECT {
     deviceId: String;
     serviceId: String;
     characteristicId: String;
     state: Boolean;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -373,18 +373,18 @@ declare module '@system.bluetooth' {
    * @param serviceId 蓝牙特征值对应服务的 uuid
    * @param characteristicId 蓝牙特征值的 uuid
    * @param value 蓝牙设备特征值对应的二进制值
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface WriteBLECharacteristicValueOBJECT {
     deviceId: String;
     serviceId: String;
     characteristicId: String;
     value: Arraybuffer;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -392,31 +392,31 @@ declare module '@system.bluetooth' {
    * @param deviceId 蓝牙设备 id
    * @param serviceId 蓝牙特征值对应服务的 uuid
    * @param characteristicId 蓝牙特征值的 uuid
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface ReadBLECharacteristicValueOBJECT {
     deviceId: String;
     serviceId: String;
     characteristicId: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    * @param deviceId 蓝牙设备 id
    * @param serviceId 蓝牙服务 uuid，需要使用 getBLEDeviceServices 获取
    */
   interface GetBLEDeviceCharacteristicsOBJECT {
-    success: GetBLEDeviceCharacteristicsOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetBLEDeviceCharacteristicsOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
     deviceId: String;
     serviceId: String;
   }
@@ -430,24 +430,24 @@ declare module '@system.bluetooth' {
 
   /**
    * 成功回调。
-   * @param characteristics 设备服务列表
+   * @param characteristics 设备服务列表[可选]
    */
   interface GetBLEDeviceCharacteristicsSuccessSuccessArg {
-    characteristics: Object[];
+    characteristics?: Object[];
   }
 
   /**
    *
    * @param deviceId 蓝牙设备 id
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface GetBLEDeviceServicesOBJECT {
     deviceId: String;
-    success: GetBLEDeviceServicesOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetBLEDeviceServicesOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -459,53 +459,53 @@ declare module '@system.bluetooth' {
 
   /**
    * 成功回调。
-   * @param services 设备服务列表
+   * @param services 设备服务列表[可选]
    */
   interface GetBLEDeviceServicesSuccessSuccessArg {
-    services: Object[];
+    services?: Object[];
   }
 
   /**
    *
    * @param deviceId 用于区分设备的 id
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface CloseBLEConnectionOBJECT {
     deviceId: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param deviceId 用于区分设备的 id
-   * @param timeout 超时时间，单位 ms，不填表示不会超时
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param timeout 超时时间，单位 ms，不填表示不会超时[可选]
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface CreateBLEConnectionOBJECT {
     deviceId: String;
-    timeout: Number;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    timeout?: Number;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    * @param services 蓝牙设备主 service 的 uuid 列表
    */
   interface GetConnectedDevicesOBJECT {
-    success: GetConnectedDevicesOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetConnectedDevicesOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
     services: String[];
   }
 
@@ -518,22 +518,22 @@ declare module '@system.bluetooth' {
 
   /**
    * 成功回调。
-   * @param devices uuid 对应的的已连接设备列表
+   * @param devices uuid 对应的的已连接设备列表[可选]
    */
   interface GetConnectedDevicesSuccessSuccessArg {
-    devices: Object[];
+    devices?: Object[];
   }
 
   /**
    *
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface GetDevicesOBJECT {
-    success: GetDevicesOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetDevicesOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -545,52 +545,52 @@ declare module '@system.bluetooth' {
 
   /**
    * 成功回调。
-   * @param devices 蓝牙模块生效期间已发现的蓝牙设备
+   * @param devices 蓝牙模块生效期间已发现的蓝牙设备[可选]
    */
   interface GetDevicesSuccessSuccessArg {
-    devices: Object[];
+    devices?: Object[];
   }
 
   /**
    *
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface StopDevicesDiscoveryOBJECT {
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param services 要搜索的主 service 的 uuid 列表。某些蓝牙设备会广播自己的主 service 的 uuid。如果设置此参数，则只搜索广播包有对应 uuid 的主服务的蓝牙设备。建议主要通过该参数过滤掉周边不需要处理的其他蓝牙设备。
-   * @param allowDuplicatesKey 默认值为 false。是否允许重复上报同一设备。如果允许重复上报，则 bluetooth.ondevicefound 方法会多次上报同一设备，但是 RSSI 值会有不同。
-   * @param interval 单位毫秒，默认值为 0。上报设备的间隔。0 表示找到新设备立即上报，其他数值根据传入的间隔上报。
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param services 要搜索的主 service 的 uuid 列表。某些蓝牙设备会广播自己的主 service 的 uuid。如果设置此参数，则只搜索广播包有对应 uuid 的主服务的蓝牙设备。建议主要通过该参数过滤掉周边不需要处理的其他蓝牙设备。[可选]
+   * @param allowDuplicatesKey 默认值为 false。是否允许重复上报同一设备。如果允许重复上报，则 bluetooth.ondevicefound 方法会多次上报同一设备，但是 RSSI 值会有不同。[可选]
+   * @param interval 单位毫秒，默认值为 0。上报设备的间隔。0 表示找到新设备立即上报，其他数值根据传入的间隔上报。[可选]
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface StartDevicesDiscoveryOBJECT {
-    services: String[];
-    allowDuplicatesKey: Boolean;
-    interval: Number;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    services?: String[];
+    allowDuplicatesKey?: Boolean;
+    interval?: Number;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetAdapterStateOBJECT {
-    success: GetAdapterStateOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetAdapterStateOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -602,40 +602,40 @@ declare module '@system.bluetooth' {
 
   /**
    * 成功回调。
-   * @param available 蓝牙适配器是否可用
-   * @param discovering 是否正在搜索设备
+   * @param available 蓝牙适配器是否可用[可选]
+   * @param discovering 是否正在搜索设备[可选]
    */
   interface GetAdapterStateSuccessSuccessArg {
-    available: Boolean;
-    discovering: Boolean;
+    available?: Boolean;
+    discovering?: Boolean;
   }
 
   /**
    *
-   * @param operateAdapter 是否关闭系统蓝牙开关。设置为 true，调用时会关闭系统蓝牙开关。默认值 false。
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param operateAdapter 是否关闭系统蓝牙开关。设置为 true，调用时会关闭系统蓝牙开关。默认值 false。[可选]
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface CloseAdapterOBJECT {
-    operateAdapter: Boolean;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    operateAdapter?: Boolean;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param operateAdapter 是否打开系统蓝牙开关。设置为 true，在系统蓝牙开关关闭的情况下会弹框提示是否打开。默认值 false。
-   * @param success 成功回调。
-   * @param fail 失败回调。
-   * @param complete 执行结束后的回调。
+   * @param operateAdapter 是否打开系统蓝牙开关。设置为 true，在系统蓝牙开关关闭的情况下会弹框提示是否打开。默认值 false。[可选]
+   * @param success 成功回调。[可选]
+   * @param fail 失败回调。[可选]
+   * @param complete 执行结束后的回调。[可选]
    */
   interface OpenAdapterOBJECT {
-    operateAdapter: Boolean;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    operateAdapter?: Boolean;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

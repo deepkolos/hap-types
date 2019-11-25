@@ -37,14 +37,14 @@ declare module '@system.clipboard' {
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetOBJECT {
-    success: GetOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -54,24 +54,24 @@ declare module '@system.clipboard' {
 
   /**
    * 成功回调
-   * @param text 剪切板内容
+   * @param text 剪切板内容[可选]
    */
   interface GetSuccessSuccessArg {
-    text: String;
+    text?: String;
   }
 
   /**
    *
    * @param text 需要放到剪切板的内容
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SetOBJECT {
     text: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

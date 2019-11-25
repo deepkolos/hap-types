@@ -3,13 +3,14 @@ import { writeFileSync, writeFile, mkdirSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import { resolve } from 'path';
 
+const useCache = false;
 const BASE_URL = 'https://doc.quickapp.cn/features/';
 async function getApiList() {
   const dom = await getDomWithCache(BASE_URL);
   const apis: Array<Api> = [];
   dom.window.document
     .querySelectorAll(
-      'div.doc-container:nth-child(2) nav.doc-menu ul.summary li.open.open.chapter ul.articles li.open.chapter a',
+      'div.doc-container:nth-child(2) nav.doc-menu ul.summary li.open.open.chapter ul.articles li.open.chapter a'
     )
     .forEach(el => {
       apis.push({
@@ -20,7 +21,7 @@ async function getApiList() {
         attributes: [],
         moduleName: '',
         moduleVariable: '',
-        bgRestrictDesc: '',
+        bgRestrictDesc: ''
       });
     });
   return apis;
@@ -32,7 +33,7 @@ function getApiDefinition(api: Api) {
   return new Promise(async resolve => {
     const dom = await getDomWithCache(api.href);
     const section = dom.window.document.querySelector(
-      'div.doc-container:nth-child(2) div.doc-content div.doc-content-inner div.page-inner div:nth-child(1) div.search-noresults > section.markdown-section.normal',
+      'div.doc-container:nth-child(2) div.doc-content div.doc-content-inner div.page-inner div:nth-child(1) div.search-noresults > section.markdown-section.normal'
     );
     let apiReading = false;
     let apiReadAttr = false;
@@ -50,13 +51,13 @@ function getApiDefinition(api: Api) {
       since: '',
       example: '',
       args: [],
-      return: [],
+      return: []
     };
     let currListener: Listener = {
       name: '',
       desc: '',
       example: '',
-      args: [],
+      args: []
     };
     let currAttrName: string | null = '';
     // let methodReadArgType = '';
@@ -68,7 +69,7 @@ function getApiDefinition(api: Api) {
       if (!el || !el.textContent) return;
       let { textContent } = el;
       const matchImport = textContent.match(
-        /import (\w+) from '@([\w\.]+)' 或/,
+        /import (\w+) from '@([\w\.]+)' 或/
       );
       if (matchImport) {
         api.moduleName = matchImport[2];
@@ -93,8 +94,8 @@ function getApiDefinition(api: Api) {
         // 读取method
         const matchMethod = textContent.match(
           new RegExp(
-            `${api.moduleVariable}\\.(\\w+)\\s*\\((\\w*)\\)\\s*((\\d{4})\\+)?`,
-          ),
+            `${api.moduleVariable}\\.(\\w+)\\s*\\((\\w*)\\)\\s*((\\d{4})\\+)?`
+          )
         );
         if (matchMethod) {
           methodReading = true;
@@ -114,13 +115,13 @@ function getApiDefinition(api: Api) {
                       desc: '',
                       type: '',
                       required: true,
-                      attributes: [],
-                    },
+                      attributes: []
+                    }
                   ]
                 : [],
               example: '',
               return: [],
-              since: matchMethod[4],
+              since: matchMethod[4]
             };
           }
         }
@@ -128,8 +129,8 @@ function getApiDefinition(api: Api) {
         // 读取listener
         const matchListener = textContent.match(
           new RegExp(
-            `${api.moduleVariable}\\.(\\w+)\\s* = function\\((\\w*)\\)\\s*((\\d{4})\\+)?`,
-          ),
+            `${api.moduleVariable}\\.(\\w+)\\s* = function\\((\\w*)\\)\\s*((\\d{4})\\+)?`
+          )
         );
         if (matchListener) {
           methodReading = false;
@@ -150,12 +151,12 @@ function getApiDefinition(api: Api) {
                       name: matchListener[2],
                       desc: '',
                       type: '',
-                      attributes: [],
-                    },
+                      attributes: []
+                    }
                   ]
                 : [],
               example: '',
-              since: matchListener[5],
+              since: matchListener[5]
             };
           }
         }
@@ -179,16 +180,16 @@ function getApiDefinition(api: Api) {
         // 读取参数列表
         const argNameMatch =
           textContent.match(
-            /(\w*)\s*(参数|列表项参数说明)\s*(\d{4}\+)*[：\:]/,
+            /(\w*)\s*(参数|列表项参数说明)\s*(\d{4}\+)*[：\:]/
           ) || textContent.match(/(\w+)\s*(\d{4}\+)*[：\:]$/);
 
         const returnMatch = textContent.match(
-          /(\w*)\s*(返回值|返回参数)\s*(\d{4}\+)*[：\:]/,
+          /(\w*)\s*(返回值|返回参数)\s*(\d{4}\+)*[：\:]/
         );
         const subAttrArg =
           returnMatch &&
           (methodReading ? currMethod : currListener).args.some(i =>
-            isSubAttrName(i, returnMatch[1]),
+            isSubAttrName(i, returnMatch[1])
           );
         if (
           !listenerTableReading &&
@@ -216,7 +217,7 @@ function getApiDefinition(api: Api) {
         }
 
         const subAttrReturn = currMethod.return.some(i =>
-          isSubAttrName(i, textContent),
+          isSubAttrName(i, textContent)
         );
         if (returnReading && subAttrReturn) {
           currAttrName = textContent;
@@ -246,7 +247,7 @@ function getApiDefinition(api: Api) {
                 desc,
                 since: since || typeSince,
                 required: tdText(tr, 2) === '是',
-                attributes: [],
+                attributes: []
               };
 
               if (!currAttrName) {
@@ -255,7 +256,7 @@ function getApiDefinition(api: Api) {
                   currArg.attributes.push(arg);
                 } else {
                   console.log(
-                    `关联失败 ${api.name} ${currMethodOrListener.name} arg ${currAttrName}`,
+                    `关联失败 ${api.name} ${currMethodOrListener.name} arg ${currAttrName}`
                   );
                 }
               } else {
@@ -268,7 +269,7 @@ function getApiDefinition(api: Api) {
                 } else {
                   // debugger;
                   console.log(
-                    `关联失败 ${api.name} ${currMethod.name} ${methodReading} arg ${currAttrName}`,
+                    `关联失败 ${api.name} ${currMethod.name} ${methodReading} arg ${currAttrName}`
                   );
                 }
               }
@@ -303,7 +304,7 @@ function getApiDefinition(api: Api) {
                 type,
                 desc,
                 since: since || typeSince,
-                attributes: [],
+                attributes: []
               };
 
               if (!currAttrName) {
@@ -318,7 +319,7 @@ function getApiDefinition(api: Api) {
                 } else {
                   // debugger;
                   console.log(
-                    `关联失败 ${api.name} ${currMethod.name} ${methodReading} return ${currAttrName}`,
+                    `关联失败 ${api.name} ${currMethod.name} ${methodReading} return ${currAttrName}`
                   );
                 }
               }
@@ -344,7 +345,7 @@ function getApiDefinition(api: Api) {
                 desc,
                 since: since,
                 example: '',
-                args: [],
+                args: []
               };
 
               api.listeners.push(listener);
@@ -381,7 +382,7 @@ function getApiDefinition(api: Api) {
                 desc: tdText(tr, 4),
                 since,
                 readable: tdText(tr, 2) === '是',
-                writeable: tdText(tr, 3) === '是',
+                writeable: tdText(tr, 3) === '是'
               });
             });
           apiReadAttr = false;
@@ -409,7 +410,7 @@ function getApiDefinition(api: Api) {
 
 function forEachChild(
   node: Element | null,
-  cb: (el: Element | null, i: number) => void,
+  cb: (el: Element | null, i: number) => void
 ) {
   if (!node) return;
   for (let i = 0, len = node.children.length; i < len; i++) {
@@ -443,7 +444,7 @@ function isSubAttrName(root: Arg | Return, name: string): boolean {
 
 function findAttrName<T extends Arg | Return>(
   root: T,
-  name: string | null,
+  name: string | null
 ): T | null {
   if (root.name === name) return root;
 
@@ -462,7 +463,7 @@ function last(arr: Array<any>, i: number = 1) {
   return arr[arr.length - i];
 }
 
-async function getDomWithCache(url: string, cache: Boolean = true) {
+async function getDomWithCache(url: string, cache: Boolean = useCache) {
   const hash = createHash('MD5');
   hash.update(url, 'utf8');
   const md5 = hash.digest('hex');

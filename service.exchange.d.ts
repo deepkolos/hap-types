@@ -41,99 +41,99 @@ declare module '@service.exchange' {
   /**
    *
    * @param package 取消授权的应用包名
-   * @param key 数据的 key。如果为空，则取消当前所有 key 的授权
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调（调用成功、失败都会执行）
+   * @param key 数据的 key。如果为空，则取消当前所有 key 的授权[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调（调用成功、失败都会执行）[可选]
    */
   interface RevokePermissionOBJECT {
     package: String;
-    key: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    key?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param package 授权应用的包名
    * @param sign 授权应用的签名 SHA-256
-   * @param key 数据的 key。如果为空，则授权当前所有 key 的读取权限
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调（调用成功、失败都会执行）
+   * @param key 数据的 key。如果为空，则授权当前所有 key 的读取权限[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调（调用成功、失败都会执行）[可选]
    */
   interface GrantPermissionOBJECT {
     package: String;
     sign: String;
-    key: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    key?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调（调用成功、失败都会执行）
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调（调用成功、失败都会执行）[可选]
    */
   interface ClearOBJECT {
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param key 数据的 key
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调（调用成功、失败都会执行）
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调（调用成功、失败都会执行）[可选]
    */
   interface RemoveOBJECT {
     key: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param key 数据的 key
    * @param value 数据的值
-   * @param scope 数据发布的空间类型，支持 application，global，默认为 application
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调（调用成功、失败都会执行）
+   * @param scope 数据发布的空间类型，支持 application，global，默认为 application[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调（调用成功、失败都会执行）[可选]
    */
   interface SetOBJECT {
     key: String;
     value: String;
-    scope: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    scope?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param package 数据发布方的包名，scope 为 application 时必须提供，为 global 时必须为空
-   * @param sign 数据发布方签名的 SHA-256，scope 为 application 时必须提供，为 global 时必须为空
-   * @param scope 数据发布的空间类型，支持 application 和 global，默认为 application
+   * @param package 数据发布方的包名，scope 为 application 时必须提供，为 global 时必须为空[可选]
+   * @param sign 数据发布方签名的 SHA-256，scope 为 application 时必须提供，为 global 时必须为空[可选]
+   * @param scope 数据发布的空间类型，支持 application 和 global，默认为 application[可选]
    * @param key 数据的 key
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调（调用成功、失败都会执行）
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调（调用成功、失败都会执行）[可选]
    */
   interface GetOBJECT {
-    package: String;
-    sign: String;
-    scope: String;
+    package?: String;
+    sign?: String;
+    scope?: String;
     key: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

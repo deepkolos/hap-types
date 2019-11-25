@@ -70,17 +70,17 @@ declare module '@system.prompt' {
   /**
    *
    * @param itemList 按钮的文字数组
-   * @param itemColor 按钮颜色
-   * @param success 成功回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param itemColor 按钮颜色[可选]
+   * @param success 成功回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface ShowContextMenuOBJECT {
     itemList: Array<any>;
-    itemColor: Hexcolor;
-    success: ShowContextMenuOBJECTSuccessCB;
-    cancel: Function;
-    complete: Function;
+    itemColor?: Hexcolor;
+    success?: ShowContextMenuOBJECTSuccessCB;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -92,28 +92,30 @@ declare module '@system.prompt' {
 
   /**
    * 成功回调
-   * @param index 选中按钮在 itemList 数组中的序号
+   * @param index 选中按钮在 itemList 数组中的序号[可选]
    */
   interface ShowContextMenuSuccessSuccessArg {
-    index: Integer;
+    index?: Integer;
   }
 
   /**
    *
-   * @param title 标题
-   * @param message 内容
-   * @param buttons 按钮的数组，按钮结构：{text:'text',color:'#333333'}，color 可选：buttons 的第 1 项为 positive button；buttons 的第 2 项（如果有）为 negative button；buttons 的第 3 项（如果有）为 neutral button。最多支持 3 个 button
-   * @param success 成功回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param title 标题[可选]
+   * @param message 内容[可选]
+   * @param buttons 按钮的数组，按钮结构：{text:'text',color:'#333333'}，color 可选：buttons 的第 1 项为 positive button；buttons 的第 2 项（如果有）为 negative button；buttons 的第 3 项（如果有）为 neutral button。最多支持 3 个 button[可选]
+   * @param autocancel 是否在点击遮罩时关闭对话框，默认为true[可选] 1060+
+   * @param success 成功回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface ShowDialogOBJECT {
-    title: String;
-    message: String;
-    buttons: Array<any>;
-    success: ShowDialogOBJECTSuccessCB;
-    cancel: Function;
-    complete: Function;
+    title?: String;
+    message?: String;
+    buttons?: Array<any>;
+    autocancel?: Boolean;
+    success?: ShowDialogOBJECTSuccessCB;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -125,20 +127,20 @@ declare module '@system.prompt' {
 
   /**
    * 成功回调
-   * @param index 选中按钮在 buttons 数组中的序号
+   * @param index 选中按钮在 buttons 数组中的序号[可选]
    */
   interface ShowDialogSuccessSuccessArg {
-    index: Integer;
+    index?: Integer;
   }
 
   /**
    *
    * @param message 要显示的文本
-   * @param duration 0 为短时，1 为长时，默认 0
+   * @param duration 0 为短时，1 为长时，默认 0[可选]
    */
   interface ShowToastOBJECT {
     message: String;
-    duration: Number;
+    duration?: Number;
   }
 
   /**

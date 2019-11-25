@@ -64,14 +64,14 @@ declare module '@service.health' {
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetLastWeekStepsOBJECT {
-    success: GetLastWeekStepsOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetLastWeekStepsOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -83,10 +83,10 @@ declare module '@service.health' {
 
   /**
    * 成功回调
-   * @param stepsList 最近七天步数列表数据
+   * @param stepsList 最近七天步数列表数据[可选]
    */
   interface GetLastWeekStepsSuccessSuccessArg {
-    stepsList: GetLastWeekStepsSuccessArgStepsListArray;
+    stepsList?: GetLastWeekStepsSuccessArgStepsListArray;
   }
 
   /**
@@ -98,24 +98,24 @@ declare module '@service.health' {
 
   /**
    * 最近七天步数列表数据
-   * @param date 日期(2019-04-08)
-   * @param steps 日期对应的步数
+   * @param date 日期(2019-04-08)[可选]
+   * @param steps 日期对应的步数[可选]
    */
   interface GetLastWeekStepsStepsListStepsListItem {
-    date: String;
-    steps: Number;
+    date?: String;
+    steps?: Number;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetTodayStepsOBJECT {
-    success: GetTodayStepsOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetTodayStepsOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -127,22 +127,22 @@ declare module '@service.health' {
 
   /**
    * 成功回调
-   * @param steps 返回当天步数
+   * @param steps 返回当天步数[可选]
    */
   interface GetTodayStepsSuccessSuccessArg {
-    steps: Number;
+    steps?: Number;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface HasStepsOfDayOBJECT {
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

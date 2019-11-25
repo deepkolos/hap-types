@@ -24,14 +24,14 @@ declare module '@system.notification' {
 
   /**
    *
-   * @param contentTitle 标题
-   * @param contentText 内容
-   * @param clickAction 通知点击后触发动作的信息
+   * @param contentTitle 标题[可选]
+   * @param contentText 内容[可选]
+   * @param clickAction 通知点击后触发动作的信息[可选]
    */
   interface ShowOBJECT {
-    contentTitle: String;
-    contentText: String;
-    clickAction: ShowOBJECTClickAction;
+    contentTitle?: String;
+    contentText?: String;
+    clickAction?: ShowOBJECTClickAction;
   }
 
   /**

@@ -22,13 +22,13 @@ declare module '@system.websocketfactory' {
   /**
    *
    * @param url 请求 url， 必须是 wss 或 ws 协议
-   * @param header 请求头，header 中不能设置 Referer，User-Agent设置在1040版本开始支持
-   * @param protocols 子协议组
+   * @param header 请求头，header 中不能设置 Referer，User-Agent设置在1040版本开始支持[可选]
+   * @param protocols 子协议组[可选]
    */
   interface CreateOBJECT {
     url: String;
-    header: Object;
-    protocols: Stringarray;
+    header?: Object;
+    protocols?: Stringarray;
   }
 
   /**

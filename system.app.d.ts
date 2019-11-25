@@ -19,34 +19,34 @@ declare module '@system.app' {
 
   /**
    * getInfo的返回值
-   * @param packageName 应用包名 1050+
-   * @param icon 应用图标路径 1050+
-   * @param name 应用名称
-   * @param versionName 应用版本名称
-   * @param versionCode 应用版本号
-   * @param logLevel log 级别
-   * @param source 应用来源
+   * @param packageName 应用包名[可选] 1050+
+   * @param icon 应用图标路径[可选] 1050+
+   * @param name 应用名称[可选]
+   * @param versionName 应用版本名称[可选]
+   * @param versionCode 应用版本号[可选]
+   * @param logLevel log 级别[可选]
+   * @param source 应用来源[可选]
    */
   interface GetInfoReturn {
-    packageName: String;
-    icon: String;
-    name: String;
-    versionName: String;
-    versionCode: Integer;
-    logLevel: String;
-    source: GetInfoReturnSource;
+    packageName?: String;
+    icon?: String;
+    name?: String;
+    versionName?: String;
+    versionCode?: Integer;
+    logLevel?: String;
+    source?: GetInfoReturnSource;
   }
 
   /**
    * 应用来源
-   * @param packageName 来源 app 的包名，一级来源
-   * @param type 来源类型，二级来源，值为 shortcut、push、url、barcode、nfc、bluetooth、other
-   * @param extra 来源其他信息，与 type 相关，不同的 type，extra 中的字段会不同
+   * @param packageName 来源 app 的包名，一级来源[可选]
+   * @param type 来源类型，二级来源，值为 shortcut、push、url、barcode、nfc、bluetooth、other[可选]
+   * @param extra 来源其他信息，与 type 相关，不同的 type，extra 中的字段会不同[可选]
    */
   interface GetInfoReturnSource {
-    packageName: String;
-    type: String;
-    extra: Object;
+    packageName?: String;
+    type?: String;
+    extra?: Object;
   }
 
   /**

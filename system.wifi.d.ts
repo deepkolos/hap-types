@@ -60,22 +60,22 @@ declare module '@system.wifi' {
 
   /**
    *
-   * @param wifiList Wi-Fi 列表数据
+   * @param wifiList Wi-Fi 列表数据[可选]
    */
   interface OnscannedData {
-    wifiList: Array<any>;
+    wifiList?: Array<any>;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetConnectedWifiOBJECT {
-    success: GetConnectedWifiOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetConnectedWifiOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -87,46 +87,46 @@ declare module '@system.wifi' {
 
   /**
    * 成功回调
-   * @param SSID Wi-Fi 的 SSID
-   * @param BSSID Wi-Fi 的 BSSID
-   * @param secure Wi-Fi 是否安全
-   * @param signalStrength Wi-Fi 信号强度
+   * @param SSID Wi-Fi 的 SSID[可选]
+   * @param BSSID Wi-Fi 的 BSSID[可选]
+   * @param secure Wi-Fi 是否安全[可选]
+   * @param signalStrength Wi-Fi 信号强度[可选]
    */
   interface GetConnectedWifiSuccessSuccessArg {
-    SSID: String;
-    BSSID: String;
-    secure: Boolean;
-    signalStrength: Number;
+    SSID?: String;
+    BSSID?: String;
+    secure?: Boolean;
+    signalStrength?: Number;
   }
 
   /**
    *
-   * @param success 扫描请求发起成功
-   * @param fail 扫描请求发起失败
-   * @param complete 执行结束后的回调
+   * @param success 扫描请求发起成功[可选]
+   * @param fail 扫描请求发起失败[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface ScanOBJECT {
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param SSID Wi-Fi 设备的 SSID
    * @param BSSID Wi-Fi 设备的 BSSID
-   * @param password Wi-Fi 设备密码
-   * @param success 成功回调，此时 Wi-Fi 已经成功连接上
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param password Wi-Fi 设备密码[可选]
+   * @param success 成功回调，此时 Wi-Fi 已经成功连接上[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface ConnectOBJECT {
     SSID: String;
     BSSID: String;
-    password: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    password?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

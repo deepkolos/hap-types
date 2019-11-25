@@ -45,15 +45,15 @@ declare module '@system.package' {
   /**
    *
    * @param package 应用包名
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface InstallOBJECT {
     package: String;
-    success: InstallOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: InstallOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -63,24 +63,24 @@ declare module '@system.package' {
 
   /**
    * 成功回调
-   * @param result 是否成功发起安装操作
+   * @param result 是否成功发起安装操作[可选]
    */
   interface InstallSuccessSuccessArg {
-    result: Boolean;
+    result?: Boolean;
   }
 
   /**
    *
    * @param package 应用包名
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface HasInstalledOBJECT {
     package: String;
-    success: HasInstalledOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: HasInstalledOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -92,10 +92,10 @@ declare module '@system.package' {
 
   /**
    * 成功回调
-   * @param result 应用是否存在
+   * @param result 应用是否存在[可选]
    */
   interface HasInstalledSuccessSuccessArg {
-    result: Boolean;
+    result?: Boolean;
   }
 
   /**

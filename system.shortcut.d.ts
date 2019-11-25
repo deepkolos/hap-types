@@ -42,28 +42,28 @@ declare module '@system.shortcut' {
 
   /**
    *
-   * @param message 权限弹窗上的说明文字，用于向用户解释为什么要创建桌面图标 1030+
-   * @param success 创建成功
-   * @param fail 创建失败
-   * @param complete 执行结束后的回调
+   * @param message 权限弹窗上的说明文字，用于向用户解释为什么要创建桌面图标[可选] 1030+
+   * @param success 创建成功[可选]
+   * @param fail 创建失败[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface InstallOBJECT {
-    message: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    message?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调。参数：true 已创建，false 未创建
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调。参数：true 已创建，false 未创建[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface HasInstalledOBJECT {
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

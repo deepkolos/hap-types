@@ -86,16 +86,16 @@ declare module '@system.geolocation' {
 
   /**
    *
-   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅 1050+
-   * @param coordType 坐标系类型，可选值可通过 getSupportedCoordTypes 获取，默认为 wgs84 1050+
+   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅[可选] 1050+
+   * @param coordType 坐标系类型，可选值可通过 getSupportedCoordTypes 获取，默认为 wgs84[可选] 1050+
    * @param callback 每次位置信息发生变化，都会被回调
-   * @param fail 失败回调，原因可能是用户拒绝
+   * @param fail 失败回调，原因可能是用户拒绝[可选]
    */
   interface SubscribeOBJECT {
-    reserved: Boolean;
-    coordType: String;
+    reserved?: Boolean;
+    coordType?: String;
     callback: SubscribeOBJECTCallbackCB;
-    fail: Function;
+    fail?: Function;
   }
 
   /**
@@ -107,28 +107,28 @@ declare module '@system.geolocation' {
 
   /**
    * 每次位置信息发生变化，都会被回调
-   * @param longitude 经度
-   * @param latitude 纬度
-   * @param accuracy 精确度 1040+
-   * @param time 时间 1040+
+   * @param longitude 经度[可选]
+   * @param latitude 纬度[可选]
+   * @param accuracy 精确度[可选] 1040+
+   * @param time 时间[可选] 1040+
    */
   interface SubscribeCallbackCallbackArg {
-    longitude: Number;
-    latitude: Number;
-    accuracy: Number;
-    time: Number;
+    longitude?: Number;
+    latitude?: Number;
+    accuracy?: Number;
+    time?: Number;
   }
 
   /**
    *
    * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetLocationTypeOBJECT {
     success: GetLocationTypeOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -140,26 +140,26 @@ declare module '@system.geolocation' {
 
   /**
    * 成功回调
-   * @param types 支持的类型['gps','network']
+   * @param types 支持的类型['gps','network'][可选]
    */
   interface GetLocationTypeSuccessSuccessArg {
-    types: Array<any>;
+    types?: Array<any>;
   }
 
   /**
    *
-   * @param timeout 设置超时时间，单位是 ms，默认值为 30000。在权限被系统拒绝或者定位设置不当的情况下，有可能永远不能返回结果，因而需要设置超时。超时后会使用 fail 回调
-   * @param coordType 坐标系类型，可选值可通过 getSupportedCoordTypes 获取，默认为 wgs84 1050+
+   * @param timeout 设置超时时间，单位是 ms，默认值为 30000。在权限被系统拒绝或者定位设置不当的情况下，有可能永远不能返回结果，因而需要设置超时。超时后会使用 fail 回调[可选]
+   * @param coordType 坐标系类型，可选值可通过 getSupportedCoordTypes 获取，默认为 wgs84[可选] 1050+
    * @param success 成功回调
-   * @param fail 失败回调，原因可能是用户拒绝
-   * @param complete 执行结束后的回调
+   * @param fail 失败回调，原因可能是用户拒绝[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetLocationOBJECT {
-    timeout: Long;
-    coordType: String;
+    timeout?: Long;
+    coordType?: String;
     success: GetLocationOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -171,16 +171,16 @@ declare module '@system.geolocation' {
 
   /**
    * 成功回调
-   * @param longitude 经度
-   * @param latitude 纬度
-   * @param accuracy 精确度 1040+
-   * @param time 时间 1040+
+   * @param longitude 经度[可选]
+   * @param latitude 纬度[可选]
+   * @param accuracy 精确度[可选] 1040+
+   * @param time 时间[可选] 1040+
    */
   interface GetLocationSuccessSuccessArg {
-    longitude: Number;
-    latitude: Number;
-    accuracy: Number;
-    time: Number;
+    longitude?: Number;
+    latitude?: Number;
+    accuracy?: Number;
+    time?: Number;
   }
 
   /**

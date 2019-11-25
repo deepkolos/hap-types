@@ -21,10 +21,10 @@ declare module '@system.vibrator' {
 
   /**
    *
-   * @param mode 振动模式，"long"表示长振动，"short"表示短振动。默认为 long 1030+
+   * @param mode 振动模式，"long"表示长振动，"short"表示短振动。默认为 long[可选] 1030+
    */
   interface VibrateOBJECT {
-    mode: String;
+    mode?: String;
   }
 
   /**

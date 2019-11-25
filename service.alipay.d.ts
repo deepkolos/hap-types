@@ -25,11 +25,11 @@ declare module '@service.alipay' {
   /**
    *
    * @param orderInfo 服务端生成的订单信息，参考支付宝的请求参数说明文档
-   * @param callback 支付结果回调，格式参考支付宝的通知参数说明文档
+   * @param callback 支付结果回调，格式参考支付宝的通知参数说明文档[可选]
    */
   interface PayOBJECT {
     orderInfo: String;
-    callback: Function;
+    callback?: Function;
   }
 
   /**

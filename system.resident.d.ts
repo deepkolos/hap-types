@@ -30,10 +30,10 @@ declare module '@system.resident' {
 
   /**
    *
-   * @param desc 更新后台通知的描述信息
+   * @param desc 更新后台通知的描述信息[可选]
    */
   interface StartOBJECT {
-    desc: String;
+    desc?: String;
   }
 
   /**

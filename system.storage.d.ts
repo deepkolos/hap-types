@@ -97,73 +97,73 @@ declare module '@system.storage' {
   /**
    *
    * @param index 要查询的键名对应的索引
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface KeyOBJECT {
     index: Number;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param key 索引
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface DeleteOBJECT {
     key: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface ClearOBJECT {
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param key 索引
-   * @param value 新值。如果新值是长度为 0 的空字符串，会删除以 key 为索引的数据项
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param value 新值。如果新值是长度为 0 的空字符串，会删除以 key 为索引的数据项[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SetOBJECT {
     key: String;
-    value: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    value?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param key 索引
-   * @param default 如果 key 不存在，返回 default。如果 default 未指定，返回长度为 0 的空字符串
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param default 如果 key 不存在，返回 default。如果 default 未指定，返回长度为 0 的空字符串[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetOBJECT {
     key: String;
-    default: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    default?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

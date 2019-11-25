@@ -11,7 +11,9 @@ declare module '@system.webview' {
      * 打开网页，标题栏样式与打开 webview 的页面的标题栏样式相同，在 webview 的 useragent 后追加内容，格式是 hap/<平台版本号>/<厂商标识> <平台应用包名>/<平台应用版本号> <应用名>/<应用版本号> (<来源信息>)。“来源信息”与 app 接口的 getInfo 方法返回结果中的 source 字段相同。
      * @example
      * ```js
-     * system.go('/detail?param1=value1')
+     * location.href='hap://app/org.hapjs.demo.sample/page?key=value'
+     * location.href='http://hapjs.org/app/org.hapjs.demo.sample/page?key=value'
+     * location.href='https://hapjs.org/app/org.hapjs.demo.sample/page?key=value'
      * ```
      */
     loadUrl(OBJECT: LoadUrlOBJECT): any;
@@ -20,11 +22,11 @@ declare module '@system.webview' {
   /**
    *
    * @param url 要加载的页面 url
-   * @param allowthirdpartycookies 是否支持第三方 cookies，设置为 true 时开启接收第三方 cookies。 注意：allowthirdpartycookies只支持安卓 5.0 及以上系统。5.0 以下默认为 true 1030+
+   * @param allowthirdpartycookies 是否支持第三方 cookies，设置为 true 时开启接收第三方 cookies。 注意：allowthirdpartycookies只支持安卓 5.0 及以上系统。5.0 以下默认为 true[可选] 1030+
    */
   interface LoadUrlOBJECT {
     url: String;
-    allowthirdpartycookies: Boolean;
+    allowthirdpartycookies?: Boolean;
   }
 
   /**

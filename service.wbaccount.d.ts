@@ -37,17 +37,17 @@ declare module '@service.wbaccount' {
   /**
    *
    * @param redirectUri 授权回调地址，与微博开放平台配置保持一致，默认可填写 https://api.weibo.com/oauth2/default.html
-   * @param scope 申请 scope 权限所需参数，可一次申请多个 scope 权限，用逗号分隔。示例：follow_app_official_microblog，可参考：http://open.weibo.com/wiki/Scope
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
+   * @param scope 申请 scope 权限所需参数，可一次申请多个 scope 权限，用逗号分隔。示例：follow_app_official_microblog，可参考：http://open.weibo.com/wiki/Scope[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
    */
   interface AuthorizeOBJECT {
     redirectUri: String;
-    scope: String;
-    success: AuthorizeOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
+    scope?: String;
+    success?: AuthorizeOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
   }
 
   /**
@@ -59,18 +59,18 @@ declare module '@service.wbaccount' {
 
   /**
    * 成功回调
-   * @param accessToken 授权 token
-   * @param expiresIn 过期时间
-   * @param uid 用户 uid
-   * @param refreshToken 刷新 token，可用于刷新授权 token 有效期
-   * @param phone 用户输入的手机号码
+   * @param accessToken 授权 token[可选]
+   * @param expiresIn 过期时间[可选]
+   * @param uid 用户 uid[可选]
+   * @param refreshToken 刷新 token，可用于刷新授权 token 有效期[可选]
+   * @param phone 用户输入的手机号码[可选]
    */
   interface AuthorizeSuccessSuccessArg {
-    accessToken: String;
-    expiresIn: Number;
-    uid: String;
-    refreshToken: String;
-    phone: String;
+    accessToken?: String;
+    expiresIn?: Number;
+    uid?: String;
+    refreshToken?: String;
+    phone?: String;
   }
 
   /**

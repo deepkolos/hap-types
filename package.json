@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "test": "jest",
-    "update": "npm run update-apis & npm run update-dts & npm run prettier-dts",
+    "update": "npm run update-apis; npm run update-dts; npm run prettier-dts",
     "update-index": "node update-index",
     "update-apis": "node build/crawler/index.js",
     "update-dts": "node build/crawler/update-dts.js",

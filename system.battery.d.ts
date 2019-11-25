@@ -26,14 +26,14 @@ declare module '@system.battery' {
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetStatusOBJECT {
-    success: GetStatusOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetStatusOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -45,12 +45,12 @@ declare module '@system.battery' {
 
   /**
    * 成功回调
-   * @param charging 是否正在充电
-   * @param level 当前电量，0.0 - 1.0 之间
+   * @param charging 是否正在充电[可选]
+   * @param level 当前电量，0.0 - 1.0 之间[可选]
    */
   interface GetStatusSuccessSuccessArg {
-    charging: Boolean;
-    level: Number;
+    charging?: Boolean;
+    level?: Number;
   }
 
   /**

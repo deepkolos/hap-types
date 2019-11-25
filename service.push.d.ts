@@ -105,36 +105,36 @@ declare module '@service.push' {
 
   /**
    * push 事件回调处理
-   * @param messageId 消息 id
-   * @param data 消息内容 payload
+   * @param messageId 消息 id[可选]
+   * @param data 消息内容 payload[可选]
    */
   interface OnCallbackCallbackArg {
-    messageId: String;
-    data: String;
+    messageId?: String;
+    data?: String;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调，返回失败原因
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调，返回失败原因[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface UnsubscribeOBJECT {
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调，返回失败原因
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调，返回失败原因[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SubscribeOBJECT {
-    success: SubscribeOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: SubscribeOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -146,10 +146,10 @@ declare module '@service.push' {
 
   /**
    * 成功回调
-   * @param regId PushService 返回的注册 id，可用于针对某个用户发送消息
+   * @param regId PushService 返回的注册 id，可用于针对某个用户发送消息[可选]
    */
   interface SubscribeSuccessSuccessArg {
-    regId: String;
+    regId?: String;
   }
 
   /**

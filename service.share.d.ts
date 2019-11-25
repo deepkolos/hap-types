@@ -61,14 +61,14 @@ declare module '@service.share' {
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetAvailablePlatformsOBJECT {
-    success: GetAvailablePlatformsOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetAvailablePlatformsOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -80,36 +80,36 @@ declare module '@service.share' {
 
   /**
    * 成功回调
-   * @param platforms 当前可用的支持分享的平台列表，可用值包括：WEIBO(新浪微博)、QQ、WEIXIN、WEIXIN_CIRCLE(微信朋友圈)、SYSTEM(系统分享)
+   * @param platforms 当前可用的支持分享的平台列表，可用值包括：WEIBO(新浪微博)、QQ、WEIXIN、WEIXIN_CIRCLE(微信朋友圈)、SYSTEM(系统分享)[可选]
    */
   interface GetAvailablePlatformsSuccessSuccessArg {
-    platforms: Array<any>;
+    platforms?: Array<any>;
   }
 
   /**
    *
    * @param shareType 分享类型。0：默认图文，1：纯文字，2：纯图片，3：音乐，4：视频。
-   * @param title 分享的标题。
-   * @param summary 分享的摘要。
-   * @param targetUrl 点击后的跳转 URL
-   * @param imagePath 分享图片/缩略图的本地地址; 另外可支持分享在线图片的 url 1040+
-   * @param mediaUrl 分享的音乐/视频数据 URL
-   * @param platforms 分享到的平台，不填则默认分享所有平台。可用值包括：WEIBO(新浪微博)、QQ、WEIXIN(微信好友)、WEIXIN_CIRCLE(微信朋友圈)、SYSTEM(系统分享) 1010+
-   * @param success 成功回调(暂不支持)
-   * @param fail 失败回调，返回值为错误信息和错误码（错误码可见通用错误码）
-   * @param cancel 取消回调
+   * @param title 分享的标题。[可选]
+   * @param summary 分享的摘要。[可选]
+   * @param targetUrl 点击后的跳转 URL[可选]
+   * @param imagePath 分享图片/缩略图的本地地址; 另外可支持分享在线图片的 url 1040+[可选]
+   * @param mediaUrl 分享的音乐/视频数据 URL[可选]
+   * @param platforms 分享到的平台，不填则默认分享所有平台。可用值包括：WEIBO(新浪微博)、QQ、WEIXIN(微信好友)、WEIXIN_CIRCLE(微信朋友圈)、SYSTEM(系统分享)[可选] 1010+
+   * @param success 成功回调(暂不支持)[可选]
+   * @param fail 失败回调，返回值为错误信息和错误码（错误码可见通用错误码）[可选]
+   * @param cancel 取消回调[可选]
    */
   interface ShareOBJECT {
     shareType: Int;
-    title: String;
-    summary: String;
-    targetUrl: String;
-    imagePath: String;
-    mediaUrl: String;
-    platforms: Array<any>;
-    success: Function;
-    fail: Function;
-    cancel: Function;
+    title?: String;
+    summary?: String;
+    targetUrl?: String;
+    imagePath?: String;
+    mediaUrl?: String;
+    platforms?: Array<any>;
+    success?: Function;
+    fail?: Function;
+    cancel?: Function;
   }
 
   /**

@@ -50,28 +50,28 @@ declare module '@service.stats' {
 
   /**
    *
-   * @param category 定义事件的类别.开发者可使用该参数对⾃定义打点做整理归类
+   * @param category 定义事件的类别.开发者可使用该参数对⾃定义打点做整理归类[可选]
    * @param key 定义事件的主键，作为该事件的唯⼀标识
    * @param value 定义事件的值。
-   * @param map 定义事件的属性和取值（Key-Value 键值对）
+   * @param map 定义事件的属性和取值（Key-Value 键值对）[可选]
    */
   interface RecordCalculateEventOBJECT {
-    category: String;
+    category?: String;
     key: String;
     value: Number;
-    map: Object;
+    map?: Object;
   }
 
   /**
    *
-   * @param category 定义事件的类别.开发者可使用该参数对⾃定义打点做整理归类
+   * @param category 定义事件的类别.开发者可使用该参数对⾃定义打点做整理归类[可选]
    * @param key 定义事件的主键，作为该事件的唯⼀标识
-   * @param map 定义事件的属性和取值（Key-Value 键值对）
+   * @param map 定义事件的属性和取值（Key-Value 键值对）[可选]
    */
   interface RecordCountEventOBJECT {
-    category: String;
+    category?: String;
     key: String;
-    map: Object;
+    map?: Object;
   }
 
   /**

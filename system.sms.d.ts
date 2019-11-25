@@ -34,16 +34,16 @@ declare module '@system.sms' {
 
   /**
    *
-   * @param timeout 超时时间，单位是 ms，默认值为 60000（一分钟）
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param timeout 超时时间，单位是 ms，默认值为 60000（一分钟）[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface ReadSafelyOBJECT {
-    timeout: Long;
-    success: ReadSafelyOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    timeout?: Long;
+    success?: ReadSafelyOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -55,26 +55,26 @@ declare module '@system.sms' {
 
   /**
    * 成功回调
-   * @param message 原始短信内容
+   * @param message 原始短信内容[可选]
    */
   interface ReadSafelySuccessSuccessArg {
-    message: String;
+    message?: String;
   }
 
   /**
    *
    * @param address 目标号码
    * @param content 短信内容（不可超过 70 字符）
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SendOBJECT {
     address: String;
     content: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**

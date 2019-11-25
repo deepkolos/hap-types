@@ -49,18 +49,18 @@ declare module '@system.contact' {
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
-   * @param displayName 联系人名称
-   * @param number 电话号码
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
+   * @param displayName 联系人名称[可选]
+   * @param number 电话号码[可选]
    */
   interface ListOBJECT {
-    success: ListOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
-    displayName: String;
-    number: String;
+    success?: ListOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
+    displayName?: String;
+    number?: String;
   }
 
   /**
@@ -70,22 +70,22 @@ declare module '@system.contact' {
 
   /**
    * 成功回调
-   * @param contactList 联系人列表
+   * @param contactList 联系人列表[可选]
    */
   interface ListSuccessSuccessArg {
-    contactList: Array<any>;
+    contactList?: Array<any>;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface PickOBJECT {
-    success: PickOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: PickOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -95,12 +95,12 @@ declare module '@system.contact' {
 
   /**
    * 成功回调
-   * @param displayName 联系人名称
-   * @param number 电话号码
+   * @param displayName 联系人名称[可选]
+   * @param number 电话号码[可选]
    */
   interface PickSuccessSuccessArg {
-    displayName: String;
-    number: String;
+    displayName?: String;
+    number?: String;
   }
 
   /**

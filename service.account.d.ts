@@ -17,6 +17,24 @@ declare module '@service.account' {
     getProvider(): any;
 
     /**
+     * 判断账户登录状态。
+     * @since 1060
+     * @example
+     * ```js
+     * account.isLogin({
+     *   success: function (data) {
+     *     console.log('data.isLogin=' + data.isLogin)
+     *     console.log('handling success' + JSON.stringify(data))
+     *   }
+     *   fail: function(data, code) {
+     *     console.log(`handling fail, code = ${code}`)
+     *   }
+     * });
+     * ```
+     */
+    isLogin(OBJECT: IsLoginOBJECT): any;
+
+    /**
      * 进行 OAuth 授权。
      * @example
      * ```js
@@ -55,15 +73,15 @@ declare module '@service.account' {
   /**
    *
    * @param token 访问令牌
-   * @param success 成功回调
-   * @param fail 失败回调，返回失败原因
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调，返回失败原因[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetProfileOBJECT {
     token: String;
-    success: GetProfileOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetProfileOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -75,38 +93,38 @@ declare module '@service.account' {
 
   /**
    * 成功回调
-   * @param openid 用户的 openid，可能为空
-   * @param id 用户的 user id，可能为空
-   * @param unionid 用户在开放平台上的唯一标示符，本字段在满足一定条件下才会返回（需要在厂商的开放平台上额外申请）
-   * @param nickname 用户的昵称，可能为空
-   * @param avatar 用户的头像图片地址，可能为空，按照分辨率组织，当只有一个分辨率时，可以使用 default 对应的图片地址
+   * @param openid 用户的 openid，可能为空[可选]
+   * @param id 用户的 user id，可能为空[可选]
+   * @param unionid 用户在开放平台上的唯一标示符，本字段在满足一定条件下才会返回（需要在厂商的开放平台上额外申请）[可选]
+   * @param nickname 用户的昵称，可能为空[可选]
+   * @param avatar 用户的头像图片地址，可能为空，按照分辨率组织，当只有一个分辨率时，可以使用 default 对应的图片地址[可选]
    */
   interface GetProfileSuccessSuccessArg {
-    openid: String;
-    id: String;
-    unionid: String;
-    nickname: String;
-    avatar: Object;
+    openid?: String;
+    id?: String;
+    unionid?: String;
+    nickname?: String;
+    avatar?: Object;
   }
 
   /**
    *
    * @param type 授权码模式为 code，简化模式为 token。
-   * @param redirectUri 重定向 URI。
-   * @param scope 申请的权限范围，目前只支持一种 scope，假如不填则 getProfile 只返回 openId。 scope.baseProfile：获取用户基本信息。
-   * @param state 可以指定任意值，认证服务器会原封不动地返回这个值。
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param redirectUri 重定向 URI。[可选]
+   * @param scope 申请的权限范围，目前只支持一种 scope，假如不填则 getProfile 只返回 openId。 scope.baseProfile：获取用户基本信息。[可选]
+   * @param state 可以指定任意值，认证服务器会原封不动地返回这个值。[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface AuthorizeOBJECT {
     type: String;
-    redirectUri: Uri;
-    scope: String;
-    state: String;
-    success: AuthorizeOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    redirectUri?: Uri;
+    scope?: String;
+    state?: String;
+    success?: AuthorizeOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -118,20 +136,45 @@ declare module '@service.account' {
 
   /**
    * 成功回调
-   * @param state 请求时同字段指定的任意值。
-   * @param code 授权码模式下可用，返回的授权码。
-   * @param accessToken 简化模式下可用，返回的访问令牌。
-   * @param tokenType 简化模式下可用，访问令牌类型。
-   * @param expiresIn 简化模式下可用，访问令牌过期时间，单位为秒，如果通过其他方式设置，则此处可能为空。
-   * @param scope 简化模式下可用，实际权限范围，如果与申请一致，则此处可能为空。
+   * @param state 请求时同字段指定的任意值。[可选]
+   * @param code 授权码模式下可用，返回的授权码。[可选]
+   * @param accessToken 简化模式下可用，返回的访问令牌。[可选]
+   * @param tokenType 简化模式下可用，访问令牌类型。[可选]
+   * @param expiresIn 简化模式下可用，访问令牌过期时间，单位为秒，如果通过其他方式设置，则此处可能为空。[可选]
+   * @param scope 简化模式下可用，实际权限范围，如果与申请一致，则此处可能为空。[可选]
    */
   interface AuthorizeSuccessSuccessArg {
-    state: String;
-    code: String;
-    accessToken: String;
-    tokenType: String;
-    expiresIn: Number;
-    scope: String;
+    state?: String;
+    code?: String;
+    accessToken?: String;
+    tokenType?: String;
+    expiresIn?: Number;
+    scope?: String;
+  }
+
+  /**
+   *
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
+   */
+  interface IsLoginOBJECT {
+    success?: IsLoginOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
+  }
+
+  /**
+   * 成功回调
+   */
+  type IsLoginOBJECTSuccessCB = (successArg: IsLoginSuccessSuccessArg) => any;
+
+  /**
+   * 成功回调
+   * @param isLogin 登录状态值。true表示已登录，false表示未登录[可选]
+   */
+  interface IsLoginSuccessSuccessArg {
+    isLogin?: Boolean;
   }
 
   /**

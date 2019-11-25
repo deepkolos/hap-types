@@ -75,15 +75,15 @@ declare module '@system.request' {
   /**
    *
    * @param token download 接口返回的 token
-   * @param success 成功返回的回调函数
-   * @param fail 失败的回调函数
-   * @param complete 结束的回调函数（调用成功、失败都会执行）
+   * @param success 成功返回的回调函数[可选]
+   * @param fail 失败的回调函数[可选]
+   * @param complete 结束的回调函数（调用成功、失败都会执行）[可选]
    */
   interface OnDownloadCompleteOBJECT {
     token: String;
-    success: OnDownloadCompleteOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: OnDownloadCompleteOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -95,30 +95,30 @@ declare module '@system.request' {
 
   /**
    * 成功返回的回调函数
-   * @param uri 下载文件的 Uri
+   * @param uri 下载文件的 Uri[可选]
    */
   interface OnDownloadCompleteSuccessSuccessArg {
-    uri: String;
+    uri?: String;
   }
 
   /**
    *
    * @param url 资源 url
-   * @param header 请求的 header，会将其所有属性设置到请求的 header 部分。User-Agent 设置在 1040 版本开始支持。
-   * @param description 下载描述，会用于通知栏标题。默认为文件名 1010+
-   * @param filename 下载文件名。默认从网络请求或 url 中获取 1010+
-   * @param success 成功返回的回调函数
-   * @param fail 失败的回调函数
-   * @param complete 结束的回调函数（调用成功、失败都会执行）
+   * @param header 请求的 header，会将其所有属性设置到请求的 header 部分。User-Agent 设置在 1040 版本开始支持。[可选]
+   * @param description 下载描述，会用于通知栏标题。默认为文件名[可选] 1010+
+   * @param filename 下载文件名。默认从网络请求或 url 中获取[可选] 1010+
+   * @param success 成功返回的回调函数[可选]
+   * @param fail 失败的回调函数[可选]
+   * @param complete 结束的回调函数（调用成功、失败都会执行）[可选]
    */
   interface DownloadOBJECT {
     url: String;
-    header: String;
-    description: String;
-    filename: String;
-    success: DownloadOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    header?: String;
+    description?: String;
+    filename?: String;
+    success?: DownloadOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -128,32 +128,32 @@ declare module '@system.request' {
 
   /**
    * 成功返回的回调函数
-   * @param token 下载的 token，根据此 token 获取下载状态
+   * @param token 下载的 token，根据此 token 获取下载状态[可选]
    */
   interface DownloadSuccessSuccessArg {
-    token: String;
+    token?: String;
   }
 
   /**
    *
    * @param url 资源 url
-   * @param header 请求的 header，会将其所有属性设置到请求的 header 部分。User-Agent 设置在1040版本开始支持。
-   * @param method 默认为 POST，可以是： POST, PUT
+   * @param header 请求的 header，会将其所有属性设置到请求的 header 部分。User-Agent 设置在1040版本开始支持。[可选]
+   * @param method 默认为 POST，可以是： POST, PUT[可选]
    * @param files 需要上传的文件列表，使用 multipart/form-data 方式提交
-   * @param data HTTP 请求中其他额外的 form data 1000+
-   * @param success 成功返回的回调函数
-   * @param fail 失败的回调函数
-   * @param complete 结束的回调函数（调用成功、失败都会执行）
+   * @param data HTTP 请求中其他额外的 form data[可选] 1000+
+   * @param success 成功返回的回调函数[可选]
+   * @param fail 失败的回调函数[可选]
+   * @param complete 结束的回调函数（调用成功、失败都会执行）[可选]
    */
   interface UploadOBJECT {
     url: String;
-    header: Object;
-    method: String;
+    header?: Object;
+    method?: String;
     files: UploadOBJECTFilesArray;
-    data: UploadOBJECTDataArray;
-    success: UploadOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    data?: UploadOBJECTDataArray;
+    success?: UploadOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -163,14 +163,14 @@ declare module '@system.request' {
 
   /**
    * 成功返回的回调函数
-   * @param code 服务器状态 code
-   * @param data 如果服务器返回的 header 中 type 是 text/*或 application/json、application/javascript、application/xml，值是文本内容，否则是存储的临时文件的 uri 临时文件如果是图片或者视频内容，可以将图片设置到 image 或 video 控件上显示
-   * @param headers 服务器 response 的所有 header
+   * @param code 服务器状态 code[可选]
+   * @param data 如果服务器返回的 header 中 type 是 text/*或 application/json、application/javascript、application/xml，值是文本内容，否则是存储的临时文件的 uri 临时文件如果是图片或者视频内容，可以将图片设置到 image 或 video 控件上显示[可选]
+   * @param headers 服务器 response 的所有 header[可选]
    */
   interface UploadSuccessSuccessArg {
-    code: Integer;
-    data: String;
-    headers: Object;
+    code?: Integer;
+    data?: String;
+    headers?: Object;
   }
 
   /**
@@ -197,16 +197,16 @@ declare module '@system.request' {
 
   /**
    * 需要上传的文件列表，使用 multipart/form-data 方式提交
-   * @param filename multipart 提交时，header 中的文件名
-   * @param name multipart 提交时，表单的项目名,默认 file
+   * @param filename multipart 提交时，header 中的文件名[可选]
+   * @param name multipart 提交时，表单的项目名,默认 file[可选]
    * @param uri 文件的本地地址
-   * @param type 文件的 Content-Type 格式,默认会根据 filename 或者 uri 的后缀获取
+   * @param type 文件的 Content-Type 格式,默认会根据 filename 或者 uri 的后缀获取[可选]
    */
   interface UploadFilesFilesItem {
-    filename: String;
-    name: String;
+    filename?: String;
+    name?: String;
     uri: String;
-    type: String;
+    type?: String;
   }
 
   /**

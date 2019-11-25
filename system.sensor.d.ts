@@ -129,14 +129,14 @@ declare module '@system.sensor' {
 
   /**
    *
-   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅 1050+
+   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅[可选] 1050+
    * @param callback 计步传感器数据变化后会回调此函数。
-   * @param fail 失败回调
+   * @param fail 失败回调[可选]
    */
   interface SubscribeStepCounterOBJECT {
-    reserved: Boolean;
+    reserved?: Boolean;
     callback: SubscribeStepCounterOBJECTCallbackCB;
-    fail: Function;
+    fail?: Function;
   }
 
   /**
@@ -148,19 +148,19 @@ declare module '@system.sensor' {
 
   /**
    * 计步传感器数据变化后会回调此函数。
-   * @param steps 计步传感器当前累计记录的步数。每次手机重启，这个值就会从 0 开始重新计算。
+   * @param steps 计步传感器当前累计记录的步数。每次手机重启，这个值就会从 0 开始重新计算。[可选]
    */
   interface SubscribeStepCounterCallbackCallbackArg {
-    steps: Number;
+    steps?: Number;
   }
 
   /**
    *
-   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅 1050+
+   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅[可选] 1050+
    * @param callback 光线感应数据变化后会回调此函数。
    */
   interface SubscribeLightOBJECT {
-    reserved: Boolean;
+    reserved?: Boolean;
     callback: SubscribeLightOBJECTCallbackCB;
   }
 
@@ -173,19 +173,19 @@ declare module '@system.sensor' {
 
   /**
    * 光线感应数据变化后会回调此函数。
-   * @param intensity 光线强度，单位为 lux
+   * @param intensity 光线强度，单位为 lux[可选]
    */
   interface SubscribeLightCallbackCallbackArg {
-    intensity: Number;
+    intensity?: Number;
   }
 
   /**
    *
-   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅 1050+
+   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅[可选] 1050+
    * @param callback 距离感应数据变化后会回调此函数。
    */
   interface SubscribeProximityOBJECT {
-    reserved: Boolean;
+    reserved?: Boolean;
     callback: SubscribeProximityOBJECTCallbackCB;
   }
 
@@ -198,19 +198,19 @@ declare module '@system.sensor' {
 
   /**
    * 距离感应数据变化后会回调此函数。
-   * @param distance 手机距离，单位为 cm。
+   * @param distance 手机距离，单位为 cm。[可选]
    */
   interface SubscribeProximityCallbackCallbackArg {
-    distance: Number;
+    distance?: Number;
   }
 
   /**
    *
-   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅 1050+
+   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅[可选] 1050+
    * @param callback 罗盘数据变化后会回调此函数。
    */
   interface SubscribeCompassOBJECT {
-    reserved: Boolean;
+    reserved?: Boolean;
     callback: SubscribeCompassOBJECTCallbackCB;
   }
 
@@ -223,19 +223,21 @@ declare module '@system.sensor' {
 
   /**
    * 罗盘数据变化后会回调此函数。
-   * @param direction 面对的方向度数
+   * @param direction 面对的方向度数[可选]
    */
   interface SubscribeCompassCallbackCallbackArg {
-    direction: Number;
+    direction?: Number;
   }
 
   /**
    *
-   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅 1050+
+   * @param reserved 是否持久化订阅，默认为 false。机制：设置为 true，页面跳转，不会自动取消订阅，需手动取消订阅[可选] 1050+
+   * @param interval 监听加速度数据回调函数的执行频率，默认normal[可选] 1060+
    * @param callback 重力感应数据变化后会回调此函数。
    */
   interface SubscribeAccelerometerOBJECT {
-    reserved: Boolean;
+    reserved?: Boolean;
+    interval?: String;
     callback: SubscribeAccelerometerOBJECTCallbackCB;
   }
 
@@ -248,14 +250,14 @@ declare module '@system.sensor' {
 
   /**
    * 重力感应数据变化后会回调此函数。
-   * @param x x 轴坐标
-   * @param y y 轴坐标
-   * @param z z 轴坐标
+   * @param x x 轴坐标[可选]
+   * @param y y 轴坐标[可选]
+   * @param z z 轴坐标[可选]
    */
   interface SubscribeAccelerometerCallbackCallbackArg {
-    x: Integer;
-    y: Integer;
-    z: Integer;
+    x?: Integer;
+    y?: Integer;
+    z?: Integer;
   }
 
   /**

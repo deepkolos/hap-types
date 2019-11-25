@@ -119,14 +119,14 @@ declare module '@system.audio' {
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetPlayStateOBJECT {
-    success: GetPlayStateOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetPlayStateOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -138,24 +138,24 @@ declare module '@system.audio' {
 
   /**
    * 成功回调
-   * @param state 播放状态,分别为'play','pause','stop'
-   * @param src 当前播放的音频媒体 uri，停止时返回空字符串
-   * @param currentTime 当前音频的当前进度，单位秒,停止时返回-1
-   * @param autoplay 当前音频是否在自动播放
-   * @param loop 当前音频是否在循环播放
-   * @param volume 当前音频的音量，默认当前系统媒体音量，音量变化范围[0.0,1.0]
-   * @param muted 当前音频是否在静音播放
-   * @param notificationVisible 当前音频是否正在通知栏中显示音频播放状态
+   * @param state 播放状态,分别为'play','pause','stop'[可选]
+   * @param src 当前播放的音频媒体 uri，停止时返回空字符串[可选]
+   * @param currentTime 当前音频的当前进度，单位秒,停止时返回-1[可选]
+   * @param autoplay 当前音频是否在自动播放[可选]
+   * @param loop 当前音频是否在循环播放[可选]
+   * @param volume 当前音频的音量，默认当前系统媒体音量，音量变化范围[0.0,1.0][可选]
+   * @param muted 当前音频是否在静音播放[可选]
+   * @param notificationVisible 当前音频是否正在通知栏中显示音频播放状态[可选]
    */
   interface GetPlayStateSuccessSuccessArg {
-    state: String;
-    src: String;
-    currentTime: Number;
-    autoplay: Boolean;
-    loop: Boolean;
-    volume: Number;
-    muted: Boolean;
-    notificationVisible: Boolean;
+    state?: String;
+    src?: String;
+    currentTime?: Number;
+    autoplay?: Boolean;
+    loop?: Boolean;
+    volume?: Number;
+    muted?: Boolean;
+    notificationVisible?: Boolean;
   }
 
   /**

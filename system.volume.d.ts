@@ -44,27 +44,27 @@ declare module '@system.volume' {
   /**
    *
    * @param value 设置的音量，0.0-1.0 之间。
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SetMediaValueOBJECT {
     value: Number;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetMediaValueOBJECT {
-    success: GetMediaValueOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetMediaValueOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -76,10 +76,10 @@ declare module '@system.volume' {
 
   /**
    * 成功回调
-   * @param value 系统媒体当前音量，0.0-1.0 之间。
+   * @param value 系统媒体当前音量，0.0-1.0 之间。[可选]
    */
   interface GetMediaValueSuccessSuccessArg {
-    value: Number;
+    value?: Number;
   }
 
   /**

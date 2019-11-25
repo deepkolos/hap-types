@@ -207,15 +207,15 @@ function createDefinition(
           const out = createDefinition(attr, prefix, from);
           definitions.push(...out.definitions);
 
-          return `   ${out.name}: ${out.type};`;
+          return `   ${out.name}${!attr.required ? '?' : ''}: ${out.type};`;
         })
         .join('\n');
       const attrDocs = from.attributes
         .map(
           attr =>
             `   * @param ${attr.name} ${attr.desc}${
-              attr.since ? ` ${attr.since}+` : ''
-            }`
+              !attr.required ? '[可选]' : ''
+            }${attr.since ? ` ${attr.since}+` : ''}`
         )
         .join('\n');
 

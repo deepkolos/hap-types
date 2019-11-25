@@ -72,32 +72,64 @@ declare module '@system.brightness' {
      * ```
      */
     setMode(OBJECT: SetModeOBJECT): any;
+
+    /**
+     * 设置是否保持常亮状态
+     * @since 1060
+     * @example
+     * ```js
+     * brightness.setKeepScreenOn({
+     *   keepScreenOn: true,
+     *   success: function() {
+     *     console.log('handling success')
+     *   },
+     *   fail: function(data, code) {
+     *     console.log(`handling fail, code = ${code}`)
+     *   }
+     * })
+     * ```
+     */
+    setKeepScreenOn(OBJECT: SetKeepScreenOnOBJECT): any;
+  }
+
+  /**
+   *
+   * @param keepScreenOn 是否保持屏幕常亮
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
+   */
+  interface SetKeepScreenOnOBJECT {
+    keepScreenOn: Boolean;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param mode 0 为手动调节屏幕亮度,1 为自动调节屏幕亮度
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SetModeOBJECT {
     mode: Integer;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetModeOBJECT {
-    success: GetModeOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetModeOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -107,36 +139,36 @@ declare module '@system.brightness' {
 
   /**
    * 成功回调
-   * @param mode 0 为手动调节屏幕亮度,1 为自动调节屏幕亮度
+   * @param mode 0 为手动调节屏幕亮度,1 为自动调节屏幕亮度[可选]
    */
   interface GetModeSuccessSuccessArg {
-    mode: Integer;
+    mode?: Integer;
   }
 
   /**
    *
    * @param value 屏幕亮度，取值范围 0-255
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SetValueOBJECT {
     value: Integer;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetValueOBJECT {
-    success: GetValueOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetValueOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -146,10 +178,10 @@ declare module '@system.brightness' {
 
   /**
    * 成功回调
-   * @param value 屏幕亮度，取值范围 0-255
+   * @param value 屏幕亮度，取值范围 0-255[可选]
    */
   interface GetValueSuccessSuccessArg {
-    value: Integer;
+    value?: Integer;
   }
 
   /**

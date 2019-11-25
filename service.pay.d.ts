@@ -38,15 +38,15 @@ declare module '@service.pay' {
   /**
    *
    * @param orderInfo 订单信息
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface PayOBJECT {
     orderInfo: String;
-    success: PayOBJECTSuccessCB;
-    fail: PayOBJECTFailCB;
-    complete: Function;
+    success?: PayOBJECTSuccessCB;
+    fail?: PayOBJECTFailCB;
+    complete?: Function;
   }
 
   /**
@@ -56,12 +56,12 @@ declare module '@service.pay' {
 
   /**
    * 失败回调
-   * @param code 返回状态码
-   * @param message 消息内容
+   * @param code 返回状态码[可选]
+   * @param message 消息内容[可选]
    */
   interface PayFailFailArg {
-    code: Integer;
-    message: String;
+    code?: Integer;
+    message?: String;
   }
 
   /**
@@ -71,14 +71,14 @@ declare module '@service.pay' {
 
   /**
    * 成功回调
-   * @param code 返回状态码
-   * @param message 消息内容
-   * @param result 支付结果
+   * @param code 返回状态码[可选]
+   * @param message 消息内容[可选]
+   * @param result 支付结果[可选]
    */
   interface PaySuccessSuccessArg {
-    code: Integer;
-    message: String;
-    result: String;
+    code?: Integer;
+    message?: String;
+    result?: String;
   }
 
   /**

@@ -206,32 +206,32 @@ declare module '@system.media' {
    *
    * @param uri 铃声文件路径，只支持本地文件
    * @param type 铃声类型，ringtone：来电，notification：通知，alarm：闹钟
-   * @param title 铃声名称，没有设置默认取文件名
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param title 铃声名称，没有设置默认取文件名[可选]
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SetRingtoneOBJECT {
     uri: String;
     type: String;
-    title: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    title?: String;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param type 铃声类型，ringtone：来电，notification：通知，alarm：闹钟
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface GetRingtoneOBJECT {
     type: String;
-    success: GetRingtoneOBJECTSuccessCB;
-    fail: Function;
-    complete: Function;
+    success?: GetRingtoneOBJECTSuccessCB;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
@@ -243,54 +243,54 @@ declare module '@system.media' {
 
   /**
    * 成功回调
-   * @param title 铃声名称，若铃声被删除，返回空字符串。
+   * @param title 铃声名称，若铃声被删除，返回空字符串。[可选]
    */
   interface GetRingtoneSuccessSuccessArg {
-    title: String;
+    title?: String;
   }
 
   /**
    *
-   * @param current 数据类型可选择 Number 或者 String：Number：当前显示的图片的下标，默认 0；String：当前显示的图片链接，默认为 uris 中的第一张的地址
+   * @param current 数据类型可选择 Number 或者 String：Number：当前显示的图片的下标，默认 0；String：当前显示的图片链接，默认为 uris 中的第一张的地址[可选]
    * @param uris 需要预览的图片链接列表，同时支持网络和本地地址
-   * @param success 接口调用成功的回调函数
-   * @param fail 接口调用失败的回调函数
-   * @param complete 接口调用结束的回调函数（调用成功、失败都会执行）
+   * @param success 接口调用成功的回调函数[可选]
+   * @param fail 接口调用失败的回调函数[可选]
+   * @param complete 接口调用结束的回调函数（调用成功、失败都会执行）[可选]
    */
   interface PreviewImageOBJECT {
-    current: Number | string;
+    current?: Number | string;
     uris: Array<any>;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
    * @param uri 源文件的 uri，文件的扩展名必须是图片或视频的扩展名
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface SaveToPhotosAlbumOBJECT {
     uri: String;
-    success: Function;
-    fail: Function;
-    complete: Function;
+    success?: Function;
+    fail?: Function;
+    complete?: Function;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface PickFileOBJECT {
-    success: PickFileOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: PickFileOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -300,24 +300,28 @@ declare module '@system.media' {
 
   /**
    * 成功回调
-   * @param uri 选取的文件路径
+   * @param uri 选取的文件路径[可选]
+   * @param name 选取的文件名称[可选] 1060+
+   * @param size 选取的文件大小，单位B[可选] 1060+
    */
   interface PickFileSuccessSuccessArg {
-    uri: String;
+    uri?: String;
+    name?: String;
+    size?: Number;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface PickVideosOBJECT {
-    success: PickVideosOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: PickVideosOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -329,24 +333,26 @@ declare module '@system.media' {
 
   /**
    * 成功回调
-   * @param uris 选取的文件路径列表
+   * @param uris 选取的文件路径列表[可选]
+   * @param files 选取的文件列表，是一个file对象的数组[可选] 1060+
    */
   interface PickVideosSuccessSuccessArg {
-    uris: Array<any>;
+    uris?: Array<any>;
+    files?: Array<any>;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface PickVideoOBJECT {
-    success: PickVideoOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: PickVideoOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -358,24 +364,28 @@ declare module '@system.media' {
 
   /**
    * 成功回调
-   * @param uri 选取的文件路径
+   * @param uri 选取的文件路径[可选]
+   * @param name 选取的文件名称[可选] 1060+
+   * @param size 选取的文件大小，单位B[可选] 1060+
    */
   interface PickVideoSuccessSuccessArg {
-    uri: String;
+    uri?: String;
+    name?: String;
+    size?: Number;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface PickImagesOBJECT {
-    success: PickImagesOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: PickImagesOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -387,24 +397,26 @@ declare module '@system.media' {
 
   /**
    * 成功回调
-   * @param uris 选取的文件路径列表
+   * @param uris 选取的文件路径列表[可选]
+   * @param files 选取的文件列表，是一个file对象的数组[可选] 1060+
    */
   interface PickImagesSuccessSuccessArg {
-    uris: Array<any>;
+    uris?: Array<any>;
+    files?: Array<any>;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface PickImageOBJECT {
-    success: PickImageOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: PickImageOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -416,24 +428,28 @@ declare module '@system.media' {
 
   /**
    * 成功回调
-   * @param uri 选取的文件路径
+   * @param uri 选取的文件路径[可选]
+   * @param name 选取的文件名称[可选] 1060+
+   * @param size 选取的文件大小，单位B[可选] 1060+
    */
   interface PickImageSuccessSuccessArg {
-    uri: String;
+    uri?: String;
+    name?: String;
+    size?: Number;
   }
 
   /**
    *
-   * @param success 成功回调，参数为 {uri: 'file:///video.avi'}
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调，参数为 {uri: 'file:///video.avi'}[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface TakeVideoOBJECT {
-    success: TakeVideoOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: TakeVideoOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -445,24 +461,28 @@ declare module '@system.media' {
 
   /**
    * 成功回调，参数为 {uri: 'file:///video.avi'}
-   * @param uri 选取的文件路径
+   * @param uri 选取的文件路径[可选]
+   * @param name 选取的文件名称[可选] 1060+
+   * @param size 选取的文件大小，单位B[可选] 1060+
    */
   interface TakeVideoSuccessSuccessArg {
-    uri: String;
+    uri?: String;
+    name?: String;
+    size?: Number;
   }
 
   /**
    *
-   * @param success 成功回调
-   * @param fail 失败回调
-   * @param cancel 取消回调
-   * @param complete 执行结束后的回调
+   * @param success 成功回调[可选]
+   * @param fail 失败回调[可选]
+   * @param cancel 取消回调[可选]
+   * @param complete 执行结束后的回调[可选]
    */
   interface TakePhotoOBJECT {
-    success: TakePhotoOBJECTSuccessCB;
-    fail: Function;
-    cancel: Function;
-    complete: Function;
+    success?: TakePhotoOBJECTSuccessCB;
+    fail?: Function;
+    cancel?: Function;
+    complete?: Function;
   }
 
   /**
@@ -474,10 +494,14 @@ declare module '@system.media' {
 
   /**
    * 成功回调
-   * @param uri 选取的文件路径
+   * @param uri 选取的文件路径[可选]
+   * @param name 选取的文件名称[可选] 1060+
+   * @param size 选取的文件大小，单位B[可选] 1060+
    */
   interface TakePhotoSuccessSuccessArg {
-    uri: String;
+    uri?: String;
+    name?: String;
+    size?: Number;
   }
 
   /**
