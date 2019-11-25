@@ -32,6 +32,6 @@
     "typescript": "^3.6.4"
   },
   "dependencies": {
-    "move-to-types": "^1.1.16"
+    "move-to-types": "^1.1.18"
   }
 }
