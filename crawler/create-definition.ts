@@ -126,7 +126,7 @@ function createAttribute(
   let outName = attribute.name;
   let outType = attribute.type;
   let since = parseSince(attribute.since);
-
+  // 不可读就需要设置private了。。估计没有不可读的，这里估计只是表示没有符合预期的返回值，读的时候
   return {
     out: `
     /**
@@ -134,7 +134,7 @@ function createAttribute(
      * @readable ${attribute.readable}
      * @writeable ${attribute.writeable}
      */
-    ${outName}: ${outType}`,
+    ${!attribute.writeable ? 'readonly ' : ''}${outName}: ${outType}`,
     definitions: []
   };
 }

@@ -175,7 +175,7 @@ function getApiDefinition(api: Api) {
           argsReading = true;
           returnReading = false;
         }
-        if (textContent.match(/wifi\.onscanned = function\(data\)/)) debugger;
+        // if (textContent.match(/wifi\.onscanned = function\(data\)/)) debugger;
 
         // 读取参数列表
         const argNameMatch =
@@ -369,10 +369,16 @@ function getApiDefinition(api: Api) {
         }
         if (apiReadAttr && el.tagName === 'TABLE') {
           const thead = el.querySelector('thead');
+          try {
+            if (thead!.textContent === '名称参数类型是否可读是否可写必填描述')
+              debugger;
+          } catch (error) {}
 
           thead &&
             thead.textContent &&
-            thead.textContent.match(/名称参数类型是否可读是否可写描述/) &&
+            thead.textContent.match(
+              /名称参数类型是否可读是否可写(必填)?描述/
+            ) &&
             el.querySelectorAll('tbody tr').forEach(tr => {
               const { other: name, since } = splitSince(tdText(tr, 0));
 

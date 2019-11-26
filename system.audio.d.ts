@@ -115,6 +115,95 @@ declare module '@system.audio' {
      * @since 1040
      */
     onnext?: Function;
+
+    /**
+     * 是
+     * @readable true
+     * @writeable true
+     */
+    src: String;
+
+    /**
+     * 否
+     * @readable true
+     * @writeable true
+     */
+    currentTime: Number;
+
+    /**
+     * 否
+     * @readable true
+     * @writeable false
+     */
+    readonly duration: Number;
+
+    /**
+     * 否
+     * @readable true
+     * @writeable true
+     */
+    autoplay: Boolean;
+
+    /**
+     * 否
+     * @readable true
+     * @writeable true
+     */
+    loop: Boolean;
+
+    /**
+     * 否
+     * @readable true
+     * @writeable true
+     */
+    volume: Number;
+
+    /**
+     * 否
+     * @readable true
+     * @writeable true
+     */
+    muted: Boolean;
+
+    /**
+     * 否
+     * @since 1010
+     * @readable true
+     * @writeable true
+     */
+    notificationVisible: Boolean;
+
+    /**
+     * 否
+     * @since 1040
+     * @readable true
+     * @writeable true
+     */
+    title: String;
+
+    /**
+     * 否
+     * @since 1040
+     * @readable true
+     * @writeable true
+     */
+    artist: String;
+
+    /**
+     * 否
+     * @since 1040
+     * @readable true
+     * @writeable true
+     */
+    cover: String;
+
+    /**
+     * 否
+     * @since 1040
+     * @readable true
+     * @writeable true
+     */
+    streamType: String;
   }
 
   /**

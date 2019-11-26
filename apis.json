@@ -8396,7 +8396,104 @@
         "args": []
       }
     ],
-    "attributes": [],
+    "attributes": [
+      {
+        "name": "src",
+        "type": "String",
+        "desc": "是",
+        "since": "",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "currentTime",
+        "type": "Number",
+        "desc": "否",
+        "since": "",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "duration",
+        "type": "Number",
+        "desc": "否",
+        "since": "",
+        "readable": true,
+        "writeable": false
+      },
+      {
+        "name": "autoplay",
+        "type": "Boolean",
+        "desc": "否",
+        "since": "",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "loop",
+        "type": "Boolean",
+        "desc": "否",
+        "since": "",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "volume",
+        "type": "Number",
+        "desc": "否",
+        "since": "",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "muted",
+        "type": "Boolean",
+        "desc": "否",
+        "since": "",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "notificationVisible",
+        "type": "Boolean",
+        "desc": "否",
+        "since": "1010",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "title",
+        "type": "String",
+        "desc": "否",
+        "since": "1040",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "artist",
+        "type": "String",
+        "desc": "否",
+        "since": "1040",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "cover",
+        "type": "String",
+        "desc": "否",
+        "since": "1040",
+        "readable": true,
+        "writeable": true
+      },
+      {
+        "name": "streamType",
+        "type": "String",
+        "desc": "否",
+        "since": "1040",
+        "readable": true,
+        "writeable": true
+      }
+    ],
     "moduleName": "system.audio",
     "moduleVariable": "audio",
     "bgRestrictDesc": "manifest 中申请后可用。后台运行详细用法参见后台运行 脚本。"

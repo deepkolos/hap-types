@@ -20,6 +20,7 @@
 /// <reference path="./system.calendar.d.ts"/>
 /// <reference path="./system.cipher.d.ts"/>
 /// <reference path="./system.clipboard.d.ts"/>
+/// <reference path="./system.configuration.d.ts"/>
 /// <reference path="./system.contact.d.ts"/>
 /// <reference path="./system.device.d.ts"/>
 /// <reference path="./system.fetch.d.ts"/>
@@ -45,4 +46,5 @@
 /// <reference path="./system.websocketfactory.d.ts"/>
 /// <reference path="./system.webview.d.ts"/>
 /// <reference path="./system.wifi.d.ts"/>
+/// <reference path="./system.zip.d.ts"/>
 /// <reference path="./types.d.ts"/>

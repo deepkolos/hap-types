@@ -91,7 +91,7 @@ declare module '@system.storage' {
      * @readable true
      * @writeable false
      */
-    length: Number;
+    readonly length: Number;
   }
 
   /**

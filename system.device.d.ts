@@ -95,7 +95,7 @@ declare module '@system.device' {
      * @readable true
      * @writeable false
      */
-    allowTrackOAID: Boolean;
+    readonly allowTrackOAID: Boolean;
   }
 
   /**

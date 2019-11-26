@@ -8,14 +8,14 @@
       "type": "node",
       "request": "launch",
       "name": "create-definition",
-      "program": "${workspaceFolder}\\build\\crawler\\create-definition.js",
+      "program": "${workspaceFolder}/build/crawler/create-definition.js",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     },
     {
       "type": "node",
       "request": "launch",
       "name": "crawler",
-      "program": "${workspaceFolder}\\build\\crawler\\index.js",
+      "program": "${workspaceFolder}/build/crawler/index.js",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]
