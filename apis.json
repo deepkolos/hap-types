@@ -8400,7 +8400,7 @@
       {
         "name": "src",
         "type": "String",
-        "desc": "是",
+        "desc": "播放的音频媒体 uri",
         "since": "",
         "readable": true,
         "writeable": true
@@ -8408,7 +8408,7 @@
       {
         "name": "currentTime",
         "type": "Number",
-        "desc": "否",
+        "desc": "音频的当前进度，单位秒，对值设置可以调整播放进度",
         "since": "",
         "readable": true,
         "writeable": true
@@ -8416,7 +8416,7 @@
       {
         "name": "duration",
         "type": "Number",
-        "desc": "否",
+        "desc": "音频的播放时长，单位秒，未知返回 NaN",
         "since": "",
         "readable": true,
         "writeable": false
@@ -8424,7 +8424,7 @@
       {
         "name": "autoplay",
         "type": "Boolean",
-        "desc": "否",
+        "desc": "音频是否自动播放，默认 false",
         "since": "",
         "readable": true,
         "writeable": true
@@ -8432,7 +8432,7 @@
       {
         "name": "loop",
         "type": "Boolean",
-        "desc": "否",
+        "desc": "音频是否循环播放，默认 false",
         "since": "",
         "readable": true,
         "writeable": true
@@ -8440,7 +8440,7 @@
       {
         "name": "volume",
         "type": "Number",
-        "desc": "否",
+        "desc": "音频的音量，默认当前系统媒体音量，音量变化范围[0.0,1.0]",
         "since": "",
         "readable": true,
         "writeable": true
@@ -8448,7 +8448,7 @@
       {
         "name": "muted",
         "type": "Boolean",
-        "desc": "否",
+        "desc": "音频是否静音，默认 false",
         "since": "",
         "readable": true,
         "writeable": true
@@ -8456,7 +8456,7 @@
       {
         "name": "notificationVisible",
         "type": "Boolean",
-        "desc": "否",
+        "desc": "音频是否在通知栏中显示音频播放状态，默认 true",
         "since": "1010",
         "readable": true,
         "writeable": true
@@ -8464,7 +8464,7 @@
       {
         "name": "title",
         "type": "String",
-        "desc": "否",
+        "desc": "音频标题，未设置时显示正在播放或者暂停播放",
         "since": "1040",
         "readable": true,
         "writeable": true
@@ -8472,7 +8472,7 @@
       {
         "name": "artist",
         "type": "String",
-        "desc": "否",
+        "desc": "歌手名，未设置时显示正在播放或者暂停播放",
         "since": "1040",
         "readable": true,
         "writeable": true
@@ -8480,7 +8480,7 @@
       {
         "name": "cover",
         "type": "String",
-        "desc": "否",
+        "desc": "封面图片uri路径",
         "since": "1040",
         "readable": true,
         "writeable": true
@@ -8488,7 +8488,7 @@
       {
         "name": "streamType",
         "type": "String",
-        "desc": "否",
+        "desc": "指定使用音频类型，可设置的值有 music、voicecall，值为 music 时使用扬声器播放，voicecall 时使用听筒播放，默认为 music。",
         "since": "1040",
         "readable": true,
         "writeable": true

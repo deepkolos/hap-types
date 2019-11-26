@@ -385,7 +385,7 @@ function getApiDefinition(api: Api) {
               api.attributes.push({
                 name,
                 type: tdText(tr, 1),
-                desc: tdText(tr, 4),
+                desc: tdText(tr, 5) || tdText(tr, 4),
                 since,
                 readable: tdText(tr, 2) === '是',
                 writeable: tdText(tr, 3) === '是'

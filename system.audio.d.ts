@@ -117,56 +117,56 @@ declare module '@system.audio' {
     onnext?: Function;
 
     /**
-     * 是
+     * 播放的音频媒体 uri
      * @readable true
      * @writeable true
      */
     src: String;
 
     /**
-     * 否
+     * 音频的当前进度，单位秒，对值设置可以调整播放进度
      * @readable true
      * @writeable true
      */
     currentTime: Number;
 
     /**
-     * 否
+     * 音频的播放时长，单位秒，未知返回 NaN
      * @readable true
      * @writeable false
      */
     readonly duration: Number;
 
     /**
-     * 否
+     * 音频是否自动播放，默认 false
      * @readable true
      * @writeable true
      */
     autoplay: Boolean;
 
     /**
-     * 否
+     * 音频是否循环播放，默认 false
      * @readable true
      * @writeable true
      */
     loop: Boolean;
 
     /**
-     * 否
+     * 音频的音量，默认当前系统媒体音量，音量变化范围[0.0,1.0]
      * @readable true
      * @writeable true
      */
     volume: Number;
 
     /**
-     * 否
+     * 音频是否静音，默认 false
      * @readable true
      * @writeable true
      */
     muted: Boolean;
 
     /**
-     * 否
+     * 音频是否在通知栏中显示音频播放状态，默认 true
      * @since 1010
      * @readable true
      * @writeable true
@@ -174,7 +174,7 @@ declare module '@system.audio' {
     notificationVisible: Boolean;
 
     /**
-     * 否
+     * 音频标题，未设置时显示正在播放或者暂停播放
      * @since 1040
      * @readable true
      * @writeable true
@@ -182,7 +182,7 @@ declare module '@system.audio' {
     title: String;
 
     /**
-     * 否
+     * 歌手名，未设置时显示正在播放或者暂停播放
      * @since 1040
      * @readable true
      * @writeable true
@@ -190,7 +190,7 @@ declare module '@system.audio' {
     artist: String;
 
     /**
-     * 否
+     * 封面图片uri路径
      * @since 1040
      * @readable true
      * @writeable true
@@ -198,7 +198,7 @@ declare module '@system.audio' {
     cover: String;
 
     /**
-     * 否
+     * 指定使用音频类型，可设置的值有 music、voicecall，值为 music 时使用扬声器播放，voicecall 时使用听筒播放，默认为 music。
      * @since 1040
      * @readable true
      * @writeable true
