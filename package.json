@@ -22,7 +22,7 @@
     "@types/jsdom": "^12.2.4",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "htmlparser": "^1.7.7",
     "jest": "^24.9.0",
     "jsdom": "^15.2.0",
